@@ -3,112 +3,121 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>AutoCDP — Autonomous Customer Execution for Automotive Retail</title>
-<meta name="description" content="AutoCDP identifies every lapsed customer and service-due vehicle in your DMS, then executes attributed campaigns across SMS, email, and direct mail."/>
+<title>AutoCDP — Access</title>
+<meta name="description" content="Access AutoCDP pricing, technical overview, and Matrix entry for owners, agencies, dealers, and staff."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
-header.site{position:sticky;top:0;z-index:60;backdrop-filter:blur(20px);background:rgba(7,13,24,.9);border-bottom:1px solid var(--border)}
-.navbar{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:14px}.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.08rem}.logo .mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(180deg,var(--primary),var(--primary-2));display:grid;place-items:center;box-shadow:0 12px 24px var(--glow)}.logo .mark svg{width:22px;height:22px;color:#06101d}.nav-links{display:flex;gap:22px;align-items:center}.nav-links a{font-size:.92rem;font-weight:700;color:var(--muted)}.nav-links a:hover{color:var(--text)}.nav-actions{display:flex;gap:10px;align-items:center}.icon-btn,.menu-btn{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--text)}
-.hero{padding:20px 0 18px}.hero-grid{display:grid;grid-template-columns:1fr;gap:16px}.hero-copy,.hero-media,.signal-wrap,.matrix-box,.info-card,.agent,.price-card{padding:20px}.hero-copy h1{font-family:Manrope,Inter,sans-serif;font-size:clamp(2rem,9vw,4rem);line-height:1.02;letter-spacing:-.05em;margin:14px 0}.hero-actions,.back-row,.footer-links{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.hero-actions .btn,.back-row .btn,.footer-links .btn{width:100%}.hero-media img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:20px}.band,.section{padding:14px 0}.section h2{font-family:Manrope,Inter,sans-serif;font-size:clamp(1.55rem,5.6vw,2.4rem);letter-spacing:-.04em;margin:0 0 10px}.grid-2,.cards-3,.price-grid{display:grid;grid-template-columns:1fr;gap:14px}.signal-wrap{display:grid;gap:12px}.metric{padding:18px;border-radius:18px;border:1px solid var(--border);background:rgba(255,255,255,.03)}.metric .lbl{color:var(--muted);font-size:.78rem;text-transform:uppercase;font-weight:800;letter-spacing:.05em}.metric .num{font-family:Manrope,Inter,sans-serif;font-size:1.35rem;margin-top:8px}.metric .sub{margin-top:8px}.tag{display:inline-flex;padding:8px 12px;border-radius:999px;background:rgba(91,157,255,.14);border:1px solid var(--border);color:#d9e7ff;font-size:.8rem;font-weight:700}
-.price-card h3{margin:10px 0 8px;font-family:Manrope,Inter,sans-serif}.price-card .price{font-size:1.7rem;font-weight:800;margin-bottom:10px}.matrix-box input{width:100%;min-height:56px;border-radius:16px;border:1px solid var(--border);background:#0b1425;color:var(--text);padding:0 16px;margin:14px 0 10px}.hint{margin-top:12px;padding:14px 16px;border-radius:16px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--muted)}
-.compact-list{display:grid;gap:12px}.compact-item{padding:18px;border-radius:18px;border:1px solid var(--border);background:rgba(255,255,255,.03)}
-@media (min-width:900px){.hero{padding:34px 0 24px}.hero-grid{grid-template-columns:1.05fr .95fr}.grid-2{grid-template-columns:1fr 1fr}.cards-3,.price-grid{grid-template-columns:repeat(3,1fr)}.hero-actions,.back-row,.footer-links{display:flex;flex-wrap:wrap}.hero-copy,.hero-media,.signal-wrap,.matrix-box,.info-card,.agent,.price-card{padding:22px}}
-@media (max-width:760px){.nav-links{display:none}.nav-actions .btn{display:none}.nav-actions .menu-btn{display:grid}.navbar{padding:12px 0}.mobile-drawer{top:74px}.hero-copy p,.section p,.metric .sub,.hint{font-size:.97rem}.hero-actions,.back-row,.footer-links{grid-template-columns:1fr}.logo{font-size:1rem}}
+header.site{position:sticky;top:0;z-index:60;backdrop-filter:blur(20px);background:rgba(7,13,24,.92);border-bottom:1px solid var(--border)}
+.navbar{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:14px}.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.05rem}.logo .mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(180deg,var(--primary),var(--primary-2));display:grid;place-items:center;box-shadow:0 12px 24px var(--glow)}.logo .mark svg{width:22px;height:22px;color:#06101d}.nav-links{display:flex;gap:22px;align-items:center}.nav-links a{font-size:.92rem;font-weight:700;color:var(--muted)}.nav-links a:hover{color:var(--text)}.nav-actions{display:flex;gap:10px;align-items:center}.icon-btn{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--text)}
+.hero{padding:20px 0 10px}.hero-grid,.price-grid,.grid-2,.mini-grid{display:grid;grid-template-columns:1fr;gap:14px}.hero-card,.hero-media,.price-card,.panel-card,.matrix-card{padding:20px}.hero-card h1,.section-title{font-family:Manrope,Inter,sans-serif;letter-spacing:-.05em}.hero-card h1{font-size:clamp(2rem,8vw,4rem);line-height:1.02;margin:14px 0}.lead{font-size:1rem;max-width:58ch}.hero-actions,.matrix-actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:18px}.hero-media img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:20px}.section{padding:12px 0}.section-title{font-size:clamp(1.5rem,5vw,2.5rem);margin:0 0 10px}.price-card h3{font-family:Manrope,Inter,sans-serif;margin:10px 0 6px}.price{font-size:1.85rem;font-weight:800;margin-bottom:8px}.small{font-size:.92rem;color:var(--muted)}.stack{display:grid;gap:12px}.line-list{display:grid;gap:10px;margin-top:12px}.line-item{padding:14px 16px;border-radius:16px;border:1px solid var(--border);background:rgba(255,255,255,.03)}
+.matrix-card input{width:100%;min-height:56px;border-radius:16px;border:1px solid var(--border);background:#0b1425;color:var(--text);padding:0 16px;margin:14px 0 10px}.hint{margin-top:10px;padding:14px 16px;border-radius:16px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--muted)}
+.footer-links{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.footer-links .btn{width:100%}
+@media (min-width:960px){.hero-grid{grid-template-columns:1.02fr .98fr}.price-grid{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:1fr 1fr}.hero-actions,.matrix-actions{display:flex;flex-wrap:wrap}.footer-links{display:flex;flex-wrap:wrap}.hero-card,.hero-media,.price-card,.panel-card,.matrix-card{padding:22px}}
+@media (max-width:760px){.nav-links{display:none}.nav-actions .btn{display:none}.navbar{padding:12px 0}.mobile-drawer{top:74px}.footer-links{grid-template-columns:1fr}.logo{font-size:1rem}}
 </style>
 </head>
 <body>
 <header class="site">
   <div class="wrap navbar">
-    <a class="logo" href="#top"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15.5 12 4l8 11.5"/><path d="M7.5 15.5h9"/><path d="M9.5 19h5"/></svg></span>AutoCDP</a>
-    <nav class="nav-links"><a href="platform.html">Platform</a><a href="tech.html">Tech</a><a href="ai-agents.html">AI agents</a><a href="closed-loop.html">Closed loop</a><a href="direct-mail.html">Direct mail</a><a href="executive-matrix.html">Matrix</a><a href="resources.html">Resources</a><a href="pricing.html">Pricing</a></nav>
-    <div class="nav-actions"><a class="btn" href="pricing.html">Pricing</a><a class="btn btn-primary" href="#matrix">Access Matrix</a><button class="icon-btn menu-btn" data-menu aria-label="Menu">☰</button></div>
+    <a class="logo" href="index.html"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15.5 12 4l8 11.5"/><path d="M7.5 15.5h9"/><path d="M9.5 19h5"/></svg></span>AutoCDP</a>
+    <nav class="nav-links"><a href="platform.html">Platform</a><a href="tech.html">Tech</a><a href="executive-matrix.html">Matrix</a><a href="resources.html">Resources</a><a href="pricing.html">Pricing</a></nav>
+    <div class="nav-actions"><a class="btn" href="pricing.html">Pricing</a><a class="btn btn-primary" href="#matrix">Access Matrix</a><button class="icon-btn" data-menu aria-label="Menu">☰</button></div>
   </div>
-<div class="mobile-drawer" data-mobile-drawer hidden><nav class="mobile-nav" aria-label="Mobile navigation"><a href="index.html">Home</a><a href="platform.html">Platform</a><a href="tech.html">Tech</a><a href="ai-agents.html">AI agents</a><a href="closed-loop.html">Closed loop</a><a href="direct-mail.html">Direct mail</a><a href="executive-matrix.html">Matrix</a><a href="resources.html">Resources</a><a href="pricing.html">Pricing</a><a href="access.html">Access</a></nav></div></header>
-<main id="top">
-  <section class="hero"><div class="wrap hero-grid"><article class="glass hero-copy"><span class="eyebrow">Access layer · v16 alignment release</span><h1>The access page should feel like part of the product, not a separate utility screen.</h1><p class="lead">This page now mirrors the main site’s darker blue-black theme, includes stronger media, clearer pricing paths, and direct return navigation so mobile users do not get trapped after tapping deeper into the flow.</p><div class="hero-actions"><a class="btn btn-primary" href="#matrix">Enter Matrix →</a><a class="btn btn-ghost" href="pricing.html">Pricing</a></div><div class="back-row"><a class="btn btn-ghost" href="index.html">Return Home</a><a class="btn btn-ghost" href="tech.html">Technical page</a></div></article><article class="glass hero-media"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80" alt="Executive access cover art" width="1600" height="1000" loading="lazy"></article></div></section><section class="band" id="difference">
+  <div class="mobile-drawer" data-mobile-drawer hidden><nav class="mobile-nav" aria-label="Mobile navigation"><a href="index.html">Home</a><a href="platform.html">Platform</a><a href="tech.html">Tech</a><a href="executive-matrix.html">Matrix</a><a href="resources.html">Resources</a><a href="pricing.html">Pricing</a><a href="access.html">Access</a></nav></div>
+</header>
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <article class="glass hero-card">
+        <span class="eyebrow">Access</span>
+        <h1>Pricing first. Matrix access second.</h1>
+        <p class="lead">This page is now organized for clarity on mobile: see pricing immediately, understand the operator tiers, and then enter the Matrix with a clear path back home.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#pricing">View pricing</a><a class="btn btn-ghost" href="#matrix">Enter Matrix</a><a class="btn btn-ghost" href="index.html">Return Home</a></div>
+      </article>
+      <article class="glass hero-media"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80" alt="AutoCDP access page cover art" width="1600" height="1000" loading="lazy"></article>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
     <div class="wrap">
-      <div class="eyebrow">How we are different</div>
-      <h2>Built for execution. Not just analysis.</h2>
-      <p class="sub">Data unification is table stakes. AutoCDP is positioned around real dealership execution: every campaign that should run, exact physical mail attribution, and a Learning Ledger that compounds what works.</p>
-      <div class="grid-3">
-        <article class="info-card card"><div class="numstep">Execution</div><h3>Every campaign you should be running but are not.</h3><p>Most dealers know they should be running service-due, trade-in, and lapsed-customer campaigns. They do not because the team is already at capacity. AutoCDP does not have a capacity problem.</p><span class="tag tag-live">24/7 swarm execution</span></article>
-        <article class="info-card card"><div class="numstep">Attribution</div><h3>Direct mail with a paper trail.</h3><p>AI-written, handwriting-simulated postcards with a unique QR tracking code on every piece make physical mail measurable — from sent to delivered to scanned to booked.</p><span class="tag tag-ok">Per-piece attribution</span></article>
-        <article class="info-card card"><div class="numstep">Independence</div><h3>Your CRM investment stays protected.</h3><p>AutoCDP reads from your existing CRM and writes outcomes back to the timeline so staff can stay inside the tools they already use without switching platforms.</p><span class="tag tag-warn">Source-safe workflow</span></article>
+      <span class="eyebrow">Pricing</span>
+      <h2 class="section-title">Pick the operating layer that fits your rollout.</h2>
+      <p class="small">Pricing is intentionally at the front of this page so users can evaluate the path before they go into the Matrix views.</p>
+      <div class="price-grid">
+        <article class="glass price-card">
+          <span class="tag">Starter</span>
+          <h3>Single rooftop</h3>
+          <div class="price">Platform entry</div>
+          <p class="small">For one store launching service recovery, lapsed-customer winback, and direct-mail attribution.</p>
+          <div class="footer-links"><a class="btn btn-primary" href="pricing.html">Full pricing</a><a class="btn btn-ghost" href="#matrix">Enter Matrix</a></div>
+        </article>
+        <article class="glass price-card">
+          <span class="tag">Group</span>
+          <h3>Dealer group</h3>
+          <div class="price">Portfolio rollout</div>
+          <p class="small">For operators managing multiple rooftops with coordinated campaigns and centralized reporting.</p>
+          <div class="footer-links"><a class="btn btn-primary" href="pricing.html">Full pricing</a><a class="btn btn-ghost" href="executive-matrix.html">Matrix overview</a></div>
+        </article>
+        <article class="glass price-card">
+          <span class="tag">Enterprise</span>
+          <h3>Agency / network</h3>
+          <div class="price">Custom deployment</div>
+          <p class="small">For agencies and enterprise operators who need permissions, rollups, and deeper executive visibility.</p>
+          <div class="footer-links"><a class="btn btn-primary" href="pricing.html">Full pricing</a><a class="btn btn-ghost" href="tech.html">Technical page</a></div>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="band" id="how">
+  <section class="section">
     <div class="wrap grid-2">
-      <div>
-        <div class="eyebrow">How it works</div>
-        <h2>Connect. Execute. Improve.</h2>
-        <p class="sub">Fully autonomous from first trigger to closed attribution. The operating model is simple even if the intelligence layer underneath is not.</p>
-        <div class="grid-3">
-          <article class="info-card card"><div class="numstep">01</div><h3>Connect your DMS</h3><p>Sync with CDK Fortellis, Reynolds &amp; Reynolds, VinSolutions, and Dealertrack in under two hours while leaving source records untouched.</p><span class="tag tag-live">Read-only source connection</span></article>
-          <article class="info-card card"><div class="numstep">02</div><h3>Six agents plan and build</h3><p>Set a campaign goal in plain language. The swarm segments audiences, selects the right channel, writes personalized copy, and clears deterministic compliance gates.</p><span class="tag tag-ok">Audience · Creative · Compliance</span></article>
-          <article class="info-card card"><div class="numstep">03</div><h3>Campaigns execute and improve</h3><p>PostGrid handles postcards, Twilio handles SMS, email sends, QR codes track physical pieces, CRM notes write back, and the Learning Ledger records outcomes.</p><span class="tag tag-warn">Closed-loop learning</span></article>
+      <article class="glass panel-card">
+        <span class="eyebrow">What this page does</span>
+        <h2 class="section-title">A cleaner bridge into the product.</h2>
+        <div class="line-list">
+          <div class="line-item">Shows pricing before asking users to enter the Matrix.</div>
+          <div class="line-item">Explains the four operating tiers in a simpler format.</div>
+          <div class="line-item">Keeps Home, Pricing, and Matrix paths visible on mobile.</div>
         </div>
-      </div>
-      <aside class="right-sheet card">
-        <div class="eyebrow">Current flow of work</div>
-        <h2 style="max-width:none;margin-bottom:10px">No error state. Just the breakdown sheet.</h2>
-        <p class="sub" style="margin-bottom:10px">This panel exists to show the operating flow clearly instead of generic placeholder alerts.</p>
-        <div class="sheet-row"><div><strong>1. Detect signals</strong><span>Lapsed service, trade, lease, loyalty, finance re-entry.</span></div><div><span>Data lane</span><strong>CRM + DMS + web</strong></div><div class="status"><span class="tag tag-live">Live</span></div></div>
-        <div class="sheet-row"><div><strong>2. Score opportunity</strong><span>Churn, LTV, lifecycle stage, and channel fit.</span></div><div><span>Agent</span><strong>Data Intelligence</strong></div><div class="status"><span class="tag tag-ok">Ranked</span></div></div>
-        <div class="sheet-row"><div><strong>3. Build campaign</strong><span>Per-recipient creative and channel plan with compliance gating.</span></div><div><span>Agent stack</span><strong>Targeting + Creative + Review</strong></div><div class="status"><span class="tag tag-ok">Ready</span></div></div>
-        <div class="sheet-row"><div><strong>4. Execute &amp; attribute</strong><span>Mail, SMS, email, QR scans, calls, appointments, CRM write-back.</span></div><div><span>Output</span><strong>Tracked outcomes</strong></div><div class="status"><span class="tag tag-warn">Measured</span></div></div>
-      </aside>
+      </article>
+      <article class="glass panel-card">
+        <span class="eyebrow">Tier structure</span>
+        <h2 class="section-title">Four access levels.</h2>
+        <div class="line-list">
+          <div class="line-item"><strong>1 · Owner</strong><br><span class="small">Network-level command and oversight.</span></div>
+          <div class="line-item"><strong>2 · Agency</strong><br><span class="small">Cross-client execution and reporting.</span></div>
+          <div class="line-item"><strong>3 · Dealer</strong><br><span class="small">Single-store visibility and actions.</span></div>
+          <div class="line-item"><strong>4 · Staff</strong><br><span class="small">Assigned work and daily queue access.</span></div>
+        </div>
+      </article>
     </div>
   </section>
 
-  <section class="band" id="agents">
-    <div class="wrap">
-      <div class="eyebrow">The intelligence layer</div>
-      <h2>Six agents. One shared state.</h2>
-      <p class="sub">Every agent sees every other decision as it happens. No handoffs. No lost context. No dead zones between planning and execution.</p>
-      <div class="grid-3">
-        <article class="agent card"><div class="meta"><span class="id">Agent 01</span><span class="tier">Opus 4.8</span></div><h4>Orchestrator Agent</h4><p>Decomposes a plain-language goal into structured subtasks, routes work to specialists, tracks shared state, handles retries, and decides when to re-run.</p></article>
-        <article class="agent card"><div class="meta"><span class="id">Agent 02</span><span class="tier">Sonnet 4.6</span></div><h4>Data Intelligence Agent</h4><p>Scores every customer on churn, value, lifecycle stage, and channel fit using RO history, recency, vehicle age, and behavioral signals.</p></article>
-        <article class="agent card"><div class="meta"><span class="id">Agent 03</span><span class="tier">Sonnet 4.6</span></div><h4>Audience Targeting Agent</h4><p>Selects the optimal channel and timing per customer, then generates the final execution plan downstream agents act against.</p></article>
-        <article class="agent card"><div class="meta"><span class="id">Agent 04</span><span class="tier">Sonnet 4.6</span></div><h4>Creative Generation Agent</h4><p>Writes personalized copy for postcard, SMS, and email using vehicle, mileage, service history, and current offer without mail-merge-style templates.</p></article>
-        <article class="agent card"><div class="meta"><span class="id">Agent 05</span><span class="tier">Haiku 4.5</span></div><h4>Compliance Review Agent</h4><p>Enforces TCPA, CAN-SPAM, FCRA, and DNC rules before any send. Any blocked recipient receives a structured reason and never enters execution.</p></article>
-        <article class="agent card"><div class="meta"><span class="id">Agent 06</span><span class="tier">Sonnet 4.6</span></div><h4>Learning &amp; Optimization Agent</h4><p>Reconciles delivery, QR-scan, call, and appointment outcomes against creative variants and updates each rooftop’s Learning Ledger.</p></article>
-      </div>
+  <section class="section" id="matrix">
+    <div class="wrap grid-2">
+      <article class="glass matrix-card">
+        <span class="eyebrow">Matrix access</span>
+        <h2 class="section-title">Enter the 4-tier Matrix.</h2>
+        <p class="small">Use the executive passcodes below to open the role-based view. This keeps the entry simple on mobile while still exposing the full Matrix shell.</p>
+        <input id="tierCode" inputmode="numeric" placeholder="Enter passcode: 1, 2, 3, or 4" aria-label="Executive passcode">
+        <div class="matrix-actions"><button class="btn btn-primary" id="enterMatrix">Enter Matrix</button><a class="btn btn-ghost" href="index.html">Return Home</a><a class="btn btn-ghost" href="pricing.html">Pricing</a></div>
+        <div class="hint"><strong>Executive passcodes</strong><br>1 = Owner, 2 = Agency, 3 = Dealer, 4 = Staff.</div>
+        <div class="hint" id="tierErr" style="display:none;color:#ffd0d0">Invalid passcode. Use 1, 2, 3, or 4.</div>
+      </article>
+      <article class="glass hero-media"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=80" alt="Matrix environment cover art" width="1600" height="1000" loading="lazy"></article>
     </div>
   </section>
-
-  <section class="band" id="matrix">
-    <div class="wrap">
-      <div class="eyebrow">Matrix access</div>
-      <h2>Four tiers. One keyed command system.</h2>
-      <p class="sub">The Matrix adapts based on who logs in. Each tier sees a different operating surface designed around its actual job inside the AutoCDP system.</p>
-      <div class="grid-4" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px">
-<div class="card" style="padding:18px;border-radius:18px"><strong style="display:block;margin-bottom:6px">Owner</strong><span style="font-size:.84rem;color:var(--muted)">Tier 1 · Network command layer</span></div>
-<div class="card" style="padding:18px;border-radius:18px"><strong style="display:block;margin-bottom:6px">Multi-rooftop / Agency</strong><span style="font-size:.84rem;color:var(--muted)">Tier 2 · Portfolio command layer</span></div>
-<div class="card" style="padding:18px;border-radius:18px"><strong style="display:block;margin-bottom:6px">Dealer</strong><span style="font-size:.84rem;color:var(--muted)">Tier 3 · Single rooftop command</span></div>
-<div class="card" style="padding:18px;border-radius:18px"><strong style="display:block;margin-bottom:6px">Staff</strong><span style="font-size:.84rem;color:var(--muted)">Tier 4 · Assigned campaign cockpit</span></div>
-</div>
-<div style="display:grid;grid-template-columns:1fr auto;gap:12px;margin-top:14px;align-items:end">
-  <label style="display:grid;gap:8px">
-    <span style="font-size:.82rem;color:var(--muted);font-weight:700">Enter tier passcode</span>
-    <input id="tierCode" type="password" inputmode="numeric" placeholder="1, 2, 3, or 4" style="padding:14px 16px;border-radius:14px;border:1px solid var(--border);background:var(--surface);color:var(--text);min-width:220px" />
-  </label>
-  <div class="footer-links"><button class="btn btn-primary" id="enterMatrix">Enter Matrix</button><a class="btn btn-ghost" href="index.html">Return Home</a><a class="btn btn-ghost" href="pricing.html">Pricing</a></div>
-</div>
-<div class="err" id="tierErr">Passcode not recognized. Use 1 for Owner, 2 for Agency, 3 for Dealer, or 4 for Staff.</div>
-<div class="hint"><strong>Executive passcodes</strong><br>1 = Owner, 2 = Agency, 3 = Dealer, 4 = Staff. Use the Executive area to enter the Matrix and move between tiers cleanly.</div><div class="hint"><strong>Confidential technical preview</strong><br>This access and Matrix flow are being used to explain pre-patent architecture, including the Opportunity Engine, Compliance & Learning Spine, direct-mail execution, and Learning Ledger concepts.</div>
-  </div>
-</div>
+</main>
 <script>
 const drawer=document.querySelector('[data-mobile-drawer]');
 const menuBtn=document.querySelector('[data-menu]');
 menuBtn?.addEventListener('click',()=>{if(!drawer)return;const willOpen=!drawer.classList.contains('show');drawer.hidden=false;drawer.classList.toggle('show',willOpen);if(!willOpen) drawer.hidden=true;menuBtn.setAttribute('aria-expanded',willOpen?'true':'false');});
 document.querySelectorAll('[data-mobile-drawer] a').forEach(a=>a.addEventListener('click',()=>{if(drawer){drawer.classList.remove('show');drawer.hidden=true;}}));
 document.addEventListener('click',e=>{if(drawer && drawer.classList.contains('show') && !drawer.contains(e.target) && !e.target.closest('[data-menu]')){drawer.classList.remove('show');drawer.hidden=true;}});
-const modal=document.getElementById('loginModal');const close=()=>modal?.classList.remove('open');modal?.addEventListener('click',e=>{if(e.target===modal)close();});document.querySelector('[data-close-login]')?.addEventListener('click',close);document.addEventListener('keydown',e=>{if(e.key==='Escape'){close();if(drawer){drawer.classList.remove('show');drawer.hidden=true;}}});
-const tierMap={1:'owner',2:'agency',3:'dealer',4:'staff'};const tierCode=document.getElementById('tierCode');const tierErr=document.getElementById('tierErr');document.getElementById('enterMatrix')?.addEventListener('click',()=>{const v=(tierCode?.value||'').trim();const role=tierMap[v];if(role){tierErr?.classList.remove('show');location.href='dashboard.html?role='+role+'&page=overview';}else{tierErr?.classList.add('show');}});tierCode?.addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('enterMatrix')?.click();});
-</script></body>
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&drawer){drawer.classList.remove('show');drawer.hidden=true;}});
+const tierMap={1:'owner',2:'agency',3:'dealer',4:'staff'};const tierCode=document.getElementById('tierCode');const tierErr=document.getElementById('tierErr');document.getElementById('enterMatrix')?.addEventListener('click',()=>{const v=(tierCode?.value||'').trim();const role=tierMap[v];if(role){tierErr.style.display='none';location.href='dashboard.html?role='+role+'&page=overview';}else{tierErr.style.display='block';}});tierCode?.addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('enterMatrix')?.click();});
+</script>
+</body>
 </html>
