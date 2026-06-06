@@ -1,33 +1,31 @@
 
 :root,[data-theme="light"]{
-  --bg:#f4f1ea;--surface:#fbfaf7;--surface-2:#f6f2ec;--surface-3:#ece7de;
+  --bg:#f4f1ea;--surface:#fbfaf7;--surface-2:#f6f2ec;--surface-3:#ece7de;--surface-4:#e6dfd3;
   --border:rgba(40,37,29,.12);--divider:rgba(40,37,29,.08);
-  --text:#201d17;--muted:#6f6c64;--faint:#a8a39c;--inverse:#fcfbf8;
+  --text:#1f1b15;--muted:#706c63;--faint:#a49e94;--inverse:#fefcf8;
   --primary:#0d6f73;--primary-2:#0b4f54;--highlight:#d7e9e8;
-  --accent:#b57a2c;--accent-2:#8f5b13;
+  --accent:#b57a2c;--accent-2:#845516;
   --success:#3d7a3b;--warning:#a16207;--danger:#9b2c52;
-  --shadow-sm:0 10px 24px rgba(46,40,30,.06);--shadow-md:0 24px 50px rgba(46,40,30,.10);--shadow-lg:0 40px 90px rgba(46,40,30,.16);
+  --shadow-sm:0 12px 24px rgba(46,40,30,.06);--shadow-md:0 24px 54px rgba(46,40,30,.11);--shadow-lg:0 46px 100px rgba(46,40,30,.18);
+  --rad-sm:14px;--rad-md:20px;--rad-lg:28px;--rad-xl:36px;
 }
 [data-theme="dark"]{
-  --bg:#101111;--surface:#161817;--surface-2:#1d201f;--surface-3:#262b29;
+  --bg:#0f1110;--surface:#151716;--surface-2:#1b1f1d;--surface-3:#242927;--surface-4:#2b312f;
   --border:rgba(236,234,226,.10);--divider:rgba(236,234,226,.06);
-  --text:#f3f0e8;--muted:#b9b4aa;--faint:#7f7a70;--inverse:#151614;
-  --primary:#6dc4c6;--primary-2:#31868a;--highlight:#193234;
-  --accent:#e3b166;--accent-2:#b07c2e;
-  --success:#73b46c;--warning:#d9a240;--danger:#dd6a96;
-  --shadow-sm:0 10px 24px rgba(0,0,0,.20);--shadow-md:0 28px 64px rgba(0,0,0,.36);--shadow-lg:0 48px 110px rgba(0,0,0,.5);
+  --text:#f2eee4;--muted:#b8b2a8;--faint:#817c72;--inverse:#171815;
+  --primary:#78c8ca;--primary-2:#33868a;--highlight:#173234;
+  --accent:#e4b367;--accent-2:#a36f23;
+  --success:#73b46c;--warning:#e0a33e;--danger:#dd6a96;
+  --shadow-sm:0 12px 24px rgba(0,0,0,.20);--shadow-md:0 28px 64px rgba(0,0,0,.38);--shadow-lg:0 46px 120px rgba(0,0,0,.54);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.55}
-a{text-decoration:none;color:inherit}
-button{font:inherit;border:none;background:none;color:inherit;cursor:pointer}
-img,svg{display:block;max-width:100%}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;min-height:100vh}
+a{text-decoration:none;color:inherit} button{font:inherit;border:none;background:none;color:inherit;cursor:pointer} img,svg{display:block;max-width:100%}
 .font-display{font-family:'Manrope','Inter',sans-serif}
 :focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:8px}
 ::selection{background:color-mix(in srgb,var(--primary) 28%,transparent)}
-@media (prefers-reduced-motion: reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:14px;font-weight:700;transition:.2s ease;font-size:.95rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:15px;font-weight:700;transition:.2s ease;font-size:.94rem}
 .btn-primary{background:var(--primary);color:var(--inverse);box-shadow:var(--shadow-sm)}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
 .btn-ghost{background:var(--surface-2);border:1px solid var(--border)}
@@ -38,3 +36,7 @@ img,svg{display:block;max-width:100%}
 .tag-warn{background:color-mix(in srgb,var(--warning) 18%,transparent);color:var(--warning)}
 .tag-hot{background:color-mix(in srgb,var(--danger) 16%,transparent);color:var(--danger)}
 .tag-ok{background:color-mix(in srgb,var(--success) 18%,transparent);color:var(--success)}
+.wrap{max-width:1320px;margin:0 auto;padding:0 24px}
+.glass{background:color-mix(in srgb,var(--surface) 92%,transparent);border:1px solid var(--border);backdrop-filter:blur(16px)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow-sm)}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
