@@ -1,1 +1,256 @@
-<!doctype html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AutoCDP — Matrix portal</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>:root{--bg:#050607;--surface:#0d1013;--surface-2:#12161a;--text:#f4f7f2;--muted:#a3aea4;--line:rgba(214,255,225,.12);--primary:#33c16f;--primary-2:#7ce7a2;--shadow:0 18px 60px rgba(0,0,0,.35)}*{box-sizing:border-box}html,body{margin:0}body{font:16px/1.6 Inter,sans-serif;background:var(--bg);color:var(--text)}a{color:inherit;text-decoration:none}.container{max-width:1180px;margin:0 auto;padding:0 24px}.btn{min-height:48px;padding:0 18px;border-radius:999px;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;font-weight:800}.btn-primary{background:linear-gradient(180deg,#41d47f,#218f53);color:#05110a;border-color:transparent;box-shadow:0 16px 34px rgba(33,143,83,.30)}.btn-soft{background:color-mix(in srgb,var(--surface) 92%,transparent)}h1,h2,h3{font-family:Manrope,Inter,sans-serif;letter-spacing:-.04em;line-height:1.04;margin:0 0 14px}p{color:var(--muted);max-width:64ch}/* nav-rebuild-v2 */.site-header{position:sticky;top:0;z-index:90;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(16px)}.utility-bar{border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 94%,transparent)}.utility-inner{min-height:40px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}.utility-copy{font-size:.82rem;color:var(--muted);font-weight:700}.utility-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.utility-links a{font-size:.82rem;color:var(--muted)}.utility-links a:hover{color:var(--text)}.nav-shell{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:32px;min-height:84px}.brand{display:flex;align-items:center;gap:12px;font-weight:800;white-space:nowrap}.mark{width:38px;height:38px;border-radius:12px;background:conic-gradient(from 220deg,var(--primary),var(--primary-2),#d39b57,var(--primary))}.main-nav{display:flex;align-items:center;justify-content:center;gap:26px;min-width:0}.nav-group{position:relative;display:flex;align-items:center;gap:6px}.nav-link{font-weight:750;color:var(--text);opacity:.92;white-space:nowrap}.nav-link:hover,.nav-link.is-active,.sign-link:hover{color:var(--text);opacity:1}.nav-link.is-active{position:relative}.nav-link.is-active::after{content:"";position:absolute;left:0;right:0;bottom:-12px;height:2px;border-radius:999px;background:currentColor}.nav-toggle{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--surface) 92%,transparent);color:var(--muted)}.nav-toggle:hover,.nav-toggle[aria-expanded="true"]{color:var(--text);border-color:color-mix(in srgb,var(--primary) 45%,var(--line))}.caret{font-size:.78rem;line-height:1}.nav-dropdown{position:absolute;top:calc(100% + 14px);left:0;min-width:280px;padding:14px;border:1px solid var(--line);border-radius:20px;background:color-mix(in srgb,var(--bg) 97%,transparent);box-shadow:0 20px 40px rgba(0,0,0,.30);gap:8px;display:none}.nav-dropdown:not([hidden]){display:grid}[hidden]{display:none!important}.dropdown-link{display:block;padding:12px 14px;border:1px solid transparent;border-radius:14px;color:var(--muted);font-weight:700}.dropdown-link:hover,.dropdown-link:focus-visible{color:var(--text);border-color:var(--line);background:color-mix(in srgb,var(--surface) 92%,transparent)}.actions.nav-actions{display:flex;align-items:center;gap:14px}.sign-link{font-weight:800;color:var(--muted);white-space:nowrap}.btn-soft{background:color-mix(in srgb,var(--surface) 92%,transparent)}.menu-toggle{display:none}.mobile-drawer{display:none;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 96%,transparent);padding:16px 20px}.mobile-drawer.show{display:block}.mobile-drawer-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:14px}.drawer-title{font-weight:800}.drawer-copy{color:var(--muted);font-size:.92rem}.mobile-nav{display:grid;gap:10px}.mobile-nav a{min-height:48px;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:color-mix(in srgb,var(--surface) 92%,transparent);font-weight:700;display:flex;align-items:center}.prefooter-shell{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:center}.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:24px;align-items:start}.footer-links{display:grid;gap:10px}.footer-links a{color:var(--muted)}.footer-links a:hover{color:var(--text)}.footer-contact{margin-top:16px;padding:14px 16px;border:1px solid var(--line);border-radius:18px;background:color-mix(in srgb,var(--surface) 94%,transparent);display:grid;gap:6px}.footer-contact span{font-size:.82rem;color:var(--muted)}.footer-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:24px;padding-top:18px}.trust-row{display:flex;flex-wrap:wrap;gap:10px}.trust-row span{padding:10px 12px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.84rem}.demo-form{display:grid;gap:14px}.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.demo-form label,.signin-form label{display:grid;gap:8px;font-weight:700}.demo-form input,.demo-form select,.demo-form textarea,.signin-form input{width:100%;min-height:52px;padding:0 16px;border-radius:16px;border:1px solid var(--line);background:color-mix(in srgb,var(--surface) 94%,transparent);color:var(--text)}.demo-form textarea{min-height:120px;padding:14px 16px;resize:vertical}.form-note{color:var(--muted);font-size:.92rem}.form-success{padding:14px 16px;border:1px solid color-mix(in srgb,var(--primary) 35%,var(--line));border-radius:16px;background:color-mix(in srgb,var(--primary) 12%,var(--surface));color:var(--text)}.demo-grid,.matrix-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.matrix-grid{grid-template-columns:repeat(4,1fr)}.compact-page{padding:46px 0 20px}.compact-page h1,.compact-page h2,.compact-page h3,.compact-page h4{letter-spacing:-.04em}.tier-card,.price-card-lite,.signin-card{padding:22px;border:1px solid var(--line);border-radius:24px;background:color-mix(in srgb,var(--surface) 95%,transparent)}.price-value{font:800 clamp(2.2rem,5vw,3.2rem)/.95 Manrope,Inter,sans-serif;letter-spacing:-.05em}.price-unit{color:var(--muted);font-weight:700}.price-line{display:flex;align-items:end;gap:10px;flex-wrap:wrap;margin:14px 0 12px}.eyebrow{display:inline-flex;padding:10px 14px;border:1px solid var(--line);border-radius:999px;margin-bottom:16px;font-size:.82rem;color:var(--muted);font-weight:800;text-transform:uppercase}.center-shell{max-width:520px;margin:0 auto}.signin-card{max-width:520px;margin:24px auto 0}.matrix-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.matrix-badge{padding:8px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.8rem}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}@media (max-width:1180px){.main-nav{gap:18px}.nav-shell{gap:20px}}@media (max-width:980px){.main-nav{display:none}.menu-toggle{display:inline-flex}.utility-bar{display:none}.nav-shell{grid-template-columns:auto 1fr auto;gap:14px;min-height:74px}.actions.nav-actions .sign-link,.actions.nav-actions .btn-primary{display:none}.prefooter-shell,.footer-grid,.demo-grid,.matrix-grid,.field-grid{grid-template-columns:1fr}.mobile-drawer-head{display:grid;grid-template-columns:1fr;gap:12px}}@media (max-width:640px){.container{padding:0 20px}.footer-bottom{display:grid;grid-template-columns:1fr}.hero-actions{display:grid;grid-template-columns:1fr}}</style></head><body><header class="site-header"><div class="utility-bar"><div class="container utility-inner"><div class="utility-copy">AI direct mail and marketing execution for automotive retail</div><div class="utility-links"><a href="tech.html">Technical architecture</a><a href="pricing.html">Pricing</a><a href="signin.html">Sign in</a></div></div></div><div class="container nav-shell"><a class="brand" href="index.html"><span class="mark"></span><span>AutoCDP</span></a><nav class="main-nav" aria-label="Primary navigation"><div class="nav-group"><a class="nav-link" href="platform.html">Platform</a><button class="nav-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="menu-platform" data-dropdown-button="platform"><span class="caret">▾</span></button><div class="nav-dropdown" id="menu-platform" data-dropdown="platform" hidden><a class="dropdown-link" href="platform.html">Platform overview</a><a class="dropdown-link" href="ai-agents.html">AI agents</a><a class="dropdown-link" href="closed-loop.html">Closed loop</a><a class="dropdown-link" href="tech.html">Technical architecture</a></div></div><div class="nav-group"><a class="nav-link" href="direct-mail.html">Solutions</a><button class="nav-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="menu-solutions" data-dropdown-button="solutions"><span class="caret">▾</span></button><div class="nav-dropdown" id="menu-solutions" data-dropdown="solutions" hidden><a class="dropdown-link" href="direct-mail.html">Direct mail</a><a class="dropdown-link" href="executive-matrix.html">Executive Matrix</a><a class="dropdown-link" href="access.html">Request demo</a></div></div><div class="nav-group"><a class="nav-link" href="resources.html">Resources</a><button class="nav-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="menu-resources" data-dropdown-button="resources"><span class="caret">▾</span></button><div class="nav-dropdown" id="menu-resources" data-dropdown="resources" hidden><a class="dropdown-link" href="resources.html">Resources</a><a class="dropdown-link" href="pricing.html">Pricing</a><a class="dropdown-link" href="signin.html">Sign in</a></div></div><a class="nav-link standalone" href="pricing.html">Pricing</a></nav><div class="actions nav-actions"><a class="sign-link" href="signin.html">Sign in</a><a class="btn btn-primary" href="access.html">Request demo</a><button class="btn menu-toggle" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-drawer">Menu</button></div></div><div id="mobile-nav-drawer" class="mobile-drawer" data-mobile-drawer hidden><div class="mobile-drawer-head"><div><div class="drawer-title">Explore AutoCDP</div><div class="drawer-copy">Platform, pricing, demo, and Matrix access.</div></div><a class="btn btn-primary" href="access.html">Request demo</a></div><nav class="mobile-nav" aria-label="Mobile navigation"><a href="index.html">Home</a><a href="platform.html">Platform</a><a href="ai-agents.html">AI agents</a><a href="direct-mail.html">Direct mail</a><a href="executive-matrix.html">Executive Matrix</a><a href="resources.html">Resources</a><a href="pricing.html">Pricing</a><a href="signin.html">Sign in</a><a href="access.html">Request demo</a></nav></div></header><main><section class="compact-page"><div class="container"><span class="eyebrow">Matrix portal</span><h1>Credentialed entry point for Matrix users.</h1><p>This placeholder portal keeps the sign-in flow functional and routes users into a Matrix-branded destination.</p><div class="form-success" data-tier-note hidden style="margin:18px 0"></div><div class="matrix-grid"><article class="tier-card"><div class="matrix-top"><h3>Executive</h3><span class="matrix-badge">Tier 1</span></div><p>Commercial oversight and attribution summaries.</p></article><article class="tier-card"><div class="matrix-top"><h3>Operator</h3><span class="matrix-badge">Tier 2</span></div><p>Campaign control, audience logic, and approvals.</p></article><article class="tier-card"><div class="matrix-top"><h3>Campaign Ops</h3><span class="matrix-badge">Tier 3</span></div><p>Execution workflow and direct-mail activity.</p></article><article class="tier-card"><div class="matrix-top"><h3>Admin</h3><span class="matrix-badge">Tier 4</span></div><p>Permissions, credentials, and environment access.</p></article></div><div class="hero-actions"><a class="btn btn-primary" href="executive-matrix.html">Open Matrix overview</a><a class="btn btn-soft" href="index.html">Return home</a></div></div></section></main><section class="prefooter"><div class="container prefooter-shell"><div><span class="eyebrow">Next step</span><h2>Review pricing, request a demo, or sign in to Matrix access.</h2><p>Use the page footer as a clean decision point with direct routes to the right destination.</p></div><div class="prefooter-actions"><a class="btn btn-primary" href="access.html">Request demo</a><a class="btn btn-soft" href="pricing.html">See pricing</a><a class="btn btn-soft" href="signin.html">Sign in</a></div></div></section><footer class="footer"><div class="container footer-grid"><div class="footer-brand"><a class="brand" href="index.html"><span class="mark"></span><span>AutoCDP</span></a><p>Autonomous customer execution for direct mail, marketing orchestration, and Matrix visibility in automotive retail.</p><div class="trust-row"><span>AI-driven direct mail</span><span>Closed-loop attribution</span><span>Matrix role access</span></div></div><div><h3>Platform</h3><div class="footer-links"><a href="platform.html">Platform overview</a><a href="tech.html">Technical architecture</a><a href="ai-agents.html">AI agents</a><a href="closed-loop.html">Closed loop</a></div></div><div><h3>Go to</h3><div class="footer-links"><a href="direct-mail.html">Direct mail</a><a href="pricing.html">Pricing</a><a href="access.html">Request demo</a><a href="signin.html">Sign in</a></div></div><div><h3>Matrix</h3><div class="footer-links"><a href="executive-matrix.html">Executive Matrix</a><a href="dashboard.html">Matrix portal</a><a href="resources.html">Resources</a></div><div class="footer-contact"><span>For rollout and access</span><a href="access.html">Request demo</a></div></div></div><div class="container footer-bottom"><span>AutoCDP Front-end Matrix</span><span><a href="pricing.html">Pricing</a> · <a href="access.html">Demo</a> · <a href="signin.html">Sign in</a></span></div></footer><script>(function(){const path=(location.pathname.split('/').pop()||'index.html').toLowerCase();document.querySelectorAll('.nav-link,.dropdown-link,.mobile-nav a,.footer a,.utility-links a,.sign-link').forEach(a=>{const href=(a.getAttribute('href')||'').toLowerCase();if(href===path){a.classList.add('is-active');a.setAttribute('aria-current','page');}});const menuToggle=document.querySelector('[data-menu-toggle]');const drawer=document.querySelector('[data-mobile-drawer]');function closeDrawer(){if(!drawer||!menuToggle)return;drawer.classList.remove('show');drawer.hidden=true;menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Open menu');}function openDrawer(){if(!drawer||!menuToggle)return;drawer.hidden=false;requestAnimationFrame(()=>drawer.classList.add('show'));menuToggle.setAttribute('aria-expanded','true');menuToggle.setAttribute('aria-label','Close menu');}menuToggle&&menuToggle.addEventListener('click',()=>drawer&&drawer.classList.contains('show')?closeDrawer():openDrawer());drawer&&drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeDrawer));window.addEventListener('resize',()=>{if(window.innerWidth>980)closeDrawer();});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDrawer();closeMenus();}});document.addEventListener('click',e=>{if(drawer&&drawer.classList.contains('show')&&!drawer.contains(e.target)&&!e.target.closest('[data-menu-toggle]'))closeDrawer();if(!e.target.closest('.nav-group'))closeMenus();});const groups=[...document.querySelectorAll('.nav-group')];function closeMenus(){groups.forEach(group=>{const btn=group.querySelector('[data-dropdown-button]');const menu=group.querySelector('[data-dropdown]');if(btn)btn.setAttribute('aria-expanded','false');if(menu)menu.hidden=true;});}function openMenu(group){if(window.innerWidth<981)return;closeMenus();const btn=group.querySelector('[data-dropdown-button]');const menu=group.querySelector('[data-dropdown]');if(btn)btn.setAttribute('aria-expanded','true');if(menu)menu.hidden=false;}groups.forEach(group=>{const btn=group.querySelector('[data-dropdown-button]');btn&&btn.addEventListener('click',e=>{e.preventDefault();const menu=group.querySelector('[data-dropdown]');const isOpen=btn.getAttribute('aria-expanded')==='true';closeMenus();if(!isOpen&&menu&&window.innerWidth>980){btn.setAttribute('aria-expanded','true');menu.hidden=false;}});group.addEventListener('mouseenter',()=>openMenu(group));let hoverTimer=null;group.addEventListener('mouseenter',()=>{if(hoverTimer)clearTimeout(hoverTimer);});group.addEventListener('mouseleave',()=>{if(hoverTimer)clearTimeout(hoverTimer);hoverTimer=setTimeout(()=>closeMenus(),420);});group.addEventListener('focusin',()=>openMenu(group));group.addEventListener('focusout',e=>{if(!group.contains(e.relatedTarget))closeMenus();});});const demoForm=document.querySelector('[data-demo-form]');if(demoForm){demoForm.addEventListener('submit',e=>{e.preventDefault();const note=demoForm.querySelector('[data-demo-success]');if(note){note.hidden=false;note.textContent='Demo request captured. A follow-up will be routed from this build flow.';}demoForm.reset();});}const loginForm=document.querySelector('[data-login-form]');if(loginForm){loginForm.addEventListener('submit',e=>{e.preventDefault();const u=loginForm.querySelector('input[name="username"]');const p=loginForm.querySelector('input[name="password"]');const msg=loginForm.querySelector('[data-login-message]');const user=(u?u.value.trim():'');const pass=(p?p.value.trim():'');const tiers={'1':'Executive','2':'Operator','3':'Campaign Ops','4':'Admin'};if(user.toLowerCase()==='autocdp'&&tiers[pass]){window.location.href='dashboard.html#tier-'+pass;}else if(msg){msg.hidden=false;msg.textContent='Use username Autocdp and password 1-4 for the matching dashboard tier.';}});}})();</script><script>(function(){const m={'tier-1':'Executive (Tier 1)','tier-2':'Operator (Tier 2)','tier-3':'Campaign Ops (Tier 3)','tier-4':'Admin (Tier 4)'};const h=location.hash.replace('#','');const n=document.querySelector('[data-tier-note]');if(n&&m[h]){n.hidden=false;n.textContent='Signed in to '+m[h]+' access.';}})();</script></body></html>
+<!doctype html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AutoCDP — Matrix Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#040505;--panel:#0b0e10;--panel-2:#11161a;--line:rgba(214,255,225,.10);--text:#f4f7f2;--muted:#9aa69b;--faint:#65706a;--primary:#33c16f;--primary-2:#7ce7a2;--up:#41d47f;--down:#e06a7e}
+*{box-sizing:border-box}html,body{margin:0}body{font:15px/1.55 Inter,sans-serif;background:radial-gradient(1200px 600px at 80% -10%,rgba(51,193,111,.10),transparent),var(--bg);color:var(--text);min-height:100dvh}
+a{color:inherit;text-decoration:none}h1,h2,h3,h4{font-family:Manrope,Inter,sans-serif;letter-spacing:-.03em;margin:0}
+.app{display:grid;grid-template-columns:264px 1fr;min-height:100dvh}
+.side{position:sticky;top:0;height:100dvh;border-right:1px solid var(--line);background:color-mix(in srgb,var(--panel) 90%,transparent);padding:22px 18px;display:flex;flex-direction:column;gap:18px;overflow:auto}
+.brand{display:flex;align-items:center;gap:11px;font-family:Manrope;font-weight:800;font-size:1.05rem}
+.mark{width:34px;height:34px;border-radius:10px;background:conic-gradient(from 220deg,var(--primary),var(--primary-2),#d39b57,var(--primary))}
+.who{padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--panel-2)}
+.who small{color:var(--muted);display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.08em}
+.who b{font-size:1rem}
+.navlist{display:grid;gap:6px}
+.navlist button{all:unset;cursor:pointer;display:flex;align-items:center;gap:10px;padding:11px 13px;border-radius:12px;color:var(--muted);font-weight:700;border:1px solid transparent}
+.navlist button .dot{width:8px;height:8px;border-radius:50%;background:var(--faint)}
+.navlist button.active{color:var(--text);background:color-mix(in srgb,var(--primary) 14%,var(--panel-2));border-color:color-mix(in srgb,var(--primary) 40%,var(--line))}
+.navlist button.active .dot{background:var(--primary)}
+.navlist button.locked{opacity:.4;cursor:not-allowed}
+.side-foot{margin-top:auto;display:grid;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:12px;border:1px solid var(--line);font-weight:800;cursor:pointer}
+.btn-soft{background:var(--panel-2);color:var(--text)}
+.main{padding:28px clamp(20px,3vw,40px) 60px;overflow:auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.eyebrow{display:inline-flex;padding:7px 12px;border:1px solid var(--line);border-radius:999px;font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800}
+.pill{padding:7px 12px;border:1px solid var(--line);border-radius:999px;font-size:.78rem;color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:18px 0 26px}
+.kpi{padding:18px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}
+.kpi small{color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}
+.kpi .val{font-family:Manrope;font-weight:800;font-size:1.9rem;letter-spacing:-.04em;margin-top:6px;font-variant-numeric:tabular-nums}
+.kpi .chg{font-size:.82rem;font-weight:700;margin-top:4px}
+.chg.up{color:var(--up)}.chg.down{color:var(--down)}
+.grid2{display:grid;grid-template-columns:1.4fr .9fr;gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{padding:20px;border:1px solid var(--line);border-radius:20px;background:var(--panel)}
+.card h3{font-size:1.05rem;margin-bottom:4px}
+.card .sub{color:var(--muted);font-size:.86rem;margin-bottom:14px}
+.card img{border-radius:14px;border:1px solid var(--line);background:var(--panel-2)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);font-size:.9rem}
+th{color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.06em}
+.tag{padding:4px 9px;border-radius:999px;font-size:.74rem;font-weight:700;border:1px solid var(--line)}
+.tag.ok{color:var(--up);border-color:color-mix(in srgb,var(--up) 40%,var(--line))}
+.tag.warn{color:#e8b04a;border-color:rgba(232,176,74,.4)}
+.tag.run{color:var(--primary-2);border-color:color-mix(in srgb,var(--primary) 40%,var(--line))}
+.agentgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.agent{padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--panel-2)}
+.agent .mdl{font-size:.72rem;color:var(--primary-2);font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.agent b{display:block;margin:6px 0 4px}
+.agent p{color:var(--muted);font-size:.84rem;margin:0}
+.section-title{display:flex;align-items:center;gap:10px;margin:6px 0 4px}
+.lock-screen{display:grid;place-items:center;min-height:100dvh;padding:24px}
+.lock-card{max-width:440px;width:100%;padding:30px;border:1px solid var(--line);border-radius:24px;background:var(--panel)}
+.lock-card h1{font-size:1.5rem;margin-bottom:8px}.lock-card p{color:var(--muted);margin:0 0 18px}
+.lock-card label{display:grid;gap:8px;font-weight:700;margin-bottom:14px}
+.lock-card input{min-height:50px;padding:0 14px;border-radius:13px;border:1px solid var(--line);background:var(--panel-2);color:var(--text)}
+.btn-primary{background:linear-gradient(180deg,#41d47f,#218f53);color:#05110a;border-color:transparent;width:100%}
+.msg{margin-top:12px;color:var(--down);font-size:.86rem;font-weight:700;display:none}
+.msg.show{display:block}
+.hint{margin-top:16px;font-size:.8rem;color:var(--faint)}
+.tier-view{display:none}.tier-view.active{display:block}
+.bar{height:8px;border-radius:999px;background:var(--panel-2);overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--primary),var(--primary-2))}
+@media(max-width:980px){.app{grid-template-columns:1fr}.side{position:fixed;inset:0 auto 0 0;width:280px;transform:translateX(-100%);transition:transform .25s ease;z-index:40}.side.open{transform:none}.kpis,.grid3,.grid2,.agentgrid{grid-template-columns:1fr}.menu-btn{display:inline-flex!important}}
+.menu-btn{display:none}
+</style></head>
+<body>
+<div id="lock" class="lock-screen">
+  <div class="lock-card">
+    <div class="brand" style="margin-bottom:18px"><span class="mark"></span><span>AutoCDP Matrix</span></div>
+    <h1>Sign in to the Matrix</h1>
+    <p>Owner access (Tier 1) unlocks the full dashboard. Tiers 2-4 see scoped material.</p>
+    <form id="loginForm">
+      <label>Username<input name="username" type="text" placeholder="Autocdp" autocomplete="username"></label>
+      <label>Password<input name="password" type="password" placeholder="1 – 4" autocomplete="current-password"></label>
+      <button class="btn btn-primary" type="submit">Enter Matrix</button>
+      <div class="msg" id="loginMsg"></div>
+    </form>
+    <div class="hint">Username <b>Autocdp</b> · password <b>1</b> Owner/Executive · <b>2</b> Operator · <b>3</b> Campaign Ops · <b>4</b> Admin.</div>
+  </div>
+</div>
+
+<div id="app" class="app" style="display:none">
+  <aside class="side" id="side">
+    <div class="brand"><span class="mark"></span><span>AutoCDP</span></div>
+    <div class="who"><small>Signed in</small><b id="whoTier">Owner · Tier 1</b></div>
+    <nav class="navlist" id="navlist">
+      <button data-go="tier1"><span class="dot"></span>Owner overview</button>
+      <button data-go="tier2"><span class="dot"></span>Operator</button>
+      <button data-go="tier3"><span class="dot"></span>Campaign Ops</button>
+      <button data-go="tier4"><span class="dot"></span>Admin</button>
+    </nav>
+    <div class="side-foot">
+      <button class="btn btn-soft" onclick="location.href='index.html'">Back to site</button>
+      <button class="btn btn-soft" id="logout">Sign out</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <button class="btn btn-soft menu-btn" id="menuBtn" style="margin-bottom:10px">Menu</button>
+        <div class="eyebrow">Matrix dashboard</div>
+        <h1 id="viewTitle" style="margin-top:10px;font-size:1.7rem">Owner overview</h1>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="pill">Live · 6-agent swarm</span><span class="pill">v16 Alignment</span></div>
+    </div>
+
+    <!-- TIER 1 OWNER -->
+    <section class="tier-view active" id="tier1">
+      <div class="kpis">
+        <div class="kpi"><small>Attributed revenue</small><div class="val">$698k</div><div class="chg up">▲ 11.9% MoM</div></div>
+        <div class="kpi"><small>Appointments booked</small><div class="val">1,840</div><div class="chg up">▲ 14.2%</div></div>
+        <div class="kpi"><small>Cost per appt</small><div class="val">$31.40</div><div class="chg up">▼ 8.1%</div></div>
+        <div class="kpi"><small>Active rooftops</small><div class="val">42</div><div class="chg up">▲ 3 new</div></div>
+      </div>
+      <div class="grid2">
+        <div class="card"><h3>Attributed revenue</h3><div class="sub">Closed-loop attribution, all rooftops · 2026</div><img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/204eb97e66305c2c2c7b03eee014df36/60015842-433a-49bf-89e3-0d750722f4f1/f97b0485.png" alt="Attributed revenue by month" width="100%" loading="lazy"></div>
+        <div class="card"><h3>Network learning</h3><div class="sub">Patterns inherited from the network</div>
+          <p style="color:var(--muted);font-size:.9rem">Winning angles promoted into the Creative Agent across all rooftops.</p>
+          <div style="margin-top:14px"><b>Service-due reactivation</b><div class="bar"><i style="width:86%"></i></div></div>
+          <div style="margin-top:12px"><b>Trade-in equity offers</b><div class="bar"><i style="width:72%"></i></div></div>
+          <div style="margin-top:12px"><b>Lapsed >90 days winback</b><div class="bar"><i style="width:64%"></i></div></div>
+        </div>
+      </div>
+      <h3 class="section-title" style="margin-top:24px">Intelligence layer · 6 agents</h3>
+      <div class="agentgrid" style="margin-top:12px">
+        <div class="agent"><span class="mdl">Opus 4.8</span><b>Orchestrator</b><p>Plans and routes the full execution pipeline.</p></div>
+        <div class="agent"><span class="mdl">Sonnet 4.6</span><b>Data Intelligence</b><p>Scores churn, value, and lifecycle per customer.</p></div>
+        <div class="agent"><span class="mdl">Sonnet 4.6</span><b>Audience Targeting</b><p>Selects channel and timing per recipient.</p></div>
+        <div class="agent"><span class="mdl">Sonnet 4.6</span><b>Creative Generation</b><p>Writes unique copy per recipient and channel.</p></div>
+        <div class="agent"><span class="mdl">Haiku 4.5</span><b>Compliance Review</b><p>Enforces TCPA, CAN-SPAM, FCRA, DNC pre-send.</p></div>
+        <div class="agent"><span class="mdl">Sonnet 4.6</span><b>Learning & Optimization</b><p>Reconciles outcomes, compounds what works.</p></div>
+      </div>
+      <div class="card" style="margin-top:18px"><h3>Rooftop performance</h3><div class="sub">Top groups this period</div>
+        <table><thead><tr><th>Rooftop</th><th>Revenue</th><th>Appts</th><th>CPA</th><th>Status</th></tr></thead><tbody>
+        <tr><td>Summit Auto Group</td><td>$182k</td><td>486</td><td>$28.90</td><td><span class="tag ok">Healthy</span></td></tr>
+        <tr><td>Lakeside Motors</td><td>$141k</td><td>372</td><td>$30.10</td><td><span class="tag ok">Healthy</span></td></tr>
+        <tr><td>Cobalt Imports</td><td>$118k</td><td>298</td><td>$34.70</td><td><span class="tag warn">Watch</span></td></tr>
+        <tr><td>Ridgeline Ford</td><td>$96k</td><td>241</td><td>$33.20</td><td><span class="tag ok">Healthy</span></td></tr>
+        </tbody></table></div>
+    </section>
+
+    <!-- TIER 2 OPERATOR -->
+    <section class="tier-view" id="tier2">
+      <div class="kpis">
+        <div class="kpi"><small>Active campaigns</small><div class="val">17</div><div class="chg up">▲ 4</div></div>
+        <div class="kpi"><small>Audience in queue</small><div class="val">62,400</div><div class="chg up">▲ 9.3%</div></div>
+        <div class="kpi"><small>Approvals pending</small><div class="val">5</div><div class="chg down">2 overdue</div></div>
+        <div class="kpi"><small>Avg conversion</small><div class="val">5.1%</div><div class="chg up">▲ 0.4pt</div></div>
+      </div>
+      <div class="grid2">
+        <div class="card"><h3>Channel performance</h3><div class="sub">Conversion by channel · Q2 2026</div><img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/204eb97e66305c2c2c7b03eee014df36/60015842-433a-49bf-89e3-0d750722f4f1/78423dfb.png" alt="Conversion by channel" width="100%" loading="lazy"></div>
+        <div class="card"><h3>Approvals queue</h3><div class="sub">Operator sign-off required</div>
+        <table><tbody>
+        <tr><td>Service-due May batch</td><td><span class="tag run">Review</span></td></tr>
+        <tr><td>Conquest – SUV owners</td><td><span class="tag warn">Overdue</span></td></tr>
+        <tr><td>Winback >120 days</td><td><span class="tag run">Review</span></td></tr>
+        <tr><td>Trade-in equity wave 3</td><td><span class="tag ok">Approved</span></td></tr>
+        </tbody></table></div>
+      </div>
+    </section>
+
+    <!-- TIER 3 CAMPAIGN OPS -->
+    <section class="tier-view" id="tier3">
+      <div class="kpis">
+        <div class="kpi"><small>Pieces sent</small><div class="val">24,800</div><div class="chg up">latest run</div></div>
+        <div class="kpi"><small>QR scans</small><div class="val">5,120</div><div class="chg up">20.6% scan rate</div></div>
+        <div class="kpi"><small>Booked</small><div class="val">1,840</div><div class="chg up">35.9% of scans</div></div>
+        <div class="kpi"><small>Compliance blocks</small><div class="val">312</div><div class="chg down">resolved</div></div>
+      </div>
+      <div class="grid2">
+        <div class="card"><h3>Direct mail funnel</h3><div class="sub">Per-piece QR attribution · latest campaign</div><img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/204eb97e66305c2c2c7b03eee014df36/60015842-433a-49bf-89e3-0d750722f4f1/70a3d807.png" alt="Direct mail funnel" width="100%" loading="lazy"></div>
+        <div class="card"><h3>Live job queue</h3><div class="sub">Execution status</div>
+        <table><tbody>
+        <tr><td>Postcards → PostGrid</td><td><span class="tag run">Printing</span></td></tr>
+        <tr><td>SMS → Twilio</td><td><span class="tag ok">Sent</span></td></tr>
+        <tr><td>Email → Resend</td><td><span class="tag ok">Sent</span></td></tr>
+        <tr><td>CRM write-back</td><td><span class="tag run">Syncing</span></td></tr>
+        </tbody></table></div>
+      </div>
+    </section>
+
+    <!-- TIER 4 ADMIN -->
+    <section class="tier-view" id="tier4">
+      <div class="kpis">
+        <div class="kpi"><small>Users</small><div class="val">38</div><div class="chg up">▲ 2</div></div>
+        <div class="kpi"><small>Connected systems</small><div class="val">7</div><div class="chg up">all healthy</div></div>
+        <div class="kpi"><small>API uptime</small><div class="val">99.98%</div><div class="chg up">30-day</div></div>
+        <div class="kpi"><small>Open access requests</small><div class="val">3</div><div class="chg down">pending</div></div>
+      </div>
+      <div class="grid2">
+        <div class="card"><h3>Integrations</h3><div class="sub">Source and execution systems</div>
+        <table><thead><tr><th>System</th><th>Type</th><th>Status</th></tr></thead><tbody>
+        <tr><td>CDK Fortellis</td><td>DMS</td><td><span class="tag ok">Connected</span></td></tr>
+        <tr><td>Reynolds & Reynolds</td><td>DMS</td><td><span class="tag ok">Connected</span></td></tr>
+        <tr><td>VinSolutions</td><td>CRM</td><td><span class="tag ok">Connected</span></td></tr>
+        <tr><td>PostGrid</td><td>Direct mail</td><td><span class="tag ok">Connected</span></td></tr>
+        <tr><td>Twilio</td><td>SMS</td><td><span class="tag ok">Connected</span></td></tr>
+        </tbody></table></div>
+        <div class="card"><h3>Roles & permissions</h3><div class="sub">Tier-based access control</div>
+        <table><tbody>
+        <tr><td>Owner (Tier 1)</td><td><span class="tag ok">Full</span></td></tr>
+        <tr><td>Operator (Tier 2)</td><td><span class="tag run">Scoped</span></td></tr>
+        <tr><td>Campaign Ops (Tier 3)</td><td><span class="tag run">Scoped</span></td></tr>
+        <tr><td>Admin (Tier 4)</td><td><span class="tag warn">Access control</span></td></tr>
+        </tbody></table></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+(function(){
+  var TIERS={'1':{key:'tier1',label:'Owner · Tier 1',title:'Owner overview',allow:['tier1','tier2','tier3','tier4']},
+             '2':{key:'tier2',label:'Operator · Tier 2',title:'Operator',allow:['tier2','tier3']},
+             '3':{key:'tier3',label:'Campaign Ops · Tier 3',title:'Campaign Ops',allow:['tier3']},
+             '4':{key:'tier4',label:'Admin · Tier 4',title:'Admin',allow:['tier4']}};
+  var TITLES={tier1:'Owner overview',tier2:'Operator',tier3:'Campaign Ops',tier4:'Admin'};
+  var session=null;
+  var lock=document.getElementById('lock'),app=document.getElementById('app');
+  var form=document.getElementById('loginForm'),msg=document.getElementById('loginMsg');
+
+  function showView(key){
+    document.querySelectorAll('.tier-view').forEach(function(v){v.classList.toggle('active',v.id===key);});
+    document.querySelectorAll('#navlist button').forEach(function(b){b.classList.toggle('active',b.dataset.go===key);});
+    document.getElementById('viewTitle').textContent=TITLES[key];
+    document.getElementById('side').classList.remove('open');
+    window.scrollTo({top:0});
+  }
+  function applySession(t){
+    session=TIERS[t];
+    document.getElementById('whoTier').textContent=session.label;
+    document.querySelectorAll('#navlist button').forEach(function(b){
+      var allowed=session.allow.indexOf(b.dataset.go)>-1;
+      b.classList.toggle('locked',!allowed);
+      b.disabled=!allowed;
+    });
+    showView(session.key);
+    lock.style.display='none';app.style.display='grid';
+  }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var u=form.username.value.trim().toLowerCase(),p=form.password.value.trim();
+    if(u==='autocdp'&&TIERS[p]){msg.classList.remove('show');applySession(p);}
+    else{msg.textContent='Use username Autocdp and password 1-4.';msg.classList.add('show');}
+  });
+  document.getElementById('navlist').addEventListener('click',function(e){
+    var btn=e.target.closest('button[data-go]');if(!btn||btn.disabled)return;showView(btn.dataset.go);
+  });
+  document.getElementById('logout').addEventListener('click',function(){session=null;app.style.display='none';lock.style.display='grid';form.reset();});
+  document.getElementById('menuBtn').addEventListener('click',function(){document.getElementById('side').classList.toggle('open');});
+})();
+</script>
+</body></html>
