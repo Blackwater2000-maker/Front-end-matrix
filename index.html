@@ -169,21 +169,22 @@ footer.site{border-top:1px solid var(--border);padding:54px 0 60px;color:var(--m
   <div class="modal-card card">
     <button class="close-x" data-close-login aria-label="Close">✕</button>
     <div class="eyebrow">Matrix access</div>
-    <h2 style="font-family:'Manrope',sans-serif;font-size:1.8rem;margin-bottom:8px;max-width:none">Choose role. Enter key.</h2>
-    <p class="sub" style="margin-bottom:20px">This login gate is frontend-only for the current build and routes to the matching dashboard tier.</p>
-    <div class="err" id="loginErr">Invalid access key. Use the matching role key below.</div>
-    <div class="field"><label for="role">Role tier</label><select id="role"><option value="owner">Owner — Network</option><option value="agency">Multi-rooftop / Agency</option><option value="dealer">Dealer — Single rooftop</option><option value="staff">Staff / BDC</option></select></div>
-    <div class="field"><label for="key">Access key</label><input id="key" type="password" placeholder="Enter your key" autocomplete="off"/></div>
-    <button class="btn btn-primary" id="loginBtn" style="width:100%">Unlock dashboard</button>
-    <div class="hint"><strong>Demo keys</strong><br>Owner: <code>OWNER-MATRIX-2026</code><br>Agency: <code>AGENCY-MATRIX-2026</code><br>Dealer: <code>DEALER-MATRIX-2026</code><br>Staff: <code>STAFF-MATRIX-2026</code></div>
+    <h2 style="font-family:'Manrope',sans-serif;font-size:1.8rem;margin-bottom:8px;max-width:none">Open any tier directly.</h2>
+    <p class="sub" style="margin-bottom:20px">Password entry is temporarily disabled so you can jump into each Matrix tier directly for review.</p>
+    <div class="grid-4" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px">
+<a class="card" href="dashboard.html#owner" style="padding:18px;border-radius:18px"><strong style="display:block;margin-bottom:6px">Owner</strong><span style="font-size:.84rem;color:var(--muted)">Network command layer</span></a>
+<a class="card" href="dashboard.html#agency" style="padding:18px;border-radius:18px"><strong style="display:block;margin-bottom:6px">Multi-rooftop / Agency</strong><span style="font-size:.84rem;color:var(--muted)">Portfolio command layer</span></a>
+<a class="card" href="dashboard.html#dealer" style="padding:18px;border-radius:18px"><strong style="display:block;margin-bottom:6px">Dealer</strong><span style="font-size:.84rem;color:var(--muted)">Single rooftop command</span></a>
+<a class="card" href="dashboard.html#staff" style="padding:18px;border-radius:18px"><strong style="display:block;margin-bottom:6px">Staff</strong><span style="font-size:.84rem;color:var(--muted)">Assigned campaign cockpit</span></a>
+</div>
+<div class="hint"><strong>Temporary review mode</strong><br>Passwords are disabled for now so you can access each tier directly and review the build faster.</div>
   </div>
 </div>
 <script>
 (()=>{
 const root=document.documentElement;const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;let theme=root.getAttribute('data-theme')||(prefersDark?'dark':'light');root.setAttribute('data-theme',theme);document.querySelector('[data-theme-toggle]')?.addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';root.setAttribute('data-theme',theme);});
 const modal=document.getElementById('loginModal');const open=()=>modal.classList.add('open');const close=()=>modal.classList.remove('open');document.querySelectorAll('[data-open-login]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();open();}));document.querySelector('[data-close-login]').addEventListener('click',close);modal.addEventListener('click',e=>{if(e.target===modal)close();});document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
-const KEYS={owner:'OWNER-MATRIX-2026',agency:'AGENCY-MATRIX-2026',dealer:'DEALER-MATRIX-2026',staff:'STAFF-MATRIX-2026'};const err=document.getElementById('loginErr');function submit(){const role=document.getElementById('role').value;const key=document.getElementById('key').value.trim().toUpperCase();if(KEYS[role]===key){err.classList.remove('show');location.href='dashboard.html#'+role;}else{err.classList.add('show');}}
-document.getElementById('loginBtn').addEventListener('click',submit);document.getElementById('key').addEventListener('keydown',e=>{if(e.key==='Enter')submit();});
+
 })();
 </script>
 </body>
