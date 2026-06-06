@@ -45,7 +45,7 @@ body{overflow-x:hidden;background:radial-gradient(circle at top right,color-mix(
 <script>
 (()=>{
 const root=document.documentElement;const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;let theme=root.getAttribute('data-theme')||(prefersDark?'dark':'light');root.setAttribute('data-theme',theme);document.querySelector('[data-theme-toggle]')?.addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';root.setAttribute('data-theme',theme);});
-const sidebar=document.getElementById('sidebar');document.querySelector('[data-menu]')?.addEventListener('click',()=>sidebar.classList.toggle('open'));
+const sidebar=document.getElementById('sidebar');document.querySelector('[data-menu]')?.addEventListener('click',()=>sidebar.classList.toggle('open'));document.addEventListener('click',e=>{if(window.innerWidth<=1120 && sidebar.classList.contains('open') && !sidebar.contains(e.target) && !e.target.closest('[data-menu]')) sidebar.classList.remove('open');});
 const url=new URL(window.location.href);const role=(url.searchParams.get('role')||'owner').toLowerCase();const page=(url.searchParams.get('page')||'overview').toLowerCase();
 const roles={owner:{chip:'Owner · Network',name:'Network Owner',role:'Owner access · Can launch campaigns',init:'OW',title:'Executive Overview',sub:'Network-wide visibility across every rooftop, agency, and revenue lane.'},agency:{chip:'Multi-rooftop / Agency',name:'Agency Director',role:'Portfolio access · Can launch campaigns',init:'AG',title:'Portfolio Command',sub:'Cross-rooftop execution and reporting for dealer groups and agency clients.'},dealer:{chip:'Dealer · Rooftop',name:'Dealer Principal',role:'Rooftop access · Can launch campaigns',init:'DL',title:'Rooftop Command',sub:'Signals, audiences, attribution, and service retention for a single store.'},staff:{chip:'Staff · BDC',name:'BDC Specialist',role:'Staff access · Assigned campaigns only',init:'ST',title:'Action Cockpit',sub:'Today’s highest-leverage customer touches, already ranked and cleared.'}};
 const r=roles[role]||roles.owner;document.getElementById('roleChip').textContent=r.chip;document.getElementById('userName').textContent=r.name;document.getElementById('userRole').textContent=r.role;document.getElementById('userInit').textContent=r.init;
@@ -91,7 +91,7 @@ const pages={
   closed:emptyPage('Today closed','Use this page for booked appointments, recovered service work, and closed-loop staff outcomes.')
  }
 };
-const rolePages=pages[role]||pages.owner;const html=rolePages[page]||rolePages.overview;document.getElementById('content').innerHTML=html;document.getElementById('pageTitle').textContent=((NAVS[role]||NAVS.owner).flatMap(g=>g[1]).find(i=>i[1]===page)?.[0])||r.title;document.getElementById('pageSub').textContent=r.sub;
+const rolePages=pages[role]||pages.owner;const html=rolePages[page]||rolePages.overview;document.getElementById('content').innerHTML=html;const currentItem=((NAVS[role]||NAVS.owner).flatMap(g=>g[1]).find(i=>i[1]===page));document.getElementById('pageTitle').textContent=(currentItem?.[0])||r.title;document.getElementById('pageSub').textContent=currentItem?`${r.sub} · ${currentItem[0]} page.`:r.sub;
 })();
 </script>
 </body>
