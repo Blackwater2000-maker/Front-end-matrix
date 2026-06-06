@@ -1,258 +1,50 @@
-<!doctype html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AutoCDP — Matrix Dashboard</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AutoCDP Matrix</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#040505;--panel:#0b0e10;--panel-2:#11161a;--line:rgba(214,255,225,.10);--text:#f4f7f2;--muted:#9aa69b;--faint:#65706a;--primary:#33c16f;--primary-2:#7ce7a2;--up:#41d47f;--down:#e06a7e}
-*{box-sizing:border-box}html,body{margin:0}body{font:15px/1.55 Inter,sans-serif;background:radial-gradient(1200px 600px at 80% -10%,rgba(51,193,111,.10),transparent),var(--bg);color:var(--text);min-height:100dvh}
-a{color:inherit;text-decoration:none}h1,h2,h3,h4{font-family:Manrope,Inter,sans-serif;letter-spacing:-.03em;margin:0}
-.app{display:grid;grid-template-columns:264px 1fr;min-height:100dvh}
-.side{position:sticky;top:0;height:100dvh;border-right:1px solid var(--line);background:color-mix(in srgb,var(--panel) 90%,transparent);padding:22px 18px;display:flex;flex-direction:column;gap:18px;overflow:auto}
-.brand{display:flex;align-items:center;gap:11px;font-family:Manrope;font-weight:800;font-size:1.05rem}
-.mark{width:34px;height:34px;border-radius:10px;background:conic-gradient(from 220deg,var(--primary),var(--primary-2),#d39b57,var(--primary))}
-.who{padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--panel-2)}
-.who small{color:var(--muted);display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.08em}
-.who b{font-size:1rem}
-.navlist{display:grid;gap:6px}
-.navlist button{all:unset;cursor:pointer;display:flex;align-items:center;gap:10px;padding:11px 13px;border-radius:12px;color:var(--muted);font-weight:700;border:1px solid transparent}
-.navlist button .dot{width:8px;height:8px;border-radius:50%;background:var(--faint)}
-.navlist button.active{color:var(--text);background:color-mix(in srgb,var(--primary) 14%,var(--panel-2));border-color:color-mix(in srgb,var(--primary) 40%,var(--line))}
-.navlist button.active .dot{background:var(--primary)}
-.navlist button.locked{opacity:.4;cursor:not-allowed}
-.side-foot{margin-top:auto;display:grid;gap:8px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:12px;border:1px solid var(--line);font-weight:800;cursor:pointer}
-.btn-soft{background:var(--panel-2);color:var(--text)}
-.main{padding:28px clamp(20px,3vw,40px) 60px;overflow:auto}
-.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:24px}
-.eyebrow{display:inline-flex;padding:7px 12px;border:1px solid var(--line);border-radius:999px;font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800}
-.pill{padding:7px 12px;border:1px solid var(--line);border-radius:999px;font-size:.78rem;color:var(--muted)}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:18px 0 26px}
-.kpi{padding:18px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}
-.kpi small{color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}
-.kpi .val{font-family:Manrope;font-weight:800;font-size:1.9rem;letter-spacing:-.04em;margin-top:6px;font-variant-numeric:tabular-nums}
-.kpi .chg{font-size:.82rem;font-weight:700;margin-top:4px}
-.chg.up{color:var(--up)}.chg.down{color:var(--down)}
-.grid2{display:grid;grid-template-columns:1.4fr .9fr;gap:18px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{padding:20px;border:1px solid var(--line);border-radius:20px;background:var(--panel)}
-.card h3{font-size:1.05rem;margin-bottom:4px}
-.card .sub{color:var(--muted);font-size:.86rem;margin-bottom:14px}
-.card img{border-radius:14px;border:1px solid var(--line);background:var(--panel-2)}
-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
-th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);font-size:.9rem}
-th{color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.06em}
-.tag{padding:4px 9px;border-radius:999px;font-size:.74rem;font-weight:700;border:1px solid var(--line)}
-.tag.ok{color:var(--up);border-color:color-mix(in srgb,var(--up) 40%,var(--line))}
-.tag.warn{color:#e8b04a;border-color:rgba(232,176,74,.4)}
-.tag.run{color:var(--primary-2);border-color:color-mix(in srgb,var(--primary) 40%,var(--line))}
-.agentgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.agent{padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--panel-2)}
-.agent .mdl{font-size:.72rem;color:var(--primary-2);font-weight:800;text-transform:uppercase;letter-spacing:.06em}
-.agent b{display:block;margin:6px 0 4px}
-.agent p{color:var(--muted);font-size:.84rem;margin:0}
-.section-title{display:flex;align-items:center;gap:10px;margin:6px 0 4px}
-.lock-screen{display:grid;place-items:center;min-height:100dvh;padding:24px}
-.lock-card{max-width:440px;width:100%;padding:30px;border:1px solid var(--line);border-radius:24px;background:var(--panel)}
-.lock-card h1{font-size:1.5rem;margin-bottom:8px}.lock-card p{color:var(--muted);margin:0 0 18px}
-.lock-card label{display:grid;gap:8px;font-weight:700;margin-bottom:14px}
-.lock-card input{min-height:50px;padding:0 14px;border-radius:13px;border:1px solid var(--line);background:var(--panel-2);color:var(--text)}
-.btn-primary{background:linear-gradient(180deg,#41d47f,#218f53);color:#05110a;border-color:transparent;width:100%}
-.msg{margin-top:12px;color:var(--down);font-size:.86rem;font-weight:700;display:none}
-.msg.show{display:block}
-.hint{margin-top:16px;font-size:.8rem;color:var(--faint)}
-.tier-view{display:none}.tier-view.active{display:block}
-.bar{height:8px;border-radius:999px;background:var(--panel-2);overflow:hidden;margin-top:8px}
-.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--primary),var(--primary-2))}
-@media(max-width:980px){.app{grid-template-columns:1fr}.side{position:fixed;inset:0 auto 0 0;width:280px;transform:translateX(-100%);transition:transform .25s ease;z-index:40}.side.open{transform:none}.kpis,.grid3,.grid2,.agentgrid{grid-template-columns:1fr}.menu-btn{display:inline-flex!important}}
-.menu-btn{display:none}
-</style></head>
-<body>
-<div id="lock" class="lock-screen">
-  <div class="lock-card">
-    <div class="brand" style="margin-bottom:18px"><span class="mark"></span><span>AutoCDP Matrix</span></div>
-    <h1>Sign in to the Matrix</h1>
-    <p>Owner access (Tier 1) unlocks the full dashboard. Tiers 2-4 see scoped material.</p>
-    <form id="loginForm">
-      <label>Username<input name="username" type="text" placeholder="Autocdp" autocomplete="username"></label>
-      <label>Password<input name="password" type="password" placeholder="1 – 4" autocomplete="current-password"></label>
-      <button class="btn btn-primary" type="submit">Enter Matrix</button>
-      <div class="msg" id="loginMsg"></div>
-    </form>
-    <div class="hint">Username <b>Autocdp</b> · password <b>1</b> Owner/Executive · <b>2</b> Operator · <b>3</b> Campaign Ops · <b>4</b> Admin.</div>
-  </div>
-</div>
+:root{--bg:#050607;--panel:#0b0d0f;--panel2:#12161a;--text:#f3f6f2;--muted:#9cab9f;--line:rgba(214,255,225,.10);--line2:rgba(214,255,225,.18);--green:#33c16f;--green2:#7ce7a2;--green3:#1f8f52;--sans:'Inter',system-ui,sans-serif;--display:'Manrope',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}body{background:radial-gradient(1200px 800px at 80% -10%,rgba(51,193,111,.10),transparent),var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;-webkit-font-smoothing:antialiased}a{text-decoration:none;color:inherit}button,input{font:inherit}
+.nav{display:flex;align-items:center;gap:16px;padding:16px 32px;background:rgba(5,7,8,.94);color:#fff;border-top:2px solid var(--green2);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;backdrop-filter:blur(18px)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.04em;font-size:14px}.brand .mark{display:grid;place-items:center;width:24px;height:24px;border-radius:7px;border:1px solid rgba(255,255,255,.35)}.brand .dot{display:block;width:8px;height:8px;border-radius:50%;background:var(--green2)}.crumb{font-size:11px;letter-spacing:.13em;color:rgba(255,255,255,.55)}.spacer{flex:1}.nav .link{font-size:12px;color:rgba(255,255,255,.78)}.nav .btn{font-size:12px;padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.25);color:#fff;background:rgba(255,255,255,.04)}
+.hero{max-width:1152px;margin:0 auto;padding:64px 32px 40px;text-align:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;text-transform:uppercase;letter-spacing:.24em;color:var(--green2)}.eyebrow .pip{width:6px;height:6px;border-radius:50%;background:var(--green2);box-shadow:0 0 0 3px rgba(124,231,162,.18)}
+h1{margin-top:20px;font-family:var(--display);font-size:48px;line-height:1.03;font-weight:800;letter-spacing:-.035em;max-width:860px;margin-left:auto;margin-right:auto;color:var(--text)}h1 .hl{background-image:linear-gradient(transparent 58%, rgba(124,231,162,.25) 58%)}.lede{margin:20px auto 0;font-size:15px;line-height:1.7;max-width:650px;color:var(--muted)}
+.grid-wrap{max-width:1152px;margin:0 auto;padding:0 32px 64px}.grid{display:grid;grid-template-columns:1fr;gap:20px}@media (min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}@media (min-width:1024px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card{position:relative;border-radius:18px;background:linear-gradient(180deg,rgba(17,22,26,.96),rgba(11,13,15,.98));padding:28px;display:flex;flex-direction:column;gap:12px;border:1px solid var(--line);box-shadow:0 1px 3px rgba(0,0,0,.12);transition:transform .2s ease, box-shadow .2s ease;cursor:pointer}.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.22)}.card .top{border-top:3px solid var(--green2);position:absolute;inset:0 0 auto 0;height:3px;border-radius:18px 18px 0 0}.card .row{display:flex;align-items:center;justify-content:space-between;gap:12px}.tier{font-size:10px;text-transform:uppercase;letter-spacing:.13em;font-weight:700;color:var(--muted)}.icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:18px;font-weight:700;background:rgba(124,231,162,.14);color:var(--text)}.name{font-family:var(--display);font-size:22px;font-weight:800;line-height:1.2;letter-spacing:-.02em;color:var(--text)}.desc{font-size:13px;line-height:1.7;color:var(--muted)}.foot{margin-top:8px;padding-top:12px;display:flex;align-items:center;justify-content:space-between;font-size:11.5px;border-top:1px solid var(--line);color:var(--muted)}.enter{font-weight:700;color:var(--green2);transition:transform .2s ease}.card:hover .enter{transform:translateX(4px)}
+.panel{display:none;max-width:1152px;margin:0 auto;padding:0 32px 72px}.panel.active{display:block}.back{display:inline-flex;align-items:center;gap:8px;margin-bottom:18px;color:var(--muted);font-size:12px;font-weight:700;cursor:pointer}.panel-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap;margin-bottom:18px}.panel-head h2{font-family:var(--display);font-size:38px;letter-spacing:-.03em}.panel-head p{max-width:720px;color:var(--muted);margin-top:8px;line-height:1.7}.tag{display:inline-flex;padding:8px 12px;border-radius:999px;border:1px solid var(--line);font-size:12px;color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:18px 0 22px}.kpi{padding:18px;border:1px solid var(--line);border-radius:18px;background:rgba(17,22,26,.9)}.kpi small{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}.kpi .val{margin-top:8px;font:800 32px/1 var(--display);letter-spacing:-.04em}.kpi .sub{margin-top:6px;font-size:12px;color:var(--green2);font-weight:700}
+.layout2{display:grid;grid-template-columns:1.3fr .9fr;gap:18px}.box{padding:20px;border:1px solid var(--line);border-radius:20px;background:rgba(17,22,26,.92)}.box h3{font-size:18px;font-family:var(--display);margin-bottom:4px}.box .subline{font-size:12px;color:var(--muted);margin-bottom:14px}.box img{width:100%;border-radius:14px;border:1px solid var(--line)}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);font-size:13px}th{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.badge{display:inline-flex;padding:4px 8px;border:1px solid var(--line2);border-radius:999px;font-size:11px;color:var(--green2)}.list{display:grid;gap:12px}.item{padding:14px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.02)}.item b{display:block;margin-bottom:6px}.item p{font-size:12px;color:var(--muted);line-height:1.6}
+.lock{max-width:520px;margin:48px auto 0;padding:0 32px 72px}.signin{padding:28px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(17,22,26,.96),rgba(11,13,15,.98))}.signin h2{font-family:var(--display);font-size:28px;letter-spacing:-.03em}.signin p{color:var(--muted);margin:10px 0 18px;line-height:1.7}.signin label{display:grid;gap:8px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:14px}.signin input{min-height:52px;padding:0 14px;border-radius:14px;border:1px solid var(--line);background:var(--panel2);color:var(--text)}.signin button{min-height:52px;width:100%;border:none;border-radius:14px;background:linear-gradient(180deg,#41d47f,#218f53);color:#05110a;font-weight:800;cursor:pointer}.msg{display:none;margin-top:12px;color:#ff9ca8;font-size:12px;font-weight:700}.msg.show{display:block}
+.tip{max-width:1152px;margin:0 auto;padding:0 32px 40px;text-align:center;font-size:11px;color:var(--muted)}.kbd{display:inline-block;padding:2px 6px;border-radius:4px;font-family:ui-monospace,Menlo,monospace;font-size:10.5px;background:rgba(255,255,255,.05);border:1px solid var(--line)}
+@media (max-width:980px){.kpis,.layout2{grid-template-columns:1fr}h1{font-size:38px}.panel-head h2{font-size:30px}}
+</style></head><body>
+<div class="nav"><a href="index.html" class="brand"><span class="mark" aria-hidden="true"><span class="dot"></span></span><span>AUTO CDP</span></a><span class="crumb">DASH MATRIX</span><div class="spacer"></div><a href="index.html" class="link">Back to home</a><a href="pricing.html" class="btn">Pricing</a></div>
+<section class="hero" id="hero"><div class="eyebrow"><span class="pip"></span>choose your view</div><h1>One platform. <span class="hl">Four simple views.</span></h1><p class="lede">Pick the dashboard that matches your day — from the whole book of business down to a single operational lane. The owner view holds the deepest material, while lower tiers stay focused and fast.</p></section>
+<section class="grid-wrap" id="roleGrid"><div class="grid" id="grid"></div></section>
+<section class="lock" id="lock" style="display:none"><div class="signin"><div class="eyebrow"><span class="pip"></span>enter the matrix</div><h2>Sign in to continue.</h2><p>Use username <b>Autocdp</b>. Password <b>1</b> opens the Owner Dashboard, <b>2</b> Operator, <b>3</b> Campaign Ops, and <b>4</b> Admin.</p><form id="loginForm"><label>Username<input name="username" type="text" placeholder="Autocdp"></label><label>Password<input name="password" type="password" placeholder="1-4"></label><button type="submit">Enter Matrix</button><div class="msg" id="loginMsg"></div></form></div></section>
 
-<div id="app" class="app" style="display:none">
-  <aside class="side" id="side">
-    <div class="brand"><span class="mark"></span><span>AutoCDP</span></div>
-    <div class="who"><small>Signed in</small><b id="whoTier">Owner · Tier 1</b></div>
-    <nav class="navlist" id="navlist">
-      <button data-go="tier1"><span class="dot"></span>Owner overview</button>
-      <button data-go="tier2"><span class="dot"></span>Operator</button>
-      <button data-go="tier3"><span class="dot"></span>Campaign Ops</button>
-      <button data-go="tier4"><span class="dot"></span>Admin</button>
-    </nav>
-    <div class="side-foot">
-      <button class="btn btn-soft" onclick="location.href='index.html'">Back to site</button>
-      <button class="btn btn-soft" id="logout">Sign out</button>
-    </div>
-  </aside>
+<section class="panel" id="owner"><div class="back" data-back>← Back to all views</div><div class="panel-head"><div><div class="eyebrow"><span class="pip"></span>tier 1 · owner</div><h2>Owner Dashboard</h2><p>The whole book of business: revenue lift, rooftops, learning loops, attribution, and the full six-agent operating layer.</p></div><span class="tag">Full access</span></div><div class="kpis"><div class="kpi"><small>Attributed revenue</small><div class="val">$698k</div><div class="sub">+11.9% month over month</div></div><div class="kpi"><small>Appointments booked</small><div class="val">1,840</div><div class="sub">+14.2% response lift</div></div><div class="kpi"><small>Active rooftops</small><div class="val">42</div><div class="sub">3 new locations live</div></div><div class="kpi"><small>Cost per appointment</small><div class="val">$31.40</div><div class="sub">8.1% lower than last period</div></div></div><div class="layout2"><div class="box"><h3>Attributed revenue trend</h3><div class="subline">Learning Ledger and closed-loop attribution · 2026</div><img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/204eb97e66305c2c2c7b03eee014df36/60015842-433a-49bf-89e3-0d750722f4f1/f97b0485.png" alt="Attributed revenue trend" loading="lazy"></div><div class="box"><h3>Network learning signals</h3><div class="subline">Angles promoted automatically across rooftops</div><div class="list"><div class="item"><b>Service-due reactivation</b><p>Top creative angle promoted to all qualifying audiences this week.</p></div><div class="item"><b>Trade-in equity trigger</b><p>High-intent households get more aggressive timing and offer framing.</p></div><div class="item"><b>Winback >90 days</b><p>Underperforming copy retired automatically by the Learning Agent.</p></div></div></div></div><div class="box" style="margin-top:18px"><h3>Rooftop performance</h3><div class="subline">Top performing dealer groups this cycle</div><table><thead><tr><th>Rooftop</th><th>Revenue</th><th>Booked</th><th>Status</th></tr></thead><tbody><tr><td>Summit Auto Group</td><td>$182k</td><td>486</td><td><span class="badge">Healthy</span></td></tr><tr><td>Lakeside Motors</td><td>$141k</td><td>372</td><td><span class="badge">Healthy</span></td></tr><tr><td>Cobalt Imports</td><td>$118k</td><td>298</td><td><span class="badge">Watch</span></td></tr><tr><td>Ridgeline Ford</td><td>$96k</td><td>241</td><td><span class="badge">Healthy</span></td></tr></tbody></table></div><div class="box" style="margin-top:18px"><h3>Agentic operating layer</h3><div class="subline">The six-agent swarm running the platform</div><div class="grid" style="grid-template-columns:repeat(3,1fr)"><div class="item"><b>Orchestrator</b><p>Routes work across the entire execution chain.</p></div><div class="item"><b>Data Intelligence</b><p>Scores customer value, timing, and churn signals.</p></div><div class="item"><b>Audience Targeting</b><p>Selects best-fit customer cohorts and channels.</p></div><div class="item"><b>Creative Generation</b><p>Writes recipient-level copy and personalized offers.</p></div><div class="item"><b>Compliance Review</b><p>Applies FCRA, DNC, TCPA, and policy gates before send.</p></div><div class="item"><b>Learning & Optimization</b><p>Promotes what wins and retires what loses.</p></div></div></div></section>
 
-  <main class="main">
-    <div class="topbar">
-      <div>
-        <button class="btn btn-soft menu-btn" id="menuBtn" style="margin-bottom:10px">Menu</button>
-        <div class="eyebrow">Matrix dashboard</div>
-        <h1 id="viewTitle" style="margin-top:10px;font-size:1.7rem">Owner overview</h1>
-      </div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="pill">Live · 6-agent swarm</span><span class="pill">v16 Alignment</span></div>
-    </div>
+<section class="panel" id="operator"><div class="back" data-back>← Back to all views</div><div class="panel-head"><div><div class="eyebrow"><span class="pip"></span>tier 2 · operator</div><h2>Operator Dashboard</h2><p>Campaign visibility, approvals, queue health, and channel mix across the active operating window.</p></div><span class="tag">Scoped access</span></div><div class="kpis"><div class="kpi"><small>Active campaigns</small><div class="val">17</div><div class="sub">4 added this week</div></div><div class="kpi"><small>Audience in queue</small><div class="val">62.4k</div><div class="sub">9.3% larger than last wave</div></div><div class="kpi"><small>Approvals pending</small><div class="val">5</div><div class="sub">2 need review today</div></div><div class="kpi"><small>Avg conversion</small><div class="val">5.1%</div><div class="sub">0.4pt improvement</div></div></div><div class="layout2"><div class="box"><h3>Channel conversion</h3><div class="subline">Conversion rate by channel · Q2 2026</div><img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/204eb97e66305c2c2c7b03eee014df36/60015842-433a-49bf-89e3-0d750722f4f1/78423dfb.png" alt="Channel conversion chart" loading="lazy"></div><div class="box"><h3>Approvals queue</h3><div class="subline">Operator review and release</div><div class="list"><div class="item"><b>Service-due May batch</b><p>Awaiting release after final copy review.</p></div><div class="item"><b>Conquest SUV owners</b><p>Overdue. Needs budget sign-off and audience approval.</p></div><div class="item"><b>Winback >120 days</b><p>Ready for operator approval this afternoon.</p></div></div></div></div></section>
 
-    <!-- TIER 1 OWNER -->
-    <section class="tier-view active" id="tier1">
-      <div class="kpis">
-        <div class="kpi"><small>Attributed revenue</small><div class="val">$698k</div><div class="chg up">▲ 11.9% MoM</div></div>
-        <div class="kpi"><small>Appointments booked</small><div class="val">1,840</div><div class="chg up">▲ 14.2%</div></div>
-        <div class="kpi"><small>Cost per appt</small><div class="val">$31.40</div><div class="chg up">▼ 8.1%</div></div>
-        <div class="kpi"><small>Active rooftops</small><div class="val">42</div><div class="chg up">▲ 3 new</div></div>
-      </div>
-      <div class="grid2">
-        <div class="card"><h3>Attributed revenue</h3><div class="sub">Closed-loop attribution, all rooftops · 2026</div><img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/204eb97e66305c2c2c7b03eee014df36/60015842-433a-49bf-89e3-0d750722f4f1/f97b0485.png" alt="Attributed revenue by month" width="100%" loading="lazy"></div>
-        <div class="card"><h3>Network learning</h3><div class="sub">Patterns inherited from the network</div>
-          <p style="color:var(--muted);font-size:.9rem">Winning angles promoted into the Creative Agent across all rooftops.</p>
-          <div style="margin-top:14px"><b>Service-due reactivation</b><div class="bar"><i style="width:86%"></i></div></div>
-          <div style="margin-top:12px"><b>Trade-in equity offers</b><div class="bar"><i style="width:72%"></i></div></div>
-          <div style="margin-top:12px"><b>Lapsed >90 days winback</b><div class="bar"><i style="width:64%"></i></div></div>
-        </div>
-      </div>
-      <h3 class="section-title" style="margin-top:24px">Intelligence layer · 6 agents</h3>
-      <div class="agentgrid" style="margin-top:12px">
-        <div class="agent"><span class="mdl">Opus 4.8</span><b>Orchestrator</b><p>Plans and routes the full execution pipeline.</p></div>
-        <div class="agent"><span class="mdl">Sonnet 4.6</span><b>Data Intelligence</b><p>Scores churn, value, and lifecycle per customer.</p></div>
-        <div class="agent"><span class="mdl">Sonnet 4.6</span><b>Audience Targeting</b><p>Selects channel and timing per recipient.</p></div>
-        <div class="agent"><span class="mdl">Sonnet 4.6</span><b>Creative Generation</b><p>Writes unique copy per recipient and channel.</p></div>
-        <div class="agent"><span class="mdl">Haiku 4.5</span><b>Compliance Review</b><p>Enforces TCPA, CAN-SPAM, FCRA, DNC pre-send.</p></div>
-        <div class="agent"><span class="mdl">Sonnet 4.6</span><b>Learning & Optimization</b><p>Reconciles outcomes, compounds what works.</p></div>
-      </div>
-      <div class="card" style="margin-top:18px"><h3>Rooftop performance</h3><div class="sub">Top groups this period</div>
-        <table><thead><tr><th>Rooftop</th><th>Revenue</th><th>Appts</th><th>CPA</th><th>Status</th></tr></thead><tbody>
-        <tr><td>Summit Auto Group</td><td>$182k</td><td>486</td><td>$28.90</td><td><span class="tag ok">Healthy</span></td></tr>
-        <tr><td>Lakeside Motors</td><td>$141k</td><td>372</td><td>$30.10</td><td><span class="tag ok">Healthy</span></td></tr>
-        <tr><td>Cobalt Imports</td><td>$118k</td><td>298</td><td>$34.70</td><td><span class="tag warn">Watch</span></td></tr>
-        <tr><td>Ridgeline Ford</td><td>$96k</td><td>241</td><td>$33.20</td><td><span class="tag ok">Healthy</span></td></tr>
-        </tbody></table></div>
-    </section>
+<section class="panel" id="campaign"><div class="back" data-back>← Back to all views</div><div class="panel-head"><div><div class="eyebrow"><span class="pip"></span>tier 3 · campaign ops</div><h2>Campaign Ops Dashboard</h2><p>Execution detail, mail volume, scan behavior, booking flow, and live job routing across the campaign stack.</p></div><span class="tag">Execution access</span></div><div class="kpis"><div class="kpi"><small>Pieces sent</small><div class="val">24.8k</div><div class="sub">Latest campaign batch</div></div><div class="kpi"><small>QR scans</small><div class="val">5,120</div><div class="sub">20.6% scan rate</div></div><div class="kpi"><small>Booked</small><div class="val">1,840</div><div class="sub">35.9% of scans booked</div></div><div class="kpi"><small>Compliance blocks</small><div class="val">312</div><div class="sub">All resolved in current queue</div></div></div><div class="layout2"><div class="box"><h3>Direct mail funnel</h3><div class="subline">Per-piece QR attribution from sent to booked</div><img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/204eb97e66305c2c2c7b03eee014df36/60015842-433a-49bf-89e3-0d750722f4f1/70a3d807.png" alt="Direct mail funnel" loading="lazy"></div><div class="box"><h3>Live job queue</h3><div class="subline">Execution systems and state</div><div class="list"><div class="item"><b>Postcards → PostGrid</b><p>Printing and handoff in progress.</p></div><div class="item"><b>SMS → Twilio</b><p>Delivered successfully to queued audience.</p></div><div class="item"><b>Email → Resend</b><p>Last send completed. Awaiting click reconciliation.</p></div><div class="item"><b>CRM write-back</b><p>Syncing scan, response, and booking events.</p></div></div></div></div></section>
 
-    <!-- TIER 2 OPERATOR -->
-    <section class="tier-view" id="tier2">
-      <div class="kpis">
-        <div class="kpi"><small>Active campaigns</small><div class="val">17</div><div class="chg up">▲ 4</div></div>
-        <div class="kpi"><small>Audience in queue</small><div class="val">62,400</div><div class="chg up">▲ 9.3%</div></div>
-        <div class="kpi"><small>Approvals pending</small><div class="val">5</div><div class="chg down">2 overdue</div></div>
-        <div class="kpi"><small>Avg conversion</small><div class="val">5.1%</div><div class="chg up">▲ 0.4pt</div></div>
-      </div>
-      <div class="grid2">
-        <div class="card"><h3>Channel performance</h3><div class="sub">Conversion by channel · Q2 2026</div><img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/204eb97e66305c2c2c7b03eee014df36/60015842-433a-49bf-89e3-0d750722f4f1/78423dfb.png" alt="Conversion by channel" width="100%" loading="lazy"></div>
-        <div class="card"><h3>Approvals queue</h3><div class="sub">Operator sign-off required</div>
-        <table><tbody>
-        <tr><td>Service-due May batch</td><td><span class="tag run">Review</span></td></tr>
-        <tr><td>Conquest – SUV owners</td><td><span class="tag warn">Overdue</span></td></tr>
-        <tr><td>Winback >120 days</td><td><span class="tag run">Review</span></td></tr>
-        <tr><td>Trade-in equity wave 3</td><td><span class="tag ok">Approved</span></td></tr>
-        </tbody></table></div>
-      </div>
-    </section>
+<section class="panel" id="admin"><div class="back" data-back>← Back to all views</div><div class="panel-head"><div><div class="eyebrow"><span class="pip"></span>tier 4 · admin</div><h2>Admin Dashboard</h2><p>Integrations, credentials, permissions, and operational health for the Matrix environment.</p></div><span class="tag">Access control</span></div><div class="kpis"><div class="kpi"><small>Users</small><div class="val">38</div><div class="sub">2 recently added</div></div><div class="kpi"><small>Connected systems</small><div class="val">7</div><div class="sub">All healthy</div></div><div class="kpi"><small>API uptime</small><div class="val">99.98%</div><div class="sub">30-day average</div></div><div class="kpi"><small>Open requests</small><div class="val">3</div><div class="sub">Pending access changes</div></div></div><div class="layout2"><div class="box"><h3>Connected systems</h3><div class="subline">DMS, CRM, and outbound execution stack</div><table><thead><tr><th>System</th><th>Type</th><th>Status</th></tr></thead><tbody><tr><td>CDK Fortellis</td><td>DMS</td><td><span class="badge">Connected</span></td></tr><tr><td>Reynolds & Reynolds</td><td>DMS</td><td><span class="badge">Connected</span></td></tr><tr><td>VinSolutions</td><td>CRM</td><td><span class="badge">Connected</span></td></tr><tr><td>PostGrid</td><td>Direct mail</td><td><span class="badge">Connected</span></td></tr><tr><td>Twilio</td><td>SMS</td><td><span class="badge">Connected</span></td></tr></tbody></table></div><div class="box"><h3>Permission model</h3><div class="subline">Tier-based access by role</div><div class="list"><div class="item"><b>Owner (Tier 1)</b><p>Full cross-rooftop access to commercial, attribution, and learning views.</p></div><div class="item"><b>Operator (Tier 2)</b><p>Campaign controls, approvals, and routing visibility.</p></div><div class="item"><b>Campaign Ops (Tier 3)</b><p>Execution queue, mail status, and job monitoring.</p></div><div class="item"><b>Admin (Tier 4)</b><p>Credential changes, environment settings, and integrations.</p></div></div></div></div></section>
 
-    <!-- TIER 3 CAMPAIGN OPS -->
-    <section class="tier-view" id="tier3">
-      <div class="kpis">
-        <div class="kpi"><small>Pieces sent</small><div class="val">24,800</div><div class="chg up">latest run</div></div>
-        <div class="kpi"><small>QR scans</small><div class="val">5,120</div><div class="chg up">20.6% scan rate</div></div>
-        <div class="kpi"><small>Booked</small><div class="val">1,840</div><div class="chg up">35.9% of scans</div></div>
-        <div class="kpi"><small>Compliance blocks</small><div class="val">312</div><div class="chg down">resolved</div></div>
-      </div>
-      <div class="grid2">
-        <div class="card"><h3>Direct mail funnel</h3><div class="sub">Per-piece QR attribution · latest campaign</div><img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/204eb97e66305c2c2c7b03eee014df36/60015842-433a-49bf-89e3-0d750722f4f1/70a3d807.png" alt="Direct mail funnel" width="100%" loading="lazy"></div>
-        <div class="card"><h3>Live job queue</h3><div class="sub">Execution status</div>
-        <table><tbody>
-        <tr><td>Postcards → PostGrid</td><td><span class="tag run">Printing</span></td></tr>
-        <tr><td>SMS → Twilio</td><td><span class="tag ok">Sent</span></td></tr>
-        <tr><td>Email → Resend</td><td><span class="tag ok">Sent</span></td></tr>
-        <tr><td>CRM write-back</td><td><span class="tag run">Syncing</span></td></tr>
-        </tbody></table></div>
-      </div>
-    </section>
-
-    <!-- TIER 4 ADMIN -->
-    <section class="tier-view" id="tier4">
-      <div class="kpis">
-        <div class="kpi"><small>Users</small><div class="val">38</div><div class="chg up">▲ 2</div></div>
-        <div class="kpi"><small>Connected systems</small><div class="val">7</div><div class="chg up">all healthy</div></div>
-        <div class="kpi"><small>API uptime</small><div class="val">99.98%</div><div class="chg up">30-day</div></div>
-        <div class="kpi"><small>Open access requests</small><div class="val">3</div><div class="chg down">pending</div></div>
-      </div>
-      <div class="grid2">
-        <div class="card"><h3>Integrations</h3><div class="sub">Source and execution systems</div>
-        <table><thead><tr><th>System</th><th>Type</th><th>Status</th></tr></thead><tbody>
-        <tr><td>CDK Fortellis</td><td>DMS</td><td><span class="tag ok">Connected</span></td></tr>
-        <tr><td>Reynolds & Reynolds</td><td>DMS</td><td><span class="tag ok">Connected</span></td></tr>
-        <tr><td>VinSolutions</td><td>CRM</td><td><span class="tag ok">Connected</span></td></tr>
-        <tr><td>PostGrid</td><td>Direct mail</td><td><span class="tag ok">Connected</span></td></tr>
-        <tr><td>Twilio</td><td>SMS</td><td><span class="tag ok">Connected</span></td></tr>
-        </tbody></table></div>
-        <div class="card"><h3>Roles & permissions</h3><div class="sub">Tier-based access control</div>
-        <table><tbody>
-        <tr><td>Owner (Tier 1)</td><td><span class="tag ok">Full</span></td></tr>
-        <tr><td>Operator (Tier 2)</td><td><span class="tag run">Scoped</span></td></tr>
-        <tr><td>Campaign Ops (Tier 3)</td><td><span class="tag run">Scoped</span></td></tr>
-        <tr><td>Admin (Tier 4)</td><td><span class="tag warn">Access control</span></td></tr>
-        </tbody></table></div>
-      </div>
-    </section>
-  </main>
-</div>
-
+<div class="tip" id="tip">Press <span class="kbd">K</span> anywhere to jump back to the role grid. The current site color system now carries through the Matrix experience.</div>
 <script>
-(function(){
-  var TIERS={
-    '1':{key:'tier1',label:'Owner · Tier 1',title:'Owner overview',allow:['tier1','tier2','tier3','tier4']},
-    '2':{key:'tier2',label:'Operator · Tier 2',title:'Operator',allow:['tier2','tier3']},
-    '3':{key:'tier3',label:'Campaign Ops · Tier 3',title:'Campaign Ops',allow:['tier3']},
-    '4':{key:'tier4',label:'Admin · Tier 4',title:'Admin',allow:['tier4']}
-  };
-  var TITLES={tier1:'Owner overview',tier2:'Operator',tier3:'Campaign Ops',tier4:'Admin'};
-  var session=null;
-  var lock=document.getElementById('lock'),app=document.getElementById('app');
-  var form=document.getElementById('loginForm'),msg=document.getElementById('loginMsg');
-
-  function showView(key){
-    document.querySelectorAll('.tier-view').forEach(function(v){v.classList.toggle('active',v.id===key);});
-    document.querySelectorAll('#navlist button').forEach(function(b){b.classList.toggle('active',b.dataset.go===key);});
-    document.getElementById('viewTitle').textContent=TITLES[key];
-    document.getElementById('side').classList.remove('open');
-    window.scrollTo({top:0});
-  }
-  function applySession(t){
-    session=TIERS[t];
-    document.getElementById('whoTier').textContent=session.label;
-    document.querySelectorAll('#navlist button').forEach(function(b){
-      var allowed=session.allow.indexOf(b.dataset.go)>-1;
-      b.classList.toggle('locked',!allowed);
-      b.disabled=!allowed;
-    });
-    showView(session.key);
-    lock.style.display='none';app.style.display='grid';
-  }
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var u=form.username.value.trim().toLowerCase(),p=form.password.value.trim();
-    if(u==='autocdp'&&TIERS[p]){msg.classList.remove('show');applySession(p);}
-    else{msg.textContent='Use username Autocdp and password 1-4.';msg.classList.add('show');}
-  });
-  document.getElementById('navlist').addEventListener('click',function(e){
-    var btn=e.target.closest('button[data-go]');if(!btn||btn.disabled)return;showView(btn.dataset.go);
-  });
-  document.getElementById('logout').addEventListener('click',function(){session=null;app.style.display='none';lock.style.display='grid';form.reset();});
-  document.getElementById('menuBtn').addEventListener('click',function(){document.getElementById('side').classList.toggle('open');});
-})();
-</script>
-</body></html>
+const ROLES=[
+  {id:'owner', tier:'TIER 1 · OWNER', name:'Owner Dashboard', icon:'◈', desc:'The full commercial view. Revenue, rooftops, attribution, learning loops, and the complete operating picture.', login:'Autocdp / 1'},
+  {id:'operator', tier:'TIER 2 · OPERATOR', name:'Operator Dashboard', icon:'◫', desc:'Campaign visibility, approvals, queue health, and live performance by channel and audience.', login:'Autocdp / 2'},
+  {id:'campaign', tier:'TIER 3 · CAMPAIGN OPS', name:'Campaign Ops Dashboard', icon:'◎', desc:'Execution detail, per-piece direct mail flow, scans, bookings, and live outbound jobs.', login:'Autocdp / 3'},
+  {id:'admin', tier:'TIER 4 · ADMIN', name:'Admin Dashboard', icon:'▣', desc:'Roles, integrations, uptime, settings, and matrix-level system health.', login:'Autocdp / 4'}
+];
+const accessMap={'1':'owner','2':'operator','3':'campaign','4':'admin'};
+const grid=document.getElementById('grid'); const hero=document.getElementById('hero'); const gridWrap=document.getElementById('roleGrid'); const lock=document.getElementById('lock');
+let requestedRole='owner';
+ROLES.forEach(function(r){const a=document.createElement('a');a.className='card';a.href='#';a.innerHTML=`<span class="top"></span><div class="row"><span class="tier">${r.tier}</span><div class="icon" aria-hidden="true">${r.icon}</div></div><div class="name">${r.name}</div><p class="desc">${r.desc}</p><div class="foot"><span>login ${r.login}</span><span class="enter">enter →</span></div>`;a.addEventListener('click',function(e){e.preventDefault();requestedRole=r.id;hero.style.display='none';gridWrap.style.display='none';lock.style.display='block';window.scrollTo({top:0,behavior:'smooth'});});grid.appendChild(a);});
+function showPanel(id){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));const panel=document.getElementById(id);if(panel)panel.classList.add('active');lock.style.display='none';hero.style.display='none';gridWrap.style.display='none';window.scrollTo({top:0,behavior:'smooth'});}
+document.querySelectorAll('[data-back]').forEach(el=>el.addEventListener('click',()=>{document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));lock.style.display='none';hero.style.display='block';gridWrap.style.display='block';window.scrollTo({top:0,behavior:'smooth'});}));
+document.getElementById('loginForm').addEventListener('submit',function(e){e.preventDefault();const u=this.username.value.trim().toLowerCase();const p=this.password.value.trim();const msg=document.getElementById('loginMsg');if(u==='autocdp'&&accessMap[p]){if(requestedRole!==accessMap[p]&&p!=='1'){msg.textContent='That password does not match the view you selected. Owner password 1 can review everything.';msg.classList.add('show');return;}msg.classList.remove('show');showPanel(accessMap[p]);}else{msg.textContent='Use username Autocdp and password 1, 2, 3, or 4.';msg.classList.add('show');}});
+document.addEventListener('keydown',function(e){if(e.key.toLowerCase()==='k'){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));lock.style.display='none';hero.style.display='block';gridWrap.style.display='block';window.scrollTo({top:0,behavior:'smooth'});}});
+</script></body></html>
