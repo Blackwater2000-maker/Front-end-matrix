@@ -19,17 +19,10 @@ header.site{position:sticky;top:0;z-index:80;background:rgba(7,12,22,.78);backdr
 .btn{min-height:52px;border-radius:16px;display:inline-flex;align-items:center;justify-content:center;padding:0 18px;font-weight:800;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text)}.btn:hover{transform:translateY(-1px)}.btn-primary{background:linear-gradient(180deg,#6ea1ff,#4f83ec);color:#09111f;border-color:transparent;box-shadow:0 16px 34px rgba(89,140,245,.28)}.btn-ghost{background:rgba(255,255,255,.025)}
 @media (min-width:900px){.hero-shell{grid-template-columns:1.05fr .95fr;align-items:stretch}.price-grid{grid-template-columns:repeat(3,1fr)}.price-card.featured{transform:translateY(-6px)}.info-grid,.matrix-grid{grid-template-columns:1fr 1fr}.hero-actions,.card-actions,.matrix-actions,.mini-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:760px){.wrap{width:min(var(--page-max),calc(100% - 22px))}.nav-links{display:none}.nav-actions .btn{display:none}.navbar{min-height:72px}.glass-hero,.glass-panel,.price-card,.matrix-card{border-radius:24px}.hero-title{max-width:11ch}.hero-media{display:none}.section{padding:12px 0}.price-card.featured{order:-1}} .mobile-drawer{position:absolute;left:0;right:0;top:78px;padding:12px 16px;background:rgba(8,13,24,.98);border-bottom:1px solid var(--line);display:none}.mobile-drawer.show{display:block}.mobile-nav{display:grid;gap:8px}.mobile-nav a{padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);font-weight:700}
-</style>
+.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:24px;align-items:start}.footer h3{margin:0 0 12px;font-size:1rem;letter-spacing:-.02em}.footer-links{display:grid;gap:10px}.footer-links a{color:var(--muted)}.footer-links a:hover{color:var(--text)}.footer-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:26px;padding-top:18px}@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}@media(max-width:640px){.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column}}</style>
 </head>
 <body>
-<header class="site">
-  <div class="wrap navbar">
-    <a class="logo" href="index.html"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15.5 12 4l8 11.5"/><path d="M7.5 15.5h9"/><path d="M9.5 19h5"/></svg></span>AutoCDP</a>
-    <nav class="nav-links"><a href="platform.html">Platform</a><a href="tech.html">Tech</a><a href="executive-matrix.html">Matrix</a><a href="resources.html">Resources</a><a href="pricing.html">Pricing</a></nav>
-    <div class="nav-actions"><a class="btn" href="pricing.html">Pricing</a><button class="menu-btn" data-menu aria-label="Open menu">☰</button></div>
-  </div>
-  <div class="mobile-drawer" data-mobile-drawer hidden><nav class="mobile-nav" aria-label="Mobile navigation"><a href="index.html">Home</a><a href="platform.html">Platform</a><a href="tech.html">Tech</a><a href="executive-matrix.html">Matrix</a><a href="resources.html">Resources</a><a href="pricing.html">Pricing</a><a href="access.html">Access</a></nav></div>
-</header>
+<header class="site"><div class="container nav"><a class="brand" href="index.html"><span class="mark"></span><span>AutoCDP</span></a><nav class="links" aria-label="Primary navigation"><a href="platform.html">Platform</a><a href="tech.html">Tech</a><a href="ai-agents.html">AI agents</a><a href="closed-loop.html">Closed loop</a><a href="direct-mail.html">Direct mail</a><a href="executive-matrix.html">Matrix</a><a href="resources.html">Resources</a><a href="pricing.html">Pricing</a></nav><div class="actions nav-actions"><a class="btn" href="access.html">Access</a><a class="btn btn-primary" href="pricing.html">See pricing</a><button class="btn menu-toggle" data-menu-toggle aria-label="Open menu">Menu</button></div></div><div class="mobile-drawer" data-mobile-drawer hidden><nav class="mobile-nav" aria-label="Mobile navigation"><a href="index.html">Home</a><a href="platform.html">Platform</a><a href="tech.html">Tech</a><a href="ai-agents.html">AI agents</a><a href="closed-loop.html">Closed loop</a><a href="direct-mail.html">Direct mail</a><a href="executive-matrix.html">Matrix</a><a href="resources.html">Resources</a><a href="pricing.html">Pricing</a><a href="access.html">Access</a></nav></div></header>
 <main>
   <section class="hero">
     <div class="wrap hero-shell">
@@ -37,7 +30,7 @@ header.site{position:sticky;top:0;z-index:80;background:rgba(7,12,22,.78);backdr
         <span class="eyebrow">Access page · aligned to site optics</span>
         <h1 class="hero-title">Pricing should lead this page.</h1>
         <p class="lead">The access layer now follows the same dark premium look as the main website, with tighter spacing, cleaner cards, softer blue accents, and a more confident sequence: pricing first, then tier context, then Matrix entry.</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="#pricing">View pricing</a><a class="btn btn-ghost" href="#matrix">Go to Matrix</a><a class="btn btn-ghost" href="index.html">Return home</a></div>
+        <div class="hero-actions"><a class="btn btn-primary" href="pricing.html">View pricing</a><a class="btn btn-ghost" href="#matrix">Go to Matrix</a><a class="btn btn-ghost" href="index.html">Return home</a></div>
       </article>
       <article class="hero-media"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80" alt="AutoCDP premium website cover art" width="1600" height="1000" loading="lazy"></article>
     </div>
@@ -109,7 +102,7 @@ header.site{position:sticky;top:0;z-index:80;background:rgba(7,12,22,.78);backdr
       </article>
     </div>
   </section>
-</main>
+</main><footer class="footer"><div class="container footer-grid"><div><a class="brand" href="index.html" style="margin-bottom:14px;display:inline-flex"><span class="mark"></span><span>AutoCDP</span></a><p style="margin-top:0">Autonomous customer execution for automotive retail, with direct navigation to every major page instead of in-page scroll destinations.</p></div><div><h3>Platform</h3><div class="footer-links"><a href="platform.html">Platform overview</a><a href="tech.html">Technical architecture</a><a href="ai-agents.html">AI agents</a><a href="closed-loop.html">Closed-loop measurement</a></div></div><div><h3>Solutions</h3><div class="footer-links"><a href="direct-mail.html">Direct mail</a><a href="executive-matrix.html">Executive Matrix</a><a href="pricing.html">Pricing</a><a href="access.html">Access</a></div></div><div><h3>Explore</h3><div class="footer-links"><a href="resources.html">Resources</a><a href="index.html">Homepage</a><a href="dashboard.html">Dashboard</a></div></div></div><div class="container footer-bottom"><span>AutoCDP Front-end Matrix</span><span><a href="pricing.html">Pricing</a> · <a href="resources.html">Resources</a> · <a href="access.html">Access</a></span></div></footer>
 <script>
 const drawer=document.querySelector('[data-mobile-drawer]');
 const menuBtn=document.querySelector('[data-menu]');
@@ -119,5 +112,5 @@ document.addEventListener('click',e=>{if(drawer&&drawer.classList.contains('show
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&drawer){drawer.classList.remove('show');drawer.hidden=true;}});
 const tierMap={1:'owner',2:'agency',3:'dealer',4:'staff'};const tierCode=document.getElementById('tierCode');const tierErr=document.getElementById('tierErr');document.getElementById('enterMatrix')?.addEventListener('click',()=>{const v=(tierCode?.value||'').trim();const role=tierMap[v];if(role){tierErr.style.display='none';location.href='dashboard.html?role='+role+'&page=overview';}else{tierErr.style.display='block';}});tierCode?.addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('enterMatrix')?.click();});
 </script>
-</body>
+<script>const menuToggle=document.querySelector('[data-menu-toggle]');const drawer=document.querySelector('[data-mobile-drawer]');menuToggle?.addEventListener('click',()=>{if(!drawer)return;const open=!drawer.classList.contains('show');drawer.hidden=!open?true:false;drawer.classList.toggle('show',open);if(open)drawer.hidden=false;menuToggle.setAttribute('aria-expanded',open?'true':'false');});document.querySelectorAll('[data-mobile-drawer] a').forEach(a=>a.addEventListener('click',()=>{if(drawer){drawer.classList.remove('show');drawer.hidden=true;}}));document.addEventListener('click',e=>{if(drawer&&drawer.classList.contains('show')&&!drawer.contains(e.target)&&!e.target.closest('[data-menu-toggle]')){drawer.classList.remove('show');drawer.hidden=true;}});</script></body>
 </html>
