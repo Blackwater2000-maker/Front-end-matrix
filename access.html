@@ -35,10 +35,10 @@ footer.site{border-top:1px solid var(--border);padding:54px 0 60px;color:var(--m
 <header class="site">
   <div class="wrap navbar">
     <a class="logo" href="#top"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15.5 12 4l8 11.5"/><path d="M7.5 15.5h9"/><path d="M9.5 19h5"/></svg></span>AutoCDP</a>
-    <nav class="nav-links"><a href="#difference">Difference</a><a href="#how">How it works</a><a href="#agents">Agents</a><a href="#matrix">Matrix access</a><a href="#architecture">Architecture</a></nav>
-    <div class="nav-actions"><button class="icon-btn" data-theme-toggle aria-label="Toggle theme">◐</button><a class="btn btn-primary" href="#matrix">Access Matrix</a><button class="icon-btn menu-btn" data-menu aria-label="Menu">☰</button></div>
+    <nav class="nav-links"><a href="platform.html">Platform</a><a href="tech.html">Tech</a><a href="ai-agents.html">AI agents</a><a href="closed-loop.html">Closed loop</a><a href="direct-mail.html">Direct mail</a><a href="executive-matrix.html">Matrix</a><a href="resources.html">Resources</a><a href="pricing.html">Pricing</a></nav>
+    <div class="nav-actions"><a class="btn btn-primary" href="#matrix">Access Matrix</a><button class="icon-btn menu-btn" data-menu aria-label="Menu">☰</button></div>
   </div>
-</header>
+<div class="mobile-drawer" data-mobile-drawer hidden><nav class="mobile-nav" aria-label="Mobile navigation"><a href="index.html">Home</a><a href="platform.html">Platform</a><a href="tech.html">Tech</a><a href="ai-agents.html">AI agents</a><a href="closed-loop.html">Closed loop</a><a href="direct-mail.html">Direct mail</a><a href="executive-matrix.html">Matrix</a><a href="resources.html">Resources</a><a href="pricing.html">Pricing</a><a href="access.html">Access</a></nav></div></header>
 <main id="top">
   <section class="hero">
     <div class="wrap hero-grid">
@@ -61,6 +61,8 @@ footer.site{border-top:1px solid var(--border);padding:54px 0 60px;color:var(--m
       </aside>
     </div>
   </section>
+
+  <section class="band"><div class="wrap grid-2"><article class="hero-panel glass"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80" alt="Access experience preview" width="1600" height="900" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover"><div style="padding:20px 22px"><div class="eyebrow">Access experience preview</div><h2 style="margin-bottom:10px">Dark-mode gateway into the Matrix.</h2><p class="sub" style="margin:0">This page now sits visually closer to the rest of the site with a darker palette, fuller navigation, and a cleaner bridge into the executive environment.</p></div></article><article class="hero-panel glass"><div class="signal-grid"><div class="metric"><div class="lbl">Technical view</div><div class="num">Closed loop</div><div class="sub">Opportunity Engine to Learning Ledger.</div></div><div class="metric"><div class="lbl">Whitepaper status</div><div class="num">v4.0</div><div class="sub">v16 Alignment Release framing.</div></div><div class="metric"><div class="lbl">Access path</div><div class="num">Live</div><div class="sub">Public site → Access → Matrix.</div></div></div></article></div></section>
 
   <section class="band" id="difference">
     <div class="wrap">
@@ -139,8 +141,8 @@ footer.site{border-top:1px solid var(--border);padding:54px 0 60px;color:var(--m
 </div>
 <script>
 (()=>{
-const root=document.documentElement;const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;let theme=root.getAttribute('data-theme')||(prefersDark?'dark':'light');root.setAttribute('data-theme',theme);document.querySelector('[data-theme-toggle]')?.addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';root.setAttribute('data-theme',theme);});
-const modal=document.getElementById('loginModal');const open=()=>modal.classList.add('open');const close=()=>modal.classList.remove('open');document.querySelectorAll('[data-open-login]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();open();}));document.querySelector('[data-close-login]').addEventListener('click',close);modal.addEventListener('click',e=>{if(e.target===modal)close();});document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+const root=document.documentElement;const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;let theme=root.getAttribute('data-theme')||(prefersDark?'dark':'light');root.setAttribute('data-theme',theme);
+const drawer=document.querySelector('[data-mobile-drawer]');document.querySelector('[data-menu]')?.addEventListener('click',()=>{drawer.hidden=false;drawer.classList.toggle('show')});const modal=document.getElementById('loginModal');const open=()=>modal.classList.add('open');const close=()=>modal.classList.remove('open');document.querySelectorAll('[data-open-login]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();open();}));document.querySelector('[data-close-login]').addEventListener('click',close);modal.addEventListener('click',e=>{if(e.target===modal)close();});document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
 
 })();
 const tierMap={1:'owner',2:'agency',3:'dealer',4:'staff'};const tierCode=document.getElementById('tierCode');const tierErr=document.getElementById('tierErr');document.getElementById('enterMatrix')?.addEventListener('click',()=>{const v=(tierCode?.value||'').trim();const role=tierMap[v];if(role){tierErr?.classList.remove('show');location.href='dashboard.html?role='+role+'&page=overview';}else{tierErr?.classList.add('show');}});tierCode?.addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('enterMatrix')?.click();});</script>
