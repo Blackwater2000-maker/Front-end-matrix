@@ -4,18 +4,21 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>AutoCDP — Access</title>
-<meta name="description" content="Access AutoCDP pricing, technical overview, and Matrix entry for owners, agencies, dealers, and staff."/>
+<meta name="description" content="Review pricing, understand tiers, and enter the AutoCDP Matrix from a page that matches the main site."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
-header.site{position:sticky;top:0;z-index:60;backdrop-filter:blur(20px);background:rgba(7,13,24,.92);border-bottom:1px solid var(--border)}
-.navbar{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:14px}.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.05rem}.logo .mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(180deg,var(--primary),var(--primary-2));display:grid;place-items:center;box-shadow:0 12px 24px var(--glow)}.logo .mark svg{width:22px;height:22px;color:#06101d}.nav-links{display:flex;gap:22px;align-items:center}.nav-links a{font-size:.92rem;font-weight:700;color:var(--muted)}.nav-links a:hover{color:var(--text)}.nav-actions{display:flex;gap:10px;align-items:center}.icon-btn{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--text)}
-.hero{padding:20px 0 10px}.hero-grid,.price-grid,.grid-2,.mini-grid{display:grid;grid-template-columns:1fr;gap:14px}.hero-card,.hero-media,.price-card,.panel-card,.matrix-card{padding:20px}.hero-card h1,.section-title{font-family:Manrope,Inter,sans-serif;letter-spacing:-.05em}.hero-card h1{font-size:clamp(2rem,8vw,4rem);line-height:1.02;margin:14px 0}.lead{font-size:1rem;max-width:58ch}.hero-actions,.matrix-actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:18px}.hero-media img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:20px}.section{padding:12px 0}.section-title{font-size:clamp(1.5rem,5vw,2.5rem);margin:0 0 10px}.price-card h3{font-family:Manrope,Inter,sans-serif;margin:10px 0 6px}.price{font-size:1.85rem;font-weight:800;margin-bottom:8px}.small{font-size:.92rem;color:var(--muted)}.stack{display:grid;gap:12px}.line-list{display:grid;gap:10px;margin-top:12px}.line-item{padding:14px 16px;border-radius:16px;border:1px solid var(--border);background:rgba(255,255,255,.03)}
-.matrix-card input{width:100%;min-height:56px;border-radius:16px;border:1px solid var(--border);background:#0b1425;color:var(--text);padding:0 16px;margin:14px 0 10px}.hint{margin-top:10px;padding:14px 16px;border-radius:16px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--muted)}
-.footer-links{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.footer-links .btn{width:100%}
-@media (min-width:960px){.hero-grid{grid-template-columns:1.02fr .98fr}.price-grid{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:1fr 1fr}.hero-actions,.matrix-actions{display:flex;flex-wrap:wrap}.footer-links{display:flex;flex-wrap:wrap}.hero-card,.hero-media,.price-card,.panel-card,.matrix-card{padding:22px}}
-@media (max-width:760px){.nav-links{display:none}.nav-actions .btn{display:none}.navbar{padding:12px 0}.mobile-drawer{top:74px}.footer-links{grid-template-columns:1fr}.logo{font-size:1rem}}
+:root{--page-max:1180px;--surface-strong:#0f1728;--surface-soft:#121c31;--surface-elev:#16233d;--line:rgba(159,180,216,.16);--line-strong:rgba(159,180,216,.24);--text-soft:#aebbd3;--blue-glow:rgba(86,149,255,.22)}
+body{background:radial-gradient(circle at top left, rgba(69,118,214,.16), transparent 34%),linear-gradient(180deg,#0a1120 0%,#0c1425 46%,#0b1322 100%)}
+header.site{position:sticky;top:0;z-index:80;background:rgba(7,12,22,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.wrap{width:min(var(--page-max),calc(100% - 32px));margin:0 auto}.navbar{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:16px}.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.05rem;color:var(--text)}.logo .mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(180deg,#77a8ff,#4f83ec);display:grid;place-items:center;box-shadow:0 14px 30px var(--blue-glow)}.logo .mark svg{width:22px;height:22px;color:#07111f}.nav-links{display:flex;align-items:center;gap:18px}.nav-links a{font-size:.92rem;font-weight:700;color:var(--text-soft)}.nav-links a:hover{color:var(--text)}.nav-actions{display:flex;align-items:center;gap:10px}.menu-btn,.icon-btn{width:48px;height:48px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03);display:grid;place-items:center;color:var(--text)}
+.hero{padding:24px 0 8px}.hero-shell{display:grid;gap:18px}.glass-hero,.glass-panel,.price-card,.matrix-card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(17,26,44,.92),rgba(12,19,34,.96));border-radius:28px;box-shadow:0 24px 60px rgba(0,0,0,.22)}.glass-hero{padding:26px}.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:#9db7ee;font-weight:800}.hero-title{margin:14px 0 12px;font-family:Manrope,Inter,sans-serif;font-size:clamp(2.2rem,8vw,4.9rem);line-height:.96;letter-spacing:-.06em;max-width:10ch}.lead{font-size:1.02rem;line-height:1.65;color:var(--text-soft);max-width:54ch}.hero-actions{display:grid;grid-template-columns:1fr;gap:12px;margin-top:20px}.hero-media{overflow:hidden;border-radius:28px;border:1px solid var(--line)}.hero-media img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;filter:saturate(.95) contrast(1.02)}
+.section{padding:14px 0}.section-head{display:grid;gap:8px;margin-bottom:14px}.section-title{font-family:Manrope,Inter,sans-serif;font-size:clamp(1.55rem,5vw,2.5rem);letter-spacing:-.05em}.section-copy{color:var(--text-soft);max-width:64ch}.price-grid{display:grid;grid-template-columns:1fr;gap:14px}.price-card{padding:22px;position:relative;overflow:hidden}.price-card.featured{border-color:rgba(119,168,255,.42);box-shadow:0 20px 50px rgba(76,121,214,.18)}.price-card.featured::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(93,145,255,.12),transparent 42%);pointer-events:none}.price-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.tag{display:inline-flex;padding:8px 12px;border-radius:999px;background:rgba(98,145,245,.14);border:1px solid var(--line-strong);font-size:.78rem;font-weight:800;color:#dce7ff}.price-card h3{margin:14px 0 6px;font-family:Manrope,Inter,sans-serif;font-size:1.35rem}.price{font-size:2rem;font-weight:800;letter-spacing:-.04em}.price-sub{margin-top:8px;color:var(--text-soft);line-height:1.6}.bullet-list{display:grid;gap:10px;margin:16px 0 18px}.bullet-list span{padding:12px 14px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:#dbe6fb}.card-actions{display:grid;grid-template-columns:1fr;gap:10px}
+.info-grid{display:grid;grid-template-columns:1fr;gap:14px}.glass-panel{padding:22px}.line-stack{display:grid;gap:10px;margin-top:14px}.line-item{padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.025);color:#dce7ff}.matrix-grid{display:grid;grid-template-columns:1fr;gap:14px}.matrix-card{padding:24px}.matrix-card input{width:100%;min-height:58px;border-radius:18px;border:1px solid var(--line-strong);background:#09111f;color:var(--text);padding:0 16px;margin:16px 0 10px}.matrix-actions,.mini-links{display:grid;grid-template-columns:1fr;gap:10px}.hint{margin-top:10px;padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text-soft)}
+.btn{min-height:52px;border-radius:16px;display:inline-flex;align-items:center;justify-content:center;padding:0 18px;font-weight:800;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text)}.btn:hover{transform:translateY(-1px)}.btn-primary{background:linear-gradient(180deg,#6ea1ff,#4f83ec);color:#09111f;border-color:transparent;box-shadow:0 16px 34px rgba(89,140,245,.28)}.btn-ghost{background:rgba(255,255,255,.025)}
+@media (min-width:900px){.hero-shell{grid-template-columns:1.05fr .95fr;align-items:stretch}.price-grid{grid-template-columns:repeat(3,1fr)}.price-card.featured{transform:translateY(-6px)}.info-grid,.matrix-grid{grid-template-columns:1fr 1fr}.hero-actions,.card-actions,.matrix-actions,.mini-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.wrap{width:min(var(--page-max),calc(100% - 22px))}.nav-links{display:none}.nav-actions .btn{display:none}.navbar{min-height:72px}.glass-hero,.glass-panel,.price-card,.matrix-card{border-radius:24px}.hero-title{max-width:11ch}.hero-media{display:none}.section{padding:12px 0}.price-card.featured{order:-1}}
 </style>
 </head>
 <body>
@@ -23,99 +26,96 @@ header.site{position:sticky;top:0;z-index:60;backdrop-filter:blur(20px);backgrou
   <div class="wrap navbar">
     <a class="logo" href="index.html"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15.5 12 4l8 11.5"/><path d="M7.5 15.5h9"/><path d="M9.5 19h5"/></svg></span>AutoCDP</a>
     <nav class="nav-links"><a href="platform.html">Platform</a><a href="tech.html">Tech</a><a href="executive-matrix.html">Matrix</a><a href="resources.html">Resources</a><a href="pricing.html">Pricing</a></nav>
-    <div class="nav-actions"><a class="btn" href="pricing.html">Pricing</a><a class="btn btn-primary" href="#matrix">Access Matrix</a><button class="icon-btn" data-menu aria-label="Menu">☰</button></div>
+    <div class="nav-actions"><a class="btn" href="pricing.html">Pricing</a><button class="menu-btn" data-menu aria-label="Open menu">☰</button></div>
   </div>
   <div class="mobile-drawer" data-mobile-drawer hidden><nav class="mobile-nav" aria-label="Mobile navigation"><a href="index.html">Home</a><a href="platform.html">Platform</a><a href="tech.html">Tech</a><a href="executive-matrix.html">Matrix</a><a href="resources.html">Resources</a><a href="pricing.html">Pricing</a><a href="access.html">Access</a></nav></div>
 </header>
 <main>
   <section class="hero">
-    <div class="wrap hero-grid">
-      <article class="glass hero-card">
-        <span class="eyebrow">Access</span>
-        <h1>Pricing first. Matrix access second.</h1>
-        <p class="lead">This page is now organized for clarity on mobile: see pricing immediately, understand the operator tiers, and then enter the Matrix with a clear path back home.</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="#pricing">View pricing</a><a class="btn btn-ghost" href="#matrix">Enter Matrix</a><a class="btn btn-ghost" href="index.html">Return Home</a></div>
+    <div class="wrap hero-shell">
+      <article class="glass-hero">
+        <span class="eyebrow">Access page · aligned to site optics</span>
+        <h1 class="hero-title">Pricing should lead this page.</h1>
+        <p class="lead">The access layer now follows the same dark premium look as the main website, with tighter spacing, cleaner cards, softer blue accents, and a more confident sequence: pricing first, then tier context, then Matrix entry.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#pricing">View pricing</a><a class="btn btn-ghost" href="#matrix">Go to Matrix</a><a class="btn btn-ghost" href="index.html">Return home</a></div>
       </article>
-      <article class="glass hero-media"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80" alt="AutoCDP access page cover art" width="1600" height="1000" loading="lazy"></article>
+      <article class="hero-media"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80" alt="AutoCDP premium website cover art" width="1600" height="1000" loading="lazy"></article>
     </div>
   </section>
 
   <section class="section" id="pricing">
     <div class="wrap">
-      <span class="eyebrow">Pricing</span>
-      <h2 class="section-title">Pick the operating layer that fits your rollout.</h2>
-      <p class="small">Pricing is intentionally at the front of this page so users can evaluate the path before they go into the Matrix views.</p>
+      <div class="section-head"><span class="eyebrow">Pricing</span><h2 class="section-title">Choose the rollout path before entering the Matrix.</h2><p class="section-copy">This section is now visually dominant and placed at the top of the experience so mobile users see commercial context immediately instead of being pushed into utility actions first.</p></div>
       <div class="price-grid">
-        <article class="glass price-card">
-          <span class="tag">Starter</span>
+        <article class="price-card">
+          <div class="price-top"><span class="tag">Starter</span></div>
           <h3>Single rooftop</h3>
           <div class="price">Platform entry</div>
-          <p class="small">For one store launching service recovery, lapsed-customer winback, and direct-mail attribution.</p>
-          <div class="footer-links"><a class="btn btn-primary" href="pricing.html">Full pricing</a><a class="btn btn-ghost" href="#matrix">Enter Matrix</a></div>
+          <p class="price-sub">Best for one dealership launching service win-back, trade-cycle triggers, and attributed direct-mail execution.</p>
+          <div class="bullet-list"><span>Service due and lapsed audience automation</span><span>CRM-safe writeback workflow</span><span>Operator launch path with clear accountability</span></div>
+          <div class="card-actions"><a class="btn btn-primary" href="pricing.html">Full pricing</a><a class="btn btn-ghost" href="#matrix">Enter Matrix</a></div>
         </article>
-        <article class="glass price-card">
-          <span class="tag">Group</span>
+        <article class="price-card featured">
+          <div class="price-top"><span class="tag">Most aligned</span></div>
           <h3>Dealer group</h3>
           <div class="price">Portfolio rollout</div>
-          <p class="small">For operators managing multiple rooftops with coordinated campaigns and centralized reporting.</p>
-          <div class="footer-links"><a class="btn btn-primary" href="pricing.html">Full pricing</a><a class="btn btn-ghost" href="executive-matrix.html">Matrix overview</a></div>
+          <p class="price-sub">Built for groups that need one operating model across rooftops, tighter reporting optics, and executive visibility.</p>
+          <div class="bullet-list"><span>Shared campaign standards across stores</span><span>Executive layer with grouped reporting</span><span>Stronger fit for the Matrix workflow</span></div>
+          <div class="card-actions"><a class="btn btn-primary" href="pricing.html">Full pricing</a><a class="btn btn-ghost" href="executive-matrix.html">Matrix overview</a></div>
         </article>
-        <article class="glass price-card">
-          <span class="tag">Enterprise</span>
+        <article class="price-card">
+          <div class="price-top"><span class="tag">Enterprise</span></div>
           <h3>Agency / network</h3>
           <div class="price">Custom deployment</div>
-          <p class="small">For agencies and enterprise operators who need permissions, rollups, and deeper executive visibility.</p>
-          <div class="footer-links"><a class="btn btn-primary" href="pricing.html">Full pricing</a><a class="btn btn-ghost" href="tech.html">Technical page</a></div>
+          <p class="price-sub">Designed for agencies and larger enterprise operators who need broader permissions, orchestration, and deployment support.</p>
+          <div class="bullet-list"><span>Cross-client controls and oversight</span><span>Expanded rollout and service structure</span><span>Technical alignment for custom operating models</span></div>
+          <div class="card-actions"><a class="btn btn-primary" href="pricing.html">Full pricing</a><a class="btn btn-ghost" href="tech.html">Technical page</a></div>
         </article>
       </div>
     </div>
   </section>
 
   <section class="section">
-    <div class="wrap grid-2">
-      <article class="glass panel-card">
-        <span class="eyebrow">What this page does</span>
-        <h2 class="section-title">A cleaner bridge into the product.</h2>
-        <div class="line-list">
-          <div class="line-item">Shows pricing before asking users to enter the Matrix.</div>
-          <div class="line-item">Explains the four operating tiers in a simpler format.</div>
-          <div class="line-item">Keeps Home, Pricing, and Matrix paths visible on mobile.</div>
-        </div>
+    <div class="wrap info-grid">
+      <article class="glass-panel">
+        <span class="eyebrow">Why this feels better</span>
+        <h2 class="section-title">Closer to the main website.</h2>
+        <div class="line-stack"><div class="line-item">Fewer controls competing in the first viewport.</div><div class="line-item">Blue accents reserved for primary actions and emphasis.</div><div class="line-item">Larger card rhythm and cleaner visual hierarchy on mobile.</div></div>
       </article>
-      <article class="glass panel-card">
-        <span class="eyebrow">Tier structure</span>
-        <h2 class="section-title">Four access levels.</h2>
-        <div class="line-list">
-          <div class="line-item"><strong>1 · Owner</strong><br><span class="small">Network-level command and oversight.</span></div>
-          <div class="line-item"><strong>2 · Agency</strong><br><span class="small">Cross-client execution and reporting.</span></div>
-          <div class="line-item"><strong>3 · Dealer</strong><br><span class="small">Single-store visibility and actions.</span></div>
-          <div class="line-item"><strong>4 · Staff</strong><br><span class="small">Assigned work and daily queue access.</span></div>
-        </div>
+      <article class="glass-panel">
+        <span class="eyebrow">Access tiers</span>
+        <h2 class="section-title">Four role-based entry points.</h2>
+        <div class="line-stack"><div class="line-item"><strong>1 · Owner</strong><br><span class="section-copy">Network-level command and oversight.</span></div><div class="line-item"><strong>2 · Agency</strong><br><span class="section-copy">Cross-client execution and reporting.</span></div><div class="line-item"><strong>3 · Dealer</strong><br><span class="section-copy">Single-store visibility and daily control.</span></div><div class="line-item"><strong>4 · Staff</strong><br><span class="section-copy">Task-level access and queue execution.</span></div></div>
       </article>
     </div>
   </section>
 
   <section class="section" id="matrix">
-    <div class="wrap grid-2">
-      <article class="glass matrix-card">
+    <div class="wrap matrix-grid">
+      <article class="matrix-card">
         <span class="eyebrow">Matrix access</span>
         <h2 class="section-title">Enter the 4-tier Matrix.</h2>
-        <p class="small">Use the executive passcodes below to open the role-based view. This keeps the entry simple on mobile while still exposing the full Matrix shell.</p>
+        <p class="section-copy">Once pricing and tier fit are clear, users can enter the Matrix with a much simpler, more product-like interface.</p>
         <input id="tierCode" inputmode="numeric" placeholder="Enter passcode: 1, 2, 3, or 4" aria-label="Executive passcode">
-        <div class="matrix-actions"><button class="btn btn-primary" id="enterMatrix">Enter Matrix</button><a class="btn btn-ghost" href="index.html">Return Home</a><a class="btn btn-ghost" href="pricing.html">Pricing</a></div>
+        <div class="matrix-actions"><button class="btn btn-primary" id="enterMatrix">Enter Matrix</button><a class="btn btn-ghost" href="pricing.html">Pricing</a></div>
+        <div class="mini-links"><a class="btn btn-ghost" href="index.html">Return home</a><a class="btn btn-ghost" href="executive-matrix.html">Matrix overview</a></div>
         <div class="hint"><strong>Executive passcodes</strong><br>1 = Owner, 2 = Agency, 3 = Dealer, 4 = Staff.</div>
         <div class="hint" id="tierErr" style="display:none;color:#ffd0d0">Invalid passcode. Use 1, 2, 3, or 4.</div>
       </article>
-      <article class="glass hero-media"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=80" alt="Matrix environment cover art" width="1600" height="1000" loading="lazy"></article>
+      <article class="glass-panel">
+        <span class="eyebrow">What happens next</span>
+        <h2 class="section-title">A cleaner handoff into the dashboard.</h2>
+        <div class="line-stack"><div class="line-item">Owner and agency roles land in oversight views.</div><div class="line-item">Dealer and staff roles land in operational views.</div><div class="line-item">The access step stays lightweight instead of feeling like a separate website.</div></div>
+      </article>
     </div>
   </section>
 </main>
 <script>
 const drawer=document.querySelector('[data-mobile-drawer]');
 const menuBtn=document.querySelector('[data-menu]');
-menuBtn?.addEventListener('click',()=>{if(!drawer)return;const willOpen=!drawer.classList.contains('show');drawer.hidden=false;drawer.classList.toggle('show',willOpen);if(!willOpen) drawer.hidden=true;menuBtn.setAttribute('aria-expanded',willOpen?'true':'false');});
+menuBtn?.addEventListener('click',()=>{if(!drawer)return;const open=!drawer.classList.contains('show');drawer.hidden=false;drawer.classList.toggle('show',open);if(!open)drawer.hidden=true;menuBtn.setAttribute('aria-expanded',open?'true':'false');});
 document.querySelectorAll('[data-mobile-drawer] a').forEach(a=>a.addEventListener('click',()=>{if(drawer){drawer.classList.remove('show');drawer.hidden=true;}}));
-document.addEventListener('click',e=>{if(drawer && drawer.classList.contains('show') && !drawer.contains(e.target) && !e.target.closest('[data-menu]')){drawer.classList.remove('show');drawer.hidden=true;}});
+document.addEventListener('click',e=>{if(drawer&&drawer.classList.contains('show')&&!drawer.contains(e.target)&&!e.target.closest('[data-menu]')){drawer.classList.remove('show');drawer.hidden=true;}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&drawer){drawer.classList.remove('show');drawer.hidden=true;}});
 const tierMap={1:'owner',2:'agency',3:'dealer',4:'staff'};const tierCode=document.getElementById('tierCode');const tierErr=document.getElementById('tierErr');document.getElementById('enterMatrix')?.addEventListener('click',()=>{const v=(tierCode?.value||'').trim();const role=tierMap[v];if(role){tierErr.style.display='none';location.href='dashboard.html?role='+role+'&page=overview';}else{tierErr.style.display='block';}});tierCode?.addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('enterMatrix')?.click();});
 </script>
