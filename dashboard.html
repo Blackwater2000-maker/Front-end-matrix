@@ -1,50 +1,849 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AutoCDP Matrix</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AutoCDP — The Matrix</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#050607;--panel:#0b0d0f;--panel2:#12161a;--text:#f3f6f2;--muted:#9cab9f;--line:rgba(214,255,225,.10);--line2:rgba(214,255,225,.18);--green:#33c16f;--green2:#7ce7a2;--green3:#1f8f52;--sans:'Inter',system-ui,sans-serif;--display:'Manrope',system-ui,sans-serif}
-*{box-sizing:border-box;margin:0;padding:0}body{background:radial-gradient(1200px 800px at 80% -10%,rgba(51,193,111,.10),transparent),var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;-webkit-font-smoothing:antialiased}a{text-decoration:none;color:inherit}button,input{font:inherit}
-.nav{display:flex;align-items:center;gap:16px;padding:16px 32px;background:rgba(5,7,8,.94);color:#fff;border-top:2px solid var(--green2);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;backdrop-filter:blur(18px)}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.04em;font-size:14px}.brand .mark{display:grid;place-items:center;width:24px;height:24px;border-radius:7px;border:1px solid rgba(255,255,255,.35)}.brand .dot{display:block;width:8px;height:8px;border-radius:50%;background:var(--green2)}.crumb{font-size:11px;letter-spacing:.13em;color:rgba(255,255,255,.55)}.spacer{flex:1}.nav .link{font-size:12px;color:rgba(255,255,255,.78)}.nav .btn{font-size:12px;padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.25);color:#fff;background:rgba(255,255,255,.04)}
-.hero{max-width:1152px;margin:0 auto;padding:64px 32px 40px;text-align:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;text-transform:uppercase;letter-spacing:.24em;color:var(--green2)}.eyebrow .pip{width:6px;height:6px;border-radius:50%;background:var(--green2);box-shadow:0 0 0 3px rgba(124,231,162,.18)}
-h1{margin-top:20px;font-family:var(--display);font-size:48px;line-height:1.03;font-weight:800;letter-spacing:-.035em;max-width:860px;margin-left:auto;margin-right:auto;color:var(--text)}h1 .hl{background-image:linear-gradient(transparent 58%, rgba(124,231,162,.25) 58%)}.lede{margin:20px auto 0;font-size:15px;line-height:1.7;max-width:650px;color:var(--muted)}
-.grid-wrap{max-width:1152px;margin:0 auto;padding:0 32px 64px}.grid{display:grid;grid-template-columns:1fr;gap:20px}@media (min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}@media (min-width:1024px){.grid{grid-template-columns:repeat(4,1fr)}}
-.card{position:relative;border-radius:18px;background:linear-gradient(180deg,rgba(17,22,26,.96),rgba(11,13,15,.98));padding:28px;display:flex;flex-direction:column;gap:12px;border:1px solid var(--line);box-shadow:0 1px 3px rgba(0,0,0,.12);transition:transform .2s ease, box-shadow .2s ease;cursor:pointer}.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.22)}.card .top{border-top:3px solid var(--green2);position:absolute;inset:0 0 auto 0;height:3px;border-radius:18px 18px 0 0}.card .row{display:flex;align-items:center;justify-content:space-between;gap:12px}.tier{font-size:10px;text-transform:uppercase;letter-spacing:.13em;font-weight:700;color:var(--muted)}.icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:18px;font-weight:700;background:rgba(124,231,162,.14);color:var(--text)}.name{font-family:var(--display);font-size:22px;font-weight:800;line-height:1.2;letter-spacing:-.02em;color:var(--text)}.desc{font-size:13px;line-height:1.7;color:var(--muted)}.foot{margin-top:8px;padding-top:12px;display:flex;align-items:center;justify-content:space-between;font-size:11.5px;border-top:1px solid var(--line);color:var(--muted)}.enter{font-weight:700;color:var(--green2);transition:transform .2s ease}.card:hover .enter{transform:translateX(4px)}
-.panel{display:none;max-width:1152px;margin:0 auto;padding:0 32px 72px}.panel.active{display:block}.back{display:inline-flex;align-items:center;gap:8px;margin-bottom:18px;color:var(--muted);font-size:12px;font-weight:700;cursor:pointer}.panel-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap;margin-bottom:18px}.panel-head h2{font-family:var(--display);font-size:38px;letter-spacing:-.03em}.panel-head p{max-width:720px;color:var(--muted);margin-top:8px;line-height:1.7}.tag{display:inline-flex;padding:8px 12px;border-radius:999px;border:1px solid var(--line);font-size:12px;color:var(--muted)}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:18px 0 22px}.kpi{padding:18px;border:1px solid var(--line);border-radius:18px;background:rgba(17,22,26,.9)}.kpi small{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}.kpi .val{margin-top:8px;font:800 32px/1 var(--display);letter-spacing:-.04em}.kpi .sub{margin-top:6px;font-size:12px;color:var(--green2);font-weight:700}
-.layout2{display:grid;grid-template-columns:1.3fr .9fr;gap:18px}.box{padding:20px;border:1px solid var(--line);border-radius:20px;background:rgba(17,22,26,.92)}.box h3{font-size:18px;font-family:var(--display);margin-bottom:4px}.box .subline{font-size:12px;color:var(--muted);margin-bottom:14px}.box img{width:100%;border-radius:14px;border:1px solid var(--line)}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);font-size:13px}th{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
-.badge{display:inline-flex;padding:4px 8px;border:1px solid var(--line2);border-radius:999px;font-size:11px;color:var(--green2)}.list{display:grid;gap:12px}.item{padding:14px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.02)}.item b{display:block;margin-bottom:6px}.item p{font-size:12px;color:var(--muted);line-height:1.6}
-.lock{max-width:520px;margin:48px auto 0;padding:0 32px 72px}.signin{padding:28px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(17,22,26,.96),rgba(11,13,15,.98))}.signin h2{font-family:var(--display);font-size:28px;letter-spacing:-.03em}.signin p{color:var(--muted);margin:10px 0 18px;line-height:1.7}.signin label{display:grid;gap:8px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:14px}.signin input{min-height:52px;padding:0 14px;border-radius:14px;border:1px solid var(--line);background:var(--panel2);color:var(--text)}.signin button{min-height:52px;width:100%;border:none;border-radius:14px;background:linear-gradient(180deg,#41d47f,#218f53);color:#05110a;font-weight:800;cursor:pointer}.msg{display:none;margin-top:12px;color:#ff9ca8;font-size:12px;font-weight:700}.msg.show{display:block}
-.tip{max-width:1152px;margin:0 auto;padding:0 32px 40px;text-align:center;font-size:11px;color:var(--muted)}.kbd{display:inline-block;padding:2px 6px;border-radius:4px;font-family:ui-monospace,Menlo,monospace;font-size:10.5px;background:rgba(255,255,255,.05);border:1px solid var(--line)}
-@media (max-width:980px){.kpis,.layout2{grid-template-columns:1fr}h1{font-size:38px}.panel-head h2{font-size:30px}}
-</style></head><body>
-<div class="nav"><a href="index.html" class="brand"><span class="mark" aria-hidden="true"><span class="dot"></span></span><span>AUTO CDP</span></a><span class="crumb">DASH MATRIX</span><div class="spacer"></div><a href="index.html" class="link">Back to home</a><a href="pricing.html" class="btn">Pricing</a></div>
-<section class="hero" id="hero"><div class="eyebrow"><span class="pip"></span>choose your view</div><h1>One platform. <span class="hl">Four simple views.</span></h1><p class="lede">Pick the dashboard that matches your day — from the whole book of business down to a single operational lane. The owner view holds the deepest material, while lower tiers stay focused and fast.</p></section>
-<section class="grid-wrap" id="roleGrid"><div class="grid" id="grid"></div></section>
-<section class="lock" id="lock" style="display:none"><div class="signin"><div class="eyebrow"><span class="pip"></span>enter the matrix</div><h2>Sign in to continue.</h2><p>Use username <b>Autocdp</b>. Password <b>1</b> opens the Owner Dashboard, <b>2</b> Operator, <b>3</b> Campaign Ops, and <b>4</b> Admin.</p><form id="loginForm"><label>Username<input name="username" type="text" placeholder="Autocdp"></label><label>Password<input name="password" type="password" placeholder="1-4"></label><button type="submit">Enter Matrix</button><div class="msg" id="loginMsg"></div></form></div></section>
+/* ── TOKENS ─────────────────────────────────────── */
+:root {
+  --bg:       #050607;
+  --panel:    #0b0d0f;
+  --panel2:   #12161a;
+  --panel3:   #181d22;
+  --text:     #edf2ee;
+  --muted:    #8fa894;
+  --faint:    #4e6057;
+  --line:     rgba(124,231,162,.10);
+  --line2:    rgba(124,231,162,.20);
+  --green:    #33c16f;
+  --green2:   #7ce7a2;
+  --green3:   #1f8f52;
+  --sans:     'Inter', system-ui, sans-serif;
+  --display:  'Manrope', system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100vh}
+body{background:radial-gradient(1400px 700px at 75% -5%,rgba(51,193,111,.09),transparent),var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit;color:inherit}
+h1,h2,h3,h4{font-family:var(--display);letter-spacing:-.03em;line-height:1.1}
 
-<section class="panel" id="owner"><div class="back" data-back>← Back to all views</div><div class="panel-head"><div><div class="eyebrow"><span class="pip"></span>tier 1 · owner</div><h2>Owner Dashboard</h2><p>The whole book of business: revenue lift, rooftops, learning loops, attribution, and the full six-agent operating layer.</p></div><span class="tag">Full access</span></div><div class="kpis"><div class="kpi"><small>Attributed revenue</small><div class="val">$698k</div><div class="sub">+11.9% month over month</div></div><div class="kpi"><small>Appointments booked</small><div class="val">1,840</div><div class="sub">+14.2% response lift</div></div><div class="kpi"><small>Active rooftops</small><div class="val">42</div><div class="sub">3 new locations live</div></div><div class="kpi"><small>Cost per appointment</small><div class="val">$31.40</div><div class="sub">8.1% lower than last period</div></div></div><div class="layout2"><div class="box"><h3>Attributed revenue trend</h3><div class="subline">Learning Ledger and closed-loop attribution · 2026</div><img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/204eb97e66305c2c2c7b03eee014df36/60015842-433a-49bf-89e3-0d750722f4f1/f97b0485.png" alt="Attributed revenue trend" loading="lazy"></div><div class="box"><h3>Network learning signals</h3><div class="subline">Angles promoted automatically across rooftops</div><div class="list"><div class="item"><b>Service-due reactivation</b><p>Top creative angle promoted to all qualifying audiences this week.</p></div><div class="item"><b>Trade-in equity trigger</b><p>High-intent households get more aggressive timing and offer framing.</p></div><div class="item"><b>Winback >90 days</b><p>Underperforming copy retired automatically by the Learning Agent.</p></div></div></div></div><div class="box" style="margin-top:18px"><h3>Rooftop performance</h3><div class="subline">Top performing dealer groups this cycle</div><table><thead><tr><th>Rooftop</th><th>Revenue</th><th>Booked</th><th>Status</th></tr></thead><tbody><tr><td>Summit Auto Group</td><td>$182k</td><td>486</td><td><span class="badge">Healthy</span></td></tr><tr><td>Lakeside Motors</td><td>$141k</td><td>372</td><td><span class="badge">Healthy</span></td></tr><tr><td>Cobalt Imports</td><td>$118k</td><td>298</td><td><span class="badge">Watch</span></td></tr><tr><td>Ridgeline Ford</td><td>$96k</td><td>241</td><td><span class="badge">Healthy</span></td></tr></tbody></table></div><div class="box" style="margin-top:18px"><h3>Agentic operating layer</h3><div class="subline">The six-agent swarm running the platform</div><div class="grid" style="grid-template-columns:repeat(3,1fr)"><div class="item"><b>Orchestrator</b><p>Routes work across the entire execution chain.</p></div><div class="item"><b>Data Intelligence</b><p>Scores customer value, timing, and churn signals.</p></div><div class="item"><b>Audience Targeting</b><p>Selects best-fit customer cohorts and channels.</p></div><div class="item"><b>Creative Generation</b><p>Writes recipient-level copy and personalized offers.</p></div><div class="item"><b>Compliance Review</b><p>Applies FCRA, DNC, TCPA, and policy gates before send.</p></div><div class="item"><b>Learning & Optimization</b><p>Promotes what wins and retires what loses.</p></div></div></div></section>
+/* ── TOP NAV ─────────────────────────────────────── */
+.topnav{display:flex;align-items:center;gap:16px;padding:0 32px;height:58px;background:rgba(5,6,7,.92);border-top:2px solid var(--green2);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;backdrop-filter:blur(18px)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:13px;letter-spacing:.06em}
+.brand-mark{display:grid;place-items:center;width:26px;height:26px;border-radius:8px;border:1px solid rgba(124,231,162,.4)}
+.brand-dot{width:9px;height:9px;border-radius:50%;background:var(--green2)}
+.crumb{font-size:10px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
+.spacer{flex:1}
+.nav-link{font-size:12px;color:rgba(255,255,255,.65);padding:6px 10px;border-radius:8px;transition:color .15s}
+.nav-link:hover{color:#fff}
+.nav-btn{font-size:12px;padding:8px 14px;border-radius:9px;border:1px solid var(--line2);color:var(--green2);font-weight:700;background:rgba(124,231,162,.04);transition:background .15s}
+.nav-btn:hover{background:rgba(124,231,162,.10)}
+.signed-in-badge{display:none;font-size:11px;padding:4px 10px;border-radius:99px;background:rgba(124,231,162,.10);border:1px solid var(--line2);color:var(--green2);font-weight:700}
 
-<section class="panel" id="operator"><div class="back" data-back>← Back to all views</div><div class="panel-head"><div><div class="eyebrow"><span class="pip"></span>tier 2 · operator</div><h2>Operator Dashboard</h2><p>Campaign visibility, approvals, queue health, and channel mix across the active operating window.</p></div><span class="tag">Scoped access</span></div><div class="kpis"><div class="kpi"><small>Active campaigns</small><div class="val">17</div><div class="sub">4 added this week</div></div><div class="kpi"><small>Audience in queue</small><div class="val">62.4k</div><div class="sub">9.3% larger than last wave</div></div><div class="kpi"><small>Approvals pending</small><div class="val">5</div><div class="sub">2 need review today</div></div><div class="kpi"><small>Avg conversion</small><div class="val">5.1%</div><div class="sub">0.4pt improvement</div></div></div><div class="layout2"><div class="box"><h3>Channel conversion</h3><div class="subline">Conversion rate by channel · Q2 2026</div><img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/204eb97e66305c2c2c7b03eee014df36/60015842-433a-49bf-89e3-0d750722f4f1/78423dfb.png" alt="Channel conversion chart" loading="lazy"></div><div class="box"><h3>Approvals queue</h3><div class="subline">Operator review and release</div><div class="list"><div class="item"><b>Service-due May batch</b><p>Awaiting release after final copy review.</p></div><div class="item"><b>Conquest SUV owners</b><p>Overdue. Needs budget sign-off and audience approval.</p></div><div class="item"><b>Winback >120 days</b><p>Ready for operator approval this afternoon.</p></div></div></div></div></section>
+/* ── LOCK SCREEN ─────────────────────────────────── */
+#lock{min-height:calc(100vh - 58px);display:flex;align-items:center;justify-content:center;padding:40px 24px}
+.lock-inner{width:100%;max-width:480px}
+.lock-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10px;text-transform:uppercase;letter-spacing:.22em;color:var(--green2);margin-bottom:18px}
+.pip{width:6px;height:6px;border-radius:50%;background:var(--green2);box-shadow:0 0 0 3px rgba(124,231,162,.15)}
+.lock-inner h1{font-size:38px;font-weight:800;margin-bottom:12px}
+.lock-inner h1 .hl{background-image:linear-gradient(transparent 62%,rgba(124,231,162,.22) 62%)}
+.lock-lede{color:var(--muted);margin-bottom:28px;line-height:1.75;font-size:14px}
+.lock-card{background:linear-gradient(160deg,rgba(18,22,26,.98),rgba(11,13,15,.99));border:1px solid var(--line2);border-radius:22px;padding:32px;box-shadow:0 24px 64px rgba(0,0,0,.35)}
+.form-row{display:grid;gap:6px;margin-bottom:16px}
+.form-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.form-input{min-height:50px;padding:0 16px;border-radius:13px;border:1px solid var(--line2);background:var(--panel2);color:var(--text);font-size:15px;transition:border-color .15s}
+.form-input:focus{outline:none;border-color:var(--green)}
+.form-submit{display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;width:100%;border:none;border-radius:13px;background:linear-gradient(180deg,#41d47f,#1f8f52);color:#03100a;font-weight:800;font-size:15px;cursor:pointer;margin-top:4px;transition:opacity .15s}
+.form-submit:hover{opacity:.9}
+.form-error{display:none;margin-top:10px;color:#ff9bb0;font-size:12px;font-weight:700;padding:8px 12px;border-radius:9px;background:rgba(255,100,100,.07);border:1px solid rgba(255,100,100,.15)}
+.form-error.show{display:block}
+.lock-hint{margin-top:16px;font-size:11.5px;color:var(--faint);text-align:center;line-height:1.8}
+.lock-hint b{color:var(--muted)}
 
-<section class="panel" id="campaign"><div class="back" data-back>← Back to all views</div><div class="panel-head"><div><div class="eyebrow"><span class="pip"></span>tier 3 · campaign ops</div><h2>Campaign Ops Dashboard</h2><p>Execution detail, mail volume, scan behavior, booking flow, and live job routing across the campaign stack.</p></div><span class="tag">Execution access</span></div><div class="kpis"><div class="kpi"><small>Pieces sent</small><div class="val">24.8k</div><div class="sub">Latest campaign batch</div></div><div class="kpi"><small>QR scans</small><div class="val">5,120</div><div class="sub">20.6% scan rate</div></div><div class="kpi"><small>Booked</small><div class="val">1,840</div><div class="sub">35.9% of scans booked</div></div><div class="kpi"><small>Compliance blocks</small><div class="val">312</div><div class="sub">All resolved in current queue</div></div></div><div class="layout2"><div class="box"><h3>Direct mail funnel</h3><div class="subline">Per-piece QR attribution from sent to booked</div><img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/204eb97e66305c2c2c7b03eee014df36/60015842-433a-49bf-89e3-0d750722f4f1/70a3d807.png" alt="Direct mail funnel" loading="lazy"></div><div class="box"><h3>Live job queue</h3><div class="subline">Execution systems and state</div><div class="list"><div class="item"><b>Postcards → PostGrid</b><p>Printing and handoff in progress.</p></div><div class="item"><b>SMS → Twilio</b><p>Delivered successfully to queued audience.</p></div><div class="item"><b>Email → Resend</b><p>Last send completed. Awaiting click reconciliation.</p></div><div class="item"><b>CRM write-back</b><p>Syncing scan, response, and booking events.</p></div></div></div></div></section>
+/* ── APP SHELL ───────────────────────────────────── */
+#app{display:none;min-height:calc(100vh - 58px)}
 
-<section class="panel" id="admin"><div class="back" data-back>← Back to all views</div><div class="panel-head"><div><div class="eyebrow"><span class="pip"></span>tier 4 · admin</div><h2>Admin Dashboard</h2><p>Integrations, credentials, permissions, and operational health for the Matrix environment.</p></div><span class="tag">Access control</span></div><div class="kpis"><div class="kpi"><small>Users</small><div class="val">38</div><div class="sub">2 recently added</div></div><div class="kpi"><small>Connected systems</small><div class="val">7</div><div class="sub">All healthy</div></div><div class="kpi"><small>API uptime</small><div class="val">99.98%</div><div class="sub">30-day average</div></div><div class="kpi"><small>Open requests</small><div class="val">3</div><div class="sub">Pending access changes</div></div></div><div class="layout2"><div class="box"><h3>Connected systems</h3><div class="subline">DMS, CRM, and outbound execution stack</div><table><thead><tr><th>System</th><th>Type</th><th>Status</th></tr></thead><tbody><tr><td>CDK Fortellis</td><td>DMS</td><td><span class="badge">Connected</span></td></tr><tr><td>Reynolds & Reynolds</td><td>DMS</td><td><span class="badge">Connected</span></td></tr><tr><td>VinSolutions</td><td>CRM</td><td><span class="badge">Connected</span></td></tr><tr><td>PostGrid</td><td>Direct mail</td><td><span class="badge">Connected</span></td></tr><tr><td>Twilio</td><td>SMS</td><td><span class="badge">Connected</span></td></tr></tbody></table></div><div class="box"><h3>Permission model</h3><div class="subline">Tier-based access by role</div><div class="list"><div class="item"><b>Owner (Tier 1)</b><p>Full cross-rooftop access to commercial, attribution, and learning views.</p></div><div class="item"><b>Operator (Tier 2)</b><p>Campaign controls, approvals, and routing visibility.</p></div><div class="item"><b>Campaign Ops (Tier 3)</b><p>Execution queue, mail status, and job monitoring.</p></div><div class="item"><b>Admin (Tier 4)</b><p>Credential changes, environment settings, and integrations.</p></div></div></div></div></section>
+/* ── ROLE SELECTOR (top tab bar inside app) ──────── */
+.role-bar{display:flex;align-items:center;gap:6px;padding:0 32px;height:52px;background:var(--panel);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.role-bar::-webkit-scrollbar{display:none}
+.role-tab{flex-shrink:0;display:inline-flex;align-items:center;gap:8px;padding:0 16px;height:36px;border-radius:10px;border:1px solid transparent;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;background:none;transition:all .15s}
+.role-tab .rt-dot{width:7px;height:7px;border-radius:50%;background:var(--faint);transition:background .15s}
+.role-tab.active{color:var(--text);background:rgba(124,231,162,.08);border-color:var(--line2)}
+.role-tab.active .rt-dot{background:var(--green2)}
+.role-tab:hover:not(.active){color:var(--text)}
+.role-tab.locked{opacity:.35;cursor:not-allowed}
+.role-spacer{flex:1}
+.signout-btn{flex-shrink:0;font-size:11px;padding:6px 12px;border-radius:8px;border:1px solid var(--line);color:var(--muted);background:none;cursor:pointer;font-weight:600;transition:all .15s}
+.signout-btn:hover{color:var(--text);border-color:var(--line2)}
 
-<div class="tip" id="tip">Press <span class="kbd">K</span> anywhere to jump back to the role grid. The current site color system now carries through the Matrix experience.</div>
+/* ── VIEWS ───────────────────────────────────────── */
+.view{display:none;padding:40px 32px 72px}
+.view.active{display:block}
+
+/* ── SECTION CHROME ──────────────────────────────── */
+.view-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10px;text-transform:uppercase;letter-spacing:.22em;color:var(--green2);margin-bottom:14px}
+.view-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:28px}
+.view-head h2{font-size:36px;font-weight:800;letter-spacing:-.04em;margin-top:6px}
+.view-head p{max-width:640px;color:var(--muted);font-size:14px;line-height:1.75;margin-top:8px}
+.tier-badge{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border:1px solid var(--line2);border-radius:99px;font-size:12px;color:var(--green2);font-weight:700;white-space:nowrap;align-self:flex-start;margin-top:6px}
+
+/* ── KPI ROW ─────────────────────────────────────── */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px}
+.kpi{padding:20px 18px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(160deg,rgba(18,22,26,.95),rgba(11,13,15,.98))}
+.kpi small{display:block;font-size:10.5px;text-transform:uppercase;letter-spacing:.13em;color:var(--muted);margin-bottom:10px}
+.kpi .val{font:800 34px/1 var(--display);letter-spacing:-.045em;color:var(--text)}
+.kpi .delta{margin-top:7px;font-size:12px;font-weight:700;color:var(--green2)}
+.kpi .delta.down{color:#ff9bb0}
+
+/* ── TWO-COL LAYOUT ──────────────────────────────── */
+.cols2{display:grid;grid-template-columns:1.35fr 1fr;gap:18px;margin-bottom:18px}
+.cols2-eq{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.col-full{margin-bottom:18px}
+
+/* ── BOX ─────────────────────────────────────────── */
+.box{padding:22px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(160deg,rgba(18,22,26,.95),rgba(11,13,15,.98))}
+.box-head{margin-bottom:4px;font-size:17px;font-family:var(--display);font-weight:700;letter-spacing:-.02em}
+.box-sub{font-size:12px;color:var(--muted);margin-bottom:16px;line-height:1.6}
+
+/* ── TABLE ───────────────────────────────────────── */
+table{width:100%;border-collapse:collapse}
+th,td{padding:11px 10px;text-align:left;border-bottom:1px solid var(--line);font-size:13px}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:700}
+tr:last-child td{border-bottom:none}
+.tnum{font-family:var(--display);font-weight:700;font-variant-numeric:tabular-nums}
+
+/* ── BADGE / CHIP ────────────────────────────────── */
+.badge{display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:99px;font-size:11px;font-weight:700;border:1px solid var(--line2);color:var(--green2)}
+.badge.warn{color:#ffd77a;border-color:rgba(255,215,122,.25)}
+.badge.err{color:#ff9bb0;border-color:rgba(255,155,176,.25)}
+
+/* ── LIST ITEMS ──────────────────────────────────── */
+.item-list{display:grid;gap:10px}
+.item{padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.015)}
+.item b{display:block;font-size:13.5px;font-weight:700;margin-bottom:4px;color:var(--text)}
+.item p{font-size:12.5px;color:var(--muted);line-height:1.65}
+
+/* ── AGENT GRID ──────────────────────────────────── */
+.agent-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.agent-card{padding:16px;border:1px solid var(--line);border-radius:16px;background:rgba(18,22,26,.8)}
+.agent-num{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:6px}
+.agent-model{font-size:10px;padding:3px 7px;border-radius:99px;border:1px solid var(--line2);color:var(--green2);font-weight:700;margin-bottom:8px;display:inline-block}
+.agent-name{font-family:var(--display);font-size:14.5px;font-weight:800;margin-bottom:6px;color:var(--text)}
+.agent-desc{font-size:12px;color:var(--muted);line-height:1.6}
+.agent-outs{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);display:grid;gap:4px}
+.agent-outs span{font-size:11px;color:var(--green2);display:flex;align-items:center;gap:6px}
+.agent-outs span::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--green2);flex-shrink:0}
+
+/* ── FUNNEL ──────────────────────────────────────── */
+.funnel{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.funnel-step{padding:18px;border:1px solid var(--line);border-radius:16px;background:rgba(18,22,26,.9);position:relative}
+.funnel-step::after{content:'→';position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--faint);font-size:16px;z-index:1}
+.funnel-step:last-child::after{display:none}
+.funnel-step .fl{font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:var(--muted);margin-bottom:8px}
+.funnel-step .fv{font:800 30px/1 var(--display);letter-spacing:-.04em;margin-bottom:4px}
+.funnel-step .fp{font-size:12px;color:var(--green2);font-weight:700}
+
+/* ── PROGRESS BAR ────────────────────────────────── */
+.prog-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.prog-label{font-size:12px;color:var(--muted);width:120px;flex-shrink:0}
+.prog-bar{flex:1;height:6px;border-radius:99px;background:rgba(124,231,162,.1)}
+.prog-fill{height:6px;border-radius:99px;background:linear-gradient(90deg,var(--green),var(--green2))}
+.prog-val{font-size:12px;font-weight:700;color:var(--text);width:36px;text-align:right;flex-shrink:0}
+
+/* ── INTEGRATION GRID ────────────────────────────── */
+.int-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.int-card{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:rgba(18,22,26,.9)}
+.int-name{font-size:13.5px;font-weight:700}
+.int-type{font-size:11px;color:var(--muted);margin-top:3px}
+
+/* ── RESPONSIVE ──────────────────────────────────── */
+@media(max-width:1024px){.kpis{grid-template-columns:repeat(2,1fr)}.agent-grid{grid-template-columns:repeat(2,1fr)}.cols2,.cols2-eq{grid-template-columns:1fr}.funnel{grid-template-columns:repeat(2,1fr)}.int-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.kpis{grid-template-columns:1fr}.agent-grid{grid-template-columns:1fr}.view{padding:28px 18px 60px}.topnav{padding:0 18px}.role-bar{padding:0 18px}.funnel{grid-template-columns:1fr}.int-grid{grid-template-columns:1fr}.view-head h2{font-size:28px}}
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="topnav">
+  <a href="index.html" class="brand">
+    <span class="brand-mark" aria-hidden="true"><span class="brand-dot"></span></span>
+    <span>AUTO CDP</span>
+  </a>
+  <span class="crumb">THE MATRIX</span>
+  <div class="spacer"></div>
+  <span class="signed-in-badge" id="signedinBadge">● Signed in</span>
+  <a href="index.html" class="nav-link">Back to site</a>
+  <a href="pricing.html" class="nav-btn">Pricing</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- LOCK SCREEN                                     -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="lock">
+  <div class="lock-inner">
+    <div class="lock-eyebrow"><span class="pip"></span>Enter the Matrix</div>
+    <h1>One platform.<br><span class="hl">Four simple views.</span></h1>
+    <p class="lock-lede">Pick the dashboard that matches your day — from the whole book of business down to a single execution lane. Sign in once and switch views freely from the top bar.</p>
+    <div class="lock-card">
+      <form id="loginForm" autocomplete="off">
+        <div class="form-row">
+          <label class="form-label" for="uname">Username</label>
+          <input class="form-input" id="uname" type="text" placeholder="Autocdp" autocomplete="off">
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="upass">Password (1 · 2 · 3 · 4)</label>
+          <input class="form-input" id="upass" type="password" placeholder="Enter tier password" autocomplete="off">
+        </div>
+        <button class="form-submit" type="submit">Enter Matrix →</button>
+        <div class="form-error" id="formErr">Incorrect credentials. Use username <b>Autocdp</b> and password <b>1</b>, <b>2</b>, <b>3</b>, or <b>4</b>.</div>
+      </form>
+    </div>
+    <p class="lock-hint">
+      <b>Owner</b> = 1 &nbsp;·&nbsp; <b>Operator</b> = 2 &nbsp;·&nbsp; <b>Campaign Ops</b> = 3 &nbsp;·&nbsp; <b>Admin</b> = 4<br>
+      Owner password unlocks all views.
+    </p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- APP                                             -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="app">
+
+  <!-- ROLE TAB BAR -->
+  <div class="role-bar">
+    <button class="role-tab active" data-view="owner"><span class="rt-dot"></span>Owner Dashboard</button>
+    <button class="role-tab" data-view="operator" id="tab-operator"><span class="rt-dot"></span>Operator</button>
+    <button class="role-tab" data-view="campaign" id="tab-campaign"><span class="rt-dot"></span>Campaign Ops</button>
+    <button class="role-tab" data-view="admin" id="tab-admin"><span class="rt-dot"></span>Admin</button>
+    <div class="role-spacer"></div>
+    <button class="signout-btn" id="signoutBtn">Sign out</button>
+  </div>
+
+  <!-- ─────────────────────────────────────────────── -->
+  <!-- VIEW 1 · OWNER                                 -->
+  <!-- ─────────────────────────────────────────────── -->
+  <div class="view active" id="view-owner">
+    <div class="view-eyebrow"><span class="pip"></span>Tier 1 · Owner</div>
+    <div class="view-head">
+      <div>
+        <h2>Owner Dashboard</h2>
+        <p>The whole book of business. Every rooftop, campaign, attribution event, and learning signal — plus the full six-agent operating layer running 24/7 across your DMS data.</p>
+      </div>
+      <span class="tier-badge"><span class="pip"></span>Full platform access</span>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpis">
+      <div class="kpi">
+        <small>Avg lapsed customers / rooftop</small>
+        <div class="val">3,000+</div>
+        <div class="delta">Identified in DMS — never contacted</div>
+      </div>
+      <div class="kpi">
+        <small>Execution channels</small>
+        <div class="val">3</div>
+        <div class="delta">Direct mail · SMS · Email</div>
+      </div>
+      <div class="kpi">
+        <small>DMS sync time</small>
+        <div class="val">&lt; 2hr</div>
+        <div class="delta">CDK · Reynolds · VinSolutions · Dealertrack</div>
+      </div>
+      <div class="kpi">
+        <small>Attribution model</small>
+        <div class="val">Exact</div>
+        <div class="delta">Per-piece QR — not modeled estimates</div>
+      </div>
+    </div>
+
+    <!-- Differentiators + Learning Ledger -->
+    <div class="cols2">
+      <div class="box">
+        <div class="box-head">Three things AutoCDP does that Fullpath can't</div>
+        <div class="box-sub">Data unification is table stakes. These are the execution capabilities that change what a dealership can actually do.</div>
+        <div class="item-list">
+          <div class="item">
+            <b>Execution — Every campaign you should run but aren't</b>
+            <p>Most dealers know they have lapsed customers. AutoCDP doesn't have a capacity problem. Six agents run 24/7 — every signal triggers a campaign, every customer gets contacted. No manual work, no backlog.</p>
+          </div>
+          <div class="item">
+            <b>Attribution — Direct mail with a paper trail</b>
+            <p>AI-written, handwriting-simulated postcards with a unique QR code on every single piece. When a customer scans it, you know exactly who, when, and which campaign closed the appointment — not a modeled estimate, not a batch open rate.</p>
+          </div>
+          <div class="item">
+            <b>Independence — Your CRM investment stays protected</b>
+            <p>Fullpath is now owned by Cox — the same company that sells VinSolutions to your dealers. AutoCDP is independent. We read from your CRM, execute campaigns, and write outcomes back. BDC reps see every touch without switching tools.</p>
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-head">Closed-Loop Learning Ledger</div>
+        <div class="box-sub">After every send, outcomes reconcile against each creative variant. Winning angles promote; weak ones retire.</div>
+        <div class="item-list">
+          <div class="item">
+            <b>Service-due reactivation</b>
+            <p>Top-performing creative angle promoted to anchor across all qualifying rooftops this cycle.</p>
+          </div>
+          <div class="item">
+            <b>Trade-in equity trigger</b>
+            <p>High-intent households get more aggressive timing and offer framing. Promoted after 3 winning cycles.</p>
+          </div>
+          <div class="item">
+            <b>Winback &gt; 90 days</b>
+            <p>Underperforming copy variant retired automatically by the Learning &amp; Optimization Agent last week.</p>
+          </div>
+          <div class="item">
+            <b>Network effect</b>
+            <p>Every campaign across every dealer on the network teaches the system. Patterns strip PII and feed back into every future send.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How it works -->
+    <div class="col-full">
+      <div class="box">
+        <div class="box-head">Connect → Execute → Improve</div>
+        <div class="box-sub">Fully autonomous from first trigger to closed attribution</div>
+        <table>
+          <thead><tr><th>Step</th><th>What happens</th><th>Systems</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td class="tnum">01</td><td><b>Connect your DMS</b> — Syncs repair orders, service history, vehicle ownership, and trade-in signals</td><td>CDK Fortellis · Reynolds &amp; Reynolds · VinSolutions · Dealertrack</td><td><span class="badge">Live</span></td></tr>
+            <tr><td class="tnum">02</td><td><b>Six agents plan and build</b> — Segments audience, selects channel per customer, writes unique copy, clears compliance, queues execution</td><td>Orchestrator + 5 specialist agents</td><td><span class="badge">Running 24/7</span></td></tr>
+            <tr><td class="tnum">03</td><td><b>Campaigns execute and improve</b> — PostGrid prints mail, Twilio fires SMS, Resend delivers email, QR codes track every piece, CRM notes written automatically</td><td>PostGrid · Twilio · Resend · VinSolutions</td><td><span class="badge">Attributed</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Six Agents -->
+    <div class="col-full">
+      <div class="box">
+        <div class="box-head">Six agents. One shared state.</div>
+        <div class="box-sub">Every agent has a live view of every other agent's decisions as they happen — no handoffs, no information lost between steps.</div>
+        <div class="agent-grid" style="margin-top:8px">
+          <div class="agent-card">
+            <div class="agent-num">Agent 01</div>
+            <div class="agent-model">Opus 4.8</div>
+            <div class="agent-name">Orchestrator Agent</div>
+            <div class="agent-desc">Plans and coordinates the entire execution pipeline. Decomposes plain-language campaign goals into structured subtasks, routes work to each specialist, tracks shared state, handles retries, and decides when to re-run on new DMS data.</div>
+            <div class="agent-outs">
+              <span>Execution plan</span>
+              <span>Agent routing decisions</span>
+              <span>Re-run scheduling</span>
+            </div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-num">Agent 02</div>
+            <div class="agent-model">Sonnet 4.6</div>
+            <div class="agent-name">Data Intelligence Agent</div>
+            <div class="agent-desc">Scores every customer on churn, value, and lifecycle from repair-order history, recency, vehicle age, and behavioral signals — returning a ranked audience with confidence scores.</div>
+            <div class="agent-outs">
+              <span>Scored customer list</span>
+              <span>Churn &amp; LTV ranking</span>
+              <span>Lifecycle classification</span>
+            </div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-num">Agent 03</div>
+            <div class="agent-model">Sonnet 4.6</div>
+            <div class="agent-name">Audience Targeting Agent</div>
+            <div class="agent-desc">Applies channel-fit scoring from the global learnings database, assigning each customer a single channel or sequenced multi-channel plan with conditional triggers.</div>
+            <div class="agent-outs">
+              <span>Per-customer channel selection</span>
+              <span>Sequenced timing logic</span>
+              <span>Final audience plan</span>
+            </div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-num">Agent 04</div>
+            <div class="agent-model">Sonnet 4.6</div>
+            <div class="agent-name">Creative Generation Agent</div>
+            <div class="agent-desc">Generates unique content per recipient from vehicle, mileage, service history, and current offer — postcard, SMS, and email. No template strings. Opportunity-Score modulation and a generation-time FCRA gate shape every piece.</div>
+            <div class="agent-outs">
+              <span>Per-recipient postcard copy</span>
+              <span>SMS + email variants</span>
+              <span>Opportunity-modulated messaging</span>
+            </div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-num">Agent 05</div>
+            <div class="agent-model">Haiku 4.5</div>
+            <div class="agent-name">Compliance Review Agent</div>
+            <div class="agent-desc">Runs after creative generation and before any send — validating each message against TCPA, CAN-SPAM, FCRA, and DNC federal and state rules. Any failure halts that recipient and records a structured reason. Sub-200ms deterministic checks.</div>
+            <div class="agent-outs">
+              <span>Per-recipient pass / block</span>
+              <span>Structured rejection reasons</span>
+              <span>Compliance event log</span>
+            </div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-num">Agent 06</div>
+            <div class="agent-model">Sonnet 4.6</div>
+            <div class="agent-name">Learning &amp; Optimization Agent</div>
+            <div class="agent-desc">After the attribution window closes, reconciles delivery, QR-scan, call, and appointment events against each creative variant — driving per-rooftop promote/retire decisions in the Learning Ledger and writing PII-stripped patterns to the network.</div>
+            <div class="agent-outs">
+              <span>Ledger promote / retire decisions</span>
+              <span>Network learning contributions</span>
+              <span>Next-run insights</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CRM compatibility -->
+    <div class="col-full">
+      <div class="box">
+        <div class="box-head">CRM &amp; DMS compatibility — nothing competes with what you already paid for</div>
+        <div class="box-sub">AutoCDP reads from your system, executes campaigns, and writes outcomes back to the timeline. BDC reps see every touch in their existing tool without switching.</div>
+        <div class="int-grid" style="margin-top:4px">
+          <div class="int-card"><div><div class="int-name">CDK Fortellis</div><div class="int-type">DMS</div></div><span class="badge">Read-only sync</span></div>
+          <div class="int-card"><div><div class="int-name">Reynolds &amp; Reynolds</div><div class="int-type">DMS</div></div><span class="badge">Read-only sync</span></div>
+          <div class="int-card"><div><div class="int-name">VinSolutions</div><div class="int-type">CRM</div></div><span class="badge">Read + write-back</span></div>
+          <div class="int-card"><div><div class="int-name">Dealertrack</div><div class="int-type">DMS / CRM</div></div><span class="badge">Read-only sync</span></div>
+          <div class="int-card"><div><div class="int-name">Elead</div><div class="int-type">CRM</div></div><span class="badge">Read + write-back</span></div>
+          <div class="int-card"><div><div class="int-name">DriveCentric</div><div class="int-type">CRM</div></div><span class="badge">Read + write-back</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────── -->
+  <!-- VIEW 2 · OPERATOR                              -->
+  <!-- ─────────────────────────────────────────────── -->
+  <div class="view" id="view-operator">
+    <div class="view-eyebrow"><span class="pip"></span>Tier 2 · Operator</div>
+    <div class="view-head">
+      <div>
+        <h2>Operator Dashboard</h2>
+        <p>Campaign controls, audience queue, channel performance, and approvals. The operating view for group managers running multiple rooftops side by side without spreadsheet juggling.</p>
+      </div>
+      <span class="tier-badge"><span class="pip"></span>Group-level access</span>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi">
+        <small>Trigger — service lapsed</small>
+        <div class="val">≥ 90d</div>
+        <div class="delta">Auto-fires when DMS event matches</div>
+      </div>
+      <div class="kpi">
+        <small>Campaign build time</small>
+        <div class="val">Seconds</div>
+        <div class="delta">Swarm segments, selects, writes, clears compliance</div>
+      </div>
+      <div class="kpi">
+        <small>Configuration required</small>
+        <div class="val">1 goal</div>
+        <div class="delta">Set in plain language — agents handle the rest</div>
+      </div>
+      <div class="kpi">
+        <small>Compliance gate</small>
+        <div class="val">Pre-send</div>
+        <div class="delta">TCPA · CAN-SPAM · FCRA · DNC — all enforced</div>
+      </div>
+    </div>
+
+    <div class="cols2">
+      <div class="box">
+        <div class="box-head">Active campaign triggers</div>
+        <div class="box-sub">Every signal below fires automatically when the DMS event matches — no manual scheduling needed</div>
+        <div class="item-list">
+          <div class="item">
+            <b>Service-lapsed reactivation</b>
+            <p>Fires when <code style="font-size:11px;color:var(--green2)">customer.days_since_ro >= 90 &amp;&amp; !campaign.active</code>. The swarm executes <b>service_lapsed</b> for that customer automatically.</p>
+          </div>
+          <div class="item">
+            <b>Trade-in equity trigger</b>
+            <p>Vehicle age, mileage, and market data combine into an Opportunity Score. High-intent households receive more aggressive timing and offer framing.</p>
+          </div>
+          <div class="item">
+            <b>Winback &gt; 90 days</b>
+            <p>Customers who haven't returned in over 90 days enter a sequenced multi-channel winback cadence — postcard first, SMS follow-up on scan.</p>
+          </div>
+          <div class="item">
+            <b>Conquest — competitor service records</b>
+            <p>Cross-reference identifies vehicles serviced at competitors. The Audience Targeting Agent assigns channel and timing; Creative generates personalized switching copy.</p>
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-head">Channel execution stack</div>
+        <div class="box-sub">Audience Targeting Agent assigns each customer a single channel or sequenced multi-channel plan</div>
+        <div style="margin-top:4px">
+          <div class="prog-row"><span class="prog-label">Direct mail</span><div class="prog-bar"><div class="prog-fill" style="width:78%"></div></div><span class="prog-val">78%</span></div>
+          <div class="prog-row"><span class="prog-label">SMS</span><div class="prog-bar"><div class="prog-fill" style="width:62%"></div></div><span class="prog-val">62%</span></div>
+          <div class="prog-row"><span class="prog-label">Email</span><div class="prog-bar"><div class="prog-fill" style="width:55%"></div></div><span class="prog-val">55%</span></div>
+          <div class="prog-row"><span class="prog-label">Multi-channel</span><div class="prog-bar"><div class="prog-fill" style="width:41%"></div></div><span class="prog-val">41%</span></div>
+        </div>
+        <div style="margin-top:18px">
+          <div class="box-sub" style="margin-bottom:10px">Execution partners</div>
+          <table>
+            <thead><tr><th>System</th><th>Channel</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>PostGrid</td><td>Direct mail printing &amp; delivery</td><td><span class="badge">Live</span></td></tr>
+              <tr><td>Twilio</td><td>SMS</td><td><span class="badge">Live</span></td></tr>
+              <tr><td>Resend</td><td>Email</td><td><span class="badge">Live</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-full">
+      <div class="box">
+        <div class="box-head">What the swarm does — so your team doesn't have to</div>
+        <div class="box-sub">Set a campaign goal in plain language. The swarm does everything else in seconds.</div>
+        <table>
+          <thead><tr><th>Task</th><th>Agent responsible</th><th>Output</th></tr></thead>
+          <tbody>
+            <tr><td>Segment your DMS audience</td><td>Data Intelligence Agent (Sonnet 4.6)</td><td>Ranked customer list with churn &amp; LTV scores</td></tr>
+            <tr><td>Select channel per customer</td><td>Audience Targeting Agent (Sonnet 4.6)</td><td>Per-customer channel assignment + timing logic</td></tr>
+            <tr><td>Write unique copy</td><td>Creative Generation Agent (Sonnet 4.6)</td><td>Per-recipient postcard, SMS, and email — no template strings</td></tr>
+            <tr><td>Clear compliance</td><td>Compliance Review Agent (Haiku 4.5)</td><td>TCPA, CAN-SPAM, FCRA, DNC gate — &lt;200ms per recipient</td></tr>
+            <tr><td>Queue execution</td><td>Orchestrator Agent (Opus 4.8)</td><td>Execution plan routed to PostGrid, Twilio, Resend</td></tr>
+            <tr><td>Reconcile outcomes</td><td>Learning &amp; Optimization Agent (Sonnet 4.6)</td><td>Learning Ledger promote/retire decisions + network contribution</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────── -->
+  <!-- VIEW 3 · CAMPAIGN OPS                          -->
+  <!-- ─────────────────────────────────────────────── -->
+  <div class="view" id="view-campaign">
+    <div class="view-eyebrow"><span class="pip"></span>Tier 3 · Campaign Ops</div>
+    <div class="view-head">
+      <div>
+        <h2>Campaign Ops Dashboard</h2>
+        <p>Execution detail — per-piece direct mail flow, QR attribution, live job queue, and compliance event log. The operating view for the team running campaigns day to day.</p>
+      </div>
+      <span class="tier-badge"><span class="pip"></span>Execution access</span>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi">
+        <small>Attribution type</small>
+        <div class="val">Exact</div>
+        <div class="delta">Per-piece QR — not a modeled estimate</div>
+      </div>
+      <div class="kpi">
+        <small>Postcard format</small>
+        <div class="val">Unique</div>
+        <div class="delta">AI-written, handwriting-simulated, per-recipient</div>
+      </div>
+      <div class="kpi">
+        <small>QR scan event</small>
+        <div class="val">Exact ID</div>
+        <div class="delta">Who · when · which campaign closed the appt</div>
+      </div>
+      <div class="kpi">
+        <small>CRM write-back</small>
+        <div class="val">Auto</div>
+        <div class="delta">Activity notes written to VinSolutions / Elead / DriveCentric</div>
+      </div>
+    </div>
+
+    <!-- Funnel -->
+    <div class="col-full">
+      <div class="box">
+        <div class="box-head">Direct mail attribution funnel</div>
+        <div class="box-sub">Per-piece QR tracking from print to booked appointment — exact, not estimated</div>
+        <div class="funnel" style="margin-top:12px">
+          <div class="funnel-step">
+            <div class="fl">Sent</div>
+            <div class="fv">✓</div>
+            <div class="fp">PostGrid handoff</div>
+          </div>
+          <div class="funnel-step">
+            <div class="fl">Delivered</div>
+            <div class="fv">✓</div>
+            <div class="fp">USPS confirmation</div>
+          </div>
+          <div class="funnel-step">
+            <div class="fl">Scanned</div>
+            <div class="fv">✓</div>
+            <div class="fp">Unique QR event fired</div>
+          </div>
+          <div class="funnel-step">
+            <div class="fl">Booked</div>
+            <div class="fv">✓</div>
+            <div class="fp">Appointment confirmed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cols2">
+      <div class="box">
+        <div class="box-head">Live job queue</div>
+        <div class="box-sub">Execution systems and current state</div>
+        <div class="item-list">
+          <div class="item">
+            <b>Postcards → PostGrid</b>
+            <p>AI-written, handwriting-simulated. Each piece carries a unique QR code. Printing and USPS handoff tracked per-piece.</p>
+          </div>
+          <div class="item">
+            <b>SMS → Twilio</b>
+            <p>Delivered to audience assigned by the Targeting Agent. Compliance gate cleared before send — TCPA checked per recipient at &lt;200ms.</p>
+          </div>
+          <div class="item">
+            <b>Email → Resend</b>
+            <p>Per-recipient content generated by Creative Agent. CAN-SPAM compliance enforced. Click and open events reconciled by Learning Agent.</p>
+          </div>
+          <div class="item">
+            <b>CRM write-back</b>
+            <p>Scan, response, call, and booking events written automatically to VinSolutions, Elead, or DriveCentric activity timeline. BDC reps see every touch without switching tools.</p>
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-head">Compliance event log</div>
+        <div class="box-sub">Compliance Review Agent (Haiku 4.5) runs after creative, before every send</div>
+        <div class="item-list">
+          <div class="item">
+            <b>TCPA gate</b>
+            <p>Per-recipient consent check before every SMS. Any failure halts that recipient and records a structured rejection reason.</p>
+          </div>
+          <div class="item">
+            <b>CAN-SPAM gate</b>
+            <p>Unsubscribe logic and sender ID validated on every email before queue.</p>
+          </div>
+          <div class="item">
+            <b>FCRA gate</b>
+            <p>Generation-time FCRA check built into the Creative Agent's output — not a post-hoc review. Each piece shaped at write time.</p>
+          </div>
+          <div class="item">
+            <b>DNC registry</b>
+            <p>Federal and state Do Not Call lists checked against every recipient before SMS and voice touchpoints.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-full">
+      <div class="box">
+        <div class="box-head">Per-recipient creative pipeline</div>
+        <div class="box-sub">No template strings — every piece of content is generated uniquely from the recipient's own data</div>
+        <table>
+          <thead><tr><th>Input signal</th><th>How it shapes the campaign</th><th>Channel</th></tr></thead>
+          <tbody>
+            <tr><td>Vehicle make, model, year</td><td>Referenced directly in postcard and SMS copy — not merged from a field</td><td>Mail · SMS · Email</td></tr>
+            <tr><td>Mileage from repair order</td><td>Used by Creative Agent to modulate urgency and offer timing</td><td>Mail · SMS</td></tr>
+            <tr><td>Service history</td><td>Determines which service angle is most relevant (oil change, tires, recall)</td><td>Mail · Email</td></tr>
+            <tr><td>Days since last RO</td><td>Triggers the lapse campaign and controls multi-channel cadence spacing</td><td>All channels</td></tr>
+            <tr><td>Opportunity Score</td><td>Set by Data Intelligence Agent — modulates offer aggressiveness in copy</td><td>All channels</td></tr>
+            <tr><td>Unique QR code</td><td>Assigned per piece at print time — scan event fires exact attribution</td><td>Mail</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────── -->
+  <!-- VIEW 4 · ADMIN                                 -->
+  <!-- ─────────────────────────────────────────────── -->
+  <div class="view" id="view-admin">
+    <div class="view-eyebrow"><span class="pip"></span>Tier 4 · Admin</div>
+    <div class="view-head">
+      <div>
+        <h2>Admin Dashboard</h2>
+        <p>Integrations, credentials, role permissions, and platform health. The control layer for connecting AutoCDP to your existing DMS and CRM stack.</p>
+      </div>
+      <span class="tier-badge"><span class="pip"></span>Environment access</span>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi">
+        <small>DMS sync time</small>
+        <div class="val">&lt; 2hr</div>
+        <div class="delta">From credential entry to first campaign eligible</div>
+      </div>
+      <div class="kpi">
+        <small>Source record policy</small>
+        <div class="val">Read-only</div>
+        <div class="delta">AutoCDP never modifies DMS source records</div>
+      </div>
+      <div class="kpi">
+        <small>CRM write-back</small>
+        <div class="val">Auto</div>
+        <div class="delta">Activity notes, not record edits</div>
+      </div>
+      <div class="kpi">
+        <small>Compliance architecture</small>
+        <div class="val">Built-in</div>
+        <div class="delta">TCPA · CAN-SPAM · FCRA · DNC — deterministic, not advisory</div>
+      </div>
+    </div>
+
+    <div class="cols2">
+      <div class="box">
+        <div class="box-head">Connected DMS / CRM systems</div>
+        <div class="box-sub">AutoCDP syncs with your existing platforms — nothing is replaced, nothing competes with what you already paid for</div>
+        <div class="item-list">
+          <div class="item">
+            <b>CDK Fortellis</b>
+            <p>DMS — Read repair orders, service history, vehicle ownership, and trade-in signals. Source records never modified.</p>
+          </div>
+          <div class="item">
+            <b>Reynolds &amp; Reynolds</b>
+            <p>DMS — Same read-only sync. AutoCDP ingests the same data a service advisor would view manually, at scale and continuously.</p>
+          </div>
+          <div class="item">
+            <b>VinSolutions</b>
+            <p>CRM — Read customer records, write campaign activity notes back to the timeline. BDC reps see every AutoCDP touch in their existing tool.</p>
+          </div>
+          <div class="item">
+            <b>Dealertrack</b>
+            <p>DMS / CRM — Read-only data sync. Ownership, finance, and service signals available to the Data Intelligence Agent for scoring.</p>
+          </div>
+          <div class="item">
+            <b>Elead</b>
+            <p>CRM — Read + write-back. Campaign outcomes written to the Elead activity timeline automatically after each execution event.</p>
+          </div>
+          <div class="item">
+            <b>DriveCentric</b>
+            <p>CRM — Read + write-back. Same pattern as Elead — outcomes visible to the BDC team in their native interface.</p>
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-head">Execution partners</div>
+        <div class="box-sub">Campaign outputs route to these systems automatically — no manual handoff</div>
+        <table>
+          <thead><tr><th>Partner</th><th>Role</th><th>Integration</th></tr></thead>
+          <tbody>
+            <tr><td><b>PostGrid</b></td><td>Direct mail printing and USPS handoff</td><td><span class="badge">API</span></td></tr>
+            <tr><td><b>Twilio</b></td><td>SMS delivery with TCPA compliance</td><td><span class="badge">API</span></td></tr>
+            <tr><td><b>Resend</b></td><td>Email delivery with CAN-SPAM enforcement</td><td><span class="badge">API</span></td></tr>
+            <tr><td><b>vAuto</b></td><td>Vehicle inventory and market data signals</td><td><span class="badge">API</span></td></tr>
+          </tbody>
+        </table>
+
+        <div class="box-sub" style="margin-top:20px;margin-bottom:10px">Tier-based access model</div>
+        <table>
+          <thead><tr><th>Tier</th><th>Role</th><th>Access</th></tr></thead>
+          <tbody>
+            <tr><td><span class="badge">1</span></td><td>Owner</td><td>Full platform — all views, all rooftops, agent layer, learning ledger</td></tr>
+            <tr><td><span class="badge">2</span></td><td>Operator</td><td>Campaign controls, triggers, approvals, channel performance</td></tr>
+            <tr><td><span class="badge">3</span></td><td>Campaign Ops</td><td>Execution queue, mail status, QR attribution, compliance log</td></tr>
+            <tr><td><span class="badge">4</span></td><td>Admin</td><td>Integrations, credentials, environment settings, permissions</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-full">
+      <div class="box">
+        <div class="box-head">Independence — why this matters for your dealership</div>
+        <div class="box-sub">Fullpath was acquired by Cox Automotive — which also owns VinSolutions and Dealertrack. That means your CDP and your CRM now share a parent company.</div>
+        <table>
+          <thead><tr><th></th><th>AutoCDP</th><th>Fullpath (Cox)</th></tr></thead>
+          <tbody>
+            <tr><td>Ownership</td><td><span class="badge">Independent</span></td><td>Cox Automotive</td></tr>
+            <tr><td>CRM conflict of interest</td><td>None — no competing CRM product</td><td>Owns VinSolutions &amp; Dealertrack</td></tr>
+            <tr><td>Source record policy</td><td>Read-only. Never modifies your DMS.</td><td>Varies by integration</td></tr>
+            <tr><td>Attribution model</td><td>Exact, per-piece QR — not modeled</td><td>Batch / modeled estimates</td></tr>
+            <tr><td>Creative</td><td>Unique per recipient — no template strings</td><td>Template-based mail merge</td></tr>
+            <tr><td>Compliance</td><td>Deterministic gate before every send</td><td>Advisory / manual review</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /app -->
+
 <script>
-const ROLES=[
-  {id:'owner', tier:'TIER 1 · OWNER', name:'Owner Dashboard', icon:'◈', desc:'The full commercial view. Revenue, rooftops, attribution, learning loops, and the complete operating picture.', login:'Autocdp / 1'},
-  {id:'operator', tier:'TIER 2 · OPERATOR', name:'Operator Dashboard', icon:'◫', desc:'Campaign visibility, approvals, queue health, and live performance by channel and audience.', login:'Autocdp / 2'},
-  {id:'campaign', tier:'TIER 3 · CAMPAIGN OPS', name:'Campaign Ops Dashboard', icon:'◎', desc:'Execution detail, per-piece direct mail flow, scans, bookings, and live outbound jobs.', login:'Autocdp / 3'},
-  {id:'admin', tier:'TIER 4 · ADMIN', name:'Admin Dashboard', icon:'▣', desc:'Roles, integrations, uptime, settings, and matrix-level system health.', login:'Autocdp / 4'}
-];
-const accessMap={'1':'owner','2':'operator','3':'campaign','4':'admin'};
-const grid=document.getElementById('grid'); const hero=document.getElementById('hero'); const gridWrap=document.getElementById('roleGrid'); const lock=document.getElementById('lock');
-let requestedRole='owner';
-ROLES.forEach(function(r){const a=document.createElement('a');a.className='card';a.href='#';a.innerHTML=`<span class="top"></span><div class="row"><span class="tier">${r.tier}</span><div class="icon" aria-hidden="true">${r.icon}</div></div><div class="name">${r.name}</div><p class="desc">${r.desc}</p><div class="foot"><span>login ${r.login}</span><span class="enter">enter →</span></div>`;a.addEventListener('click',function(e){e.preventDefault();requestedRole=r.id;hero.style.display='none';gridWrap.style.display='none';lock.style.display='block';window.scrollTo({top:0,behavior:'smooth'});});grid.appendChild(a);});
-function showPanel(id){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));const panel=document.getElementById(id);if(panel)panel.classList.add('active');lock.style.display='none';hero.style.display='none';gridWrap.style.display='none';window.scrollTo({top:0,behavior:'smooth'});}
-document.querySelectorAll('[data-back]').forEach(el=>el.addEventListener('click',()=>{document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));lock.style.display='none';hero.style.display='block';gridWrap.style.display='block';window.scrollTo({top:0,behavior:'smooth'});}));
-document.getElementById('loginForm').addEventListener('submit',function(e){e.preventDefault();const u=this.username.value.trim().toLowerCase();const p=this.password.value.trim();const msg=document.getElementById('loginMsg');if(u==='autocdp'&&accessMap[p]){if(requestedRole!==accessMap[p]&&p!=='1'){msg.textContent='That password does not match the view you selected. Owner password 1 can review everything.';msg.classList.add('show');return;}msg.classList.remove('show');showPanel(accessMap[p]);}else{msg.textContent='Use username Autocdp and password 1, 2, 3, or 4.';msg.classList.add('show');}});
-document.addEventListener('keydown',function(e){if(e.key.toLowerCase()==='k'){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));lock.style.display='none';hero.style.display='block';gridWrap.style.display='block';window.scrollTo({top:0,behavior:'smooth'});}});
-</script></body></html>
+(function(){
+  var lock = document.getElementById('lock');
+  var app  = document.getElementById('app');
+  var badge = document.getElementById('signedinBadge');
+  var err  = document.getElementById('formErr');
+
+  // tier password → allowed views (owner can see all)
+  var TIERS = {
+    '1': ['owner','operator','campaign','admin'],
+    '2': ['operator','campaign'],
+    '3': ['campaign'],
+    '4': ['admin','operator','campaign','owner']
+  };
+  var DEFAULTS = {'1':'owner','2':'operator','3':'campaign','4':'admin'};
+  var currentTier = null;
+
+  document.getElementById('loginForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var u = document.getElementById('uname').value.trim().toLowerCase();
+    var p = document.getElementById('upass').value.trim();
+    err.classList.remove('show');
+    if(u === 'autocdp' && TIERS[p]){
+      currentTier = p;
+      lock.style.display = 'none';
+      app.style.display  = 'block';
+      badge.style.display = 'inline-flex';
+      setTierAccess(p);
+      showView(DEFAULTS[p]);
+    } else {
+      err.classList.add('show');
+    }
+  });
+
+  function setTierAccess(p){
+    var allowed = TIERS[p];
+    document.querySelectorAll('.role-tab').forEach(function(tab){
+      var v = tab.dataset.view;
+      if(allowed.indexOf(v) === -1){
+        tab.classList.add('locked');
+        tab.disabled = true;
+      } else {
+        tab.classList.remove('locked');
+        tab.disabled = false;
+      }
+    });
+  }
+
+  function showView(id){
+    document.querySelectorAll('.view').forEach(function(v){ v.classList.remove('active'); });
+    document.querySelectorAll('.role-tab').forEach(function(t){ t.classList.remove('active'); });
+    var view = document.getElementById('view-'+id);
+    var tab  = document.querySelector('[data-view="'+id+'"]');
+    if(view) view.classList.add('active');
+    if(tab)  tab.classList.add('active');
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  document.querySelectorAll('.role-tab').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      if(!tab.disabled && !tab.classList.contains('locked')){
+        showView(tab.dataset.view);
+      }
+    });
+  });
+
+  document.getElementById('signoutBtn').addEventListener('click', function(){
+    lock.style.display  = 'flex';
+    app.style.display   = 'none';
+    badge.style.display = 'none';
+    document.getElementById('uname').value = '';
+    document.getElementById('upass').value = '';
+    currentTier = null;
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key.toLowerCase() === 'k' && app.style.display !== 'none'){
+      showView('owner');
+    }
+  });
+})();
+</script>
+</body>
+</html>
