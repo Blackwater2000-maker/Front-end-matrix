@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AutoCDP — Autonomous Customer Execution for Automotive Retail</title>
+<meta name="description" content="AutoCDP identifies every lapsed customer and service-due vehicle in your DMS, then executes attributed campaigns across SMS, email, and direct mail."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+header.site{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);background:color-mix(in srgb,var(--bg) 84%,transparent);border-bottom:1px solid var(--border)}
+.navbar{height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.1rem}.logo .mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,var(--primary),var(--primary-2));display:grid;place-items:center;box-shadow:var(--shadow-sm)}
+.logo .mark svg{width:22px;height:22px;color:var(--inverse)} .nav-links{display:flex;gap:28px;align-items:center}.nav-links a{font-size:.92rem;font-weight:600;color:var(--muted)}.nav-links a:hover{color:var(--text)} .nav-actions{display:flex;gap:12px;align-items:center}.icon-btn{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--surface);border:1px solid var(--border)}
+.hero{position:relative;padding:88px 0 64px;overflow:hidden}.hero:before{content:"";position:absolute;right:-8%;top:-10%;width:540px;height:540px;background:radial-gradient(circle,color-mix(in srgb,var(--primary) 24%,transparent),transparent 60%);pointer-events:none}.hero:after{content:"";position:absolute;left:-6%;bottom:-24%;width:420px;height:420px;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 16%,transparent),transparent 62%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:42px;align-items:center;position:relative}.hero h1{font-family:'Manrope',sans-serif;font-weight:800;letter-spacing:-.03em;line-height:1.02;font-size:clamp(2.7rem,1.6rem+4vw,5rem);max-width:12ch;margin:18px 0}.hero h1 .accent{color:var(--primary)}.lead{font-size:1.14rem;color:var(--muted);max-width:58ch;margin-bottom:28px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px}.hero-trust{display:flex;flex-wrap:wrap;gap:10px;align-items:center;color:var(--faint);font-size:.82rem}.chip{padding:6px 12px;border-radius:999px;background:var(--surface-2);border:1px solid var(--border);font-weight:600;color:var(--muted)}
+.hero-panel{padding:26px;border-radius:30px;position:relative;overflow:hidden}.hero-panel .signal-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}.metric{padding:18px;border-radius:18px;background:var(--surface-2);border:1px solid var(--border)}.metric .num{font-family:'Manrope',sans-serif;font-size:2.1rem;font-weight:800;line-height:1;margin:10px 0 6px}.metric .lbl{font-size:.78rem;color:var(--faint);text-transform:uppercase;letter-spacing:.08em}.metric .sub{font-size:.84rem;color:var(--muted)}
+.code{margin-top:18px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82rem;background:var(--surface-2);border:1px solid var(--border);border-radius:16px;padding:16px;color:var(--primary);overflow:auto}
+section.band{padding:78px 0;border-top:1px solid var(--border)}.eyebrow{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);font-weight:800;margin-bottom:14px}.band h2{font-family:'Manrope',sans-serif;font-size:clamp(1.9rem,1.4rem+2vw,3.2rem);font-weight:800;letter-spacing:-.02em;max-width:18ch;margin-bottom:14px}.band .sub{font-size:1.06rem;color:var(--muted);max-width:62ch;margin-bottom:34px}
+.grid-3,.grid-4,.grid-2{display:grid;gap:18px}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-4{grid-template-columns:repeat(4,1fr)}.grid-2{grid-template-columns:1.15fr .85fr}.info-card{padding:26px;border-radius:24px;transition:.25s ease}.info-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}.numstep{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);font-weight:800;margin-bottom:12px}.info-card h3{font-size:1.18rem;margin-bottom:10px}.info-card p{font-size:.94rem;color:var(--muted);margin-bottom:16px}
+.agent{padding:24px;border-radius:22px;position:relative;overflow:hidden}.agent .meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.agent .id{font-size:.73rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);font-weight:800}.agent .tier{font-size:.72rem;padding:5px 10px;border-radius:999px;background:var(--highlight);color:var(--primary);font-weight:700}.agent h4{font-size:1.08rem;margin-bottom:10px}.agent p{font-size:.9rem;color:var(--muted)}
+.arch-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.arch-col{padding:18px;border-radius:20px;background:var(--surface-2);border:1px solid var(--border)}.arch-col em{display:block;font-style:normal;font-size:.72rem;color:var(--faint);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}.arch-col strong{display:block;font-size:1.03rem;margin-bottom:8px}.arch-col span{font-size:.84rem;color:var(--muted)}
+.tier-card{padding:24px;border-radius:24px}.tier-card h3{font-size:1.15rem;margin:14px 0 8px}.tier-card p{font-size:.9rem;color:var(--muted);margin-bottom:16px}.tier-card ul{list-style:none;display:flex;flex-direction:column;gap:8px}.tier-card li{font-size:.86rem;color:var(--muted);display:flex;gap:8px}.tier-card li:before{content:"›";color:var(--primary);font-weight:800}
+.right-sheet{padding:26px;border-radius:28px}.sheet-row{display:grid;grid-template-columns:1.25fr .9fr .7fr;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--divider)}.sheet-row:last-child{border-bottom:none}.sheet-row strong{display:block;font-size:.9rem}.sheet-row span{display:block;font-size:.8rem;color:var(--muted)}.sheet-row .status{font-size:.78rem;font-weight:700}
+.cta-band{padding:84px 0}.cta-panel{padding:56px;border-radius:34px;background:linear-gradient(145deg,var(--primary-2),var(--primary));color:var(--inverse);box-shadow:var(--shadow-lg);text-align:center;position:relative;overflow:hidden}.cta-panel h2{font-family:'Manrope',sans-serif;font-size:clamp(2rem,1.4rem+2vw,3.2rem);font-weight:800;margin-bottom:14px}.cta-panel p{font-size:1.08rem;max-width:54ch;margin:0 auto 28px;opacity:.92}.cta-panel .btn-primary{background:var(--inverse);color:var(--primary-2)}
+footer.site{border-top:1px solid var(--border);padding:54px 0 60px;color:var(--muted)}.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:28px}.foot-grid h5{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:14px}.foot-grid a{display:block;font-size:.9rem;margin-bottom:10px}.foot-bottom{margin-top:34px;padding-top:20px;border-top:1px solid var(--divider);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:.82rem;color:var(--faint)}
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px;background:color-mix(in srgb,#000 58%,transparent);backdrop-filter:blur(10px);z-index:100}.modal.open{display:flex}.modal-card{width:min(460px,100%);padding:34px;border-radius:28px}.field{margin-bottom:16px}.field label{display:block;font-size:.82rem;font-weight:700;margin-bottom:8px}.field input,.field select{width:100%;padding:14px 16px;border-radius:14px;border:1px solid var(--border);background:var(--surface-2);color:var(--text)}.err{display:none;color:var(--danger);font-size:.84rem;margin:4px 0 12px}.err.show{display:block}.hint{margin-top:16px;font-size:.79rem;color:var(--faint);line-height:1.6}.hint code{background:var(--surface-2);padding:2px 7px;border-radius:6px;color:var(--primary);font-weight:700}.close-x{float:right;width:36px;height:36px;border-radius:11px;background:var(--surface-2);display:grid;place-items:center}
+.menu-btn{display:none}
+@media(max-width:1080px){.hero-grid,.grid-2,.foot-grid{grid-template-columns:1fr}.grid-3,.grid-4,.arch-grid{grid-template-columns:1fr 1fr}.nav-links{display:none}.menu-btn{display:grid}.cta-panel{padding:40px 22px}}
+@media(max-width:680px){.grid-3,.grid-4,.arch-grid,.hero-panel .signal-grid{grid-template-columns:1fr}.sheet-row{grid-template-columns:1fr;gap:6px}}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap navbar">
+    <a class="logo" href="#top"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15.5 12 4l8 11.5"/><path d="M7.5 15.5h9"/><path d="M9.5 19h5"/></svg></span>AutoCDP</a>
+    <nav class="nav-links"><a href="#difference">Difference</a><a href="#how">How it works</a><a href="#agents">Agents</a><a href="#matrix">Matrix access</a><a href="#architecture">Architecture</a></nav>
+    <div class="nav-actions"><button class="icon-btn" data-theme-toggle aria-label="Toggle theme">◐</button><button class="btn btn-primary" data-open-login>Access Matrix</button><button class="icon-btn menu-btn" data-menu aria-label="Menu">☰</button></div>
+  </div>
+</header>
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="pill">Independent automotive CDP</span>
+        <h1>Thousands of lapsed customers sit in your DMS. <span class="accent">AutoCDP contacts all of them.</span></h1>
+        <p class="lead">Most never hear from you again — not because the data is missing, but because no dealership team can execute every signal at scale. AutoCDP runs the campaigns your team knows it should, but never gets to.</p>
+        <div class="hero-actions"><button class="btn btn-primary" data-open-login>Enter Matrix →</button><a class="btn btn-ghost" href="#how">See the flow</a></div>
+        <div class="hero-trust"><span>Works with the platforms dealers run on:</span><span class="chip">CDK</span><span class="chip">Reynolds &amp; Reynolds</span><span class="chip">VinSolutions</span><span class="chip">Dealertrack</span><span class="chip">Twilio</span><span class="chip">PostGrid</span><span class="chip">vAuto</span></div>
+      </div>
+      <aside class="hero-panel glass">
+        <span class="pill">Computer breakdown sheet</span>
+        <div class="signal-grid">
+          <div class="metric"><div class="lbl">Avg lapsed customers / rooftop</div><div class="num">3,000+</div><div class="sub">Most are never contacted manually.</div></div>
+          <div class="metric"><div class="lbl">Autonomous agents running</div><div class="num">6</div><div class="sub">One shared state, no handoff loss.</div></div>
+          <div class="metric"><div class="lbl">Attributed channels</div><div class="num">3</div><div class="sub">SMS, email, and direct mail.</div></div>
+          <div class="metric"><div class="lbl">Workflow status</div><div class="num">Live</div><div class="sub">Connect → Execute → Improve.</div></div>
+        </div>
+        <div class="code">if (customer.days_since_ro &gt;= 90 &amp;&amp; !campaign.active) {<br>&nbsp;&nbsp;swarm.execute("service_lapsed", customer)<br>}</div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="band" id="difference">
+    <div class="wrap">
+      <div class="eyebrow">How we are different</div>
+      <h2>Built for execution. Not just analysis.</h2>
+      <p class="sub">Data unification is table stakes. AutoCDP is positioned around real dealership execution: every campaign that should run, exact physical mail attribution, and a Learning Ledger that compounds what works.</p>
+      <div class="grid-3">
+        <article class="info-card card"><div class="numstep">Execution</div><h3>Every campaign you should be running but are not.</h3><p>Most dealers know they should be running service-due, trade-in, and lapsed-customer campaigns. They do not because the team is already at capacity. AutoCDP does not have a capacity problem.</p><span class="tag tag-live">24/7 swarm execution</span></article>
+        <article class="info-card card"><div class="numstep">Attribution</div><h3>Direct mail with a paper trail.</h3><p>AI-written, handwriting-simulated postcards with a unique QR tracking code on every piece make physical mail measurable — from sent to delivered to scanned to booked.</p><span class="tag tag-ok">Per-piece attribution</span></article>
+        <article class="info-card card"><div class="numstep">Independence</div><h3>Your CRM investment stays protected.</h3><p>AutoCDP reads from your existing CRM and writes outcomes back to the timeline so staff can stay inside the tools they already use without switching platforms.</p><span class="tag tag-warn">Source-safe workflow</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="how">
+    <div class="wrap grid-2">
+      <div>
+        <div class="eyebrow">How it works</div>
+        <h2>Connect. Execute. Improve.</h2>
+        <p class="sub">Fully autonomous from first trigger to closed attribution. The operating model is simple even if the intelligence layer underneath is not.</p>
+        <div class="grid-3">
+          <article class="info-card card"><div class="numstep">01</div><h3>Connect your DMS</h3><p>Sync with CDK Fortellis, Reynolds &amp; Reynolds, VinSolutions, and Dealertrack in under two hours while leaving source records untouched.</p><span class="tag tag-live">Read-only source connection</span></article>
+          <article class="info-card card"><div class="numstep">02</div><h3>Six agents plan and build</h3><p>Set a campaign goal in plain language. The swarm segments audiences, selects the right channel, writes personalized copy, and clears deterministic compliance gates.</p><span class="tag tag-ok">Audience · Creative · Compliance</span></article>
+          <article class="info-card card"><div class="numstep">03</div><h3>Campaigns execute and improve</h3><p>PostGrid handles postcards, Twilio handles SMS, email sends, QR codes track physical pieces, CRM notes write back, and the Learning Ledger records outcomes.</p><span class="tag tag-warn">Closed-loop learning</span></article>
+        </div>
+      </div>
+      <aside class="right-sheet card">
+        <div class="eyebrow">Current flow of work</div>
+        <h2 style="max-width:none;margin-bottom:10px">No error state. Just the breakdown sheet.</h2>
+        <p class="sub" style="margin-bottom:10px">This panel exists to show the operating flow clearly instead of generic placeholder alerts.</p>
+        <div class="sheet-row"><div><strong>1. Detect signals</strong><span>Lapsed service, trade, lease, loyalty, finance re-entry.</span></div><div><span>Data lane</span><strong>CRM + DMS + web</strong></div><div class="status"><span class="tag tag-live">Live</span></div></div>
+        <div class="sheet-row"><div><strong>2. Score opportunity</strong><span>Churn, LTV, lifecycle stage, and channel fit.</span></div><div><span>Agent</span><strong>Data Intelligence</strong></div><div class="status"><span class="tag tag-ok">Ranked</span></div></div>
+        <div class="sheet-row"><div><strong>3. Build campaign</strong><span>Per-recipient creative and channel plan with compliance gating.</span></div><div><span>Agent stack</span><strong>Targeting + Creative + Review</strong></div><div class="status"><span class="tag tag-ok">Ready</span></div></div>
+        <div class="sheet-row"><div><strong>4. Execute &amp; attribute</strong><span>Mail, SMS, email, QR scans, calls, appointments, CRM write-back.</span></div><div><span>Output</span><strong>Tracked outcomes</strong></div><div class="status"><span class="tag tag-warn">Measured</span></div></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="band" id="agents">
+    <div class="wrap">
+      <div class="eyebrow">The intelligence layer</div>
+      <h2>Six agents. One shared state.</h2>
+      <p class="sub">Every agent sees every other decision as it happens. No handoffs. No lost context. No dead zones between planning and execution.</p>
+      <div class="grid-3">
+        <article class="agent card"><div class="meta"><span class="id">Agent 01</span><span class="tier">Opus 4.8</span></div><h4>Orchestrator Agent</h4><p>Decomposes a plain-language goal into structured subtasks, routes work to specialists, tracks shared state, handles retries, and decides when to re-run.</p></article>
+        <article class="agent card"><div class="meta"><span class="id">Agent 02</span><span class="tier">Sonnet 4.6</span></div><h4>Data Intelligence Agent</h4><p>Scores every customer on churn, value, lifecycle stage, and channel fit using RO history, recency, vehicle age, and behavioral signals.</p></article>
+        <article class="agent card"><div class="meta"><span class="id">Agent 03</span><span class="tier">Sonnet 4.6</span></div><h4>Audience Targeting Agent</h4><p>Selects the optimal channel and timing per customer, then generates the final execution plan downstream agents act against.</p></article>
+        <article class="agent card"><div class="meta"><span class="id">Agent 04</span><span class="tier">Sonnet 4.6</span></div><h4>Creative Generation Agent</h4><p>Writes personalized copy for postcard, SMS, and email using vehicle, mileage, service history, and current offer without mail-merge-style templates.</p></article>
+        <article class="agent card"><div class="meta"><span class="id">Agent 05</span><span class="tier">Haiku 4.5</span></div><h4>Compliance Review Agent</h4><p>Enforces TCPA, CAN-SPAM, FCRA, and DNC rules before any send. Any blocked recipient receives a structured reason and never enters execution.</p></article>
+        <article class="agent card"><div class="meta"><span class="id">Agent 06</span><span class="tier">Sonnet 4.6</span></div><h4>Learning &amp; Optimization Agent</h4><p>Reconciles delivery, QR-scan, call, and appointment outcomes against creative variants and updates each rooftop’s Learning Ledger.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="matrix">
+    <div class="wrap">
+      <div class="eyebrow">Matrix access</div>
+      <h2>Four tiers. One keyed command system.</h2>
+      <p class="sub">The Matrix adapts based on who logs in. Each tier sees a different operating surface designed around its actual job inside the AutoCDP system.</p>
+      <div class="grid-4" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px">
+<div class="card" style="padding:18px;border-radius:18px"><strong style="display:block;margin-bottom:6px">Owner</strong><span style="font-size:.84rem;color:var(--muted)">Tier 1 · Network command layer</span></div>
+<div class="card" style="padding:18px;border-radius:18px"><strong style="display:block;margin-bottom:6px">Multi-rooftop / Agency</strong><span style="font-size:.84rem;color:var(--muted)">Tier 2 · Portfolio command layer</span></div>
+<div class="card" style="padding:18px;border-radius:18px"><strong style="display:block;margin-bottom:6px">Dealer</strong><span style="font-size:.84rem;color:var(--muted)">Tier 3 · Single rooftop command</span></div>
+<div class="card" style="padding:18px;border-radius:18px"><strong style="display:block;margin-bottom:6px">Staff</strong><span style="font-size:.84rem;color:var(--muted)">Tier 4 · Assigned campaign cockpit</span></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr auto;gap:12px;margin-top:14px;align-items:end">
+  <label style="display:grid;gap:8px">
+    <span style="font-size:.82rem;color:var(--muted);font-weight:700">Enter tier passcode</span>
+    <input id="tierCode" type="password" inputmode="numeric" placeholder="1, 2, 3, or 4" style="padding:14px 16px;border-radius:14px;border:1px solid var(--border);background:var(--surface);color:var(--text);min-width:220px" />
+  </label>
+  <button class="btn btn-primary" id="enterMatrix">Enter Matrix</button>
+</div>
+<div class="err" id="tierErr">Passcode not recognized. Use 1 for Owner, 2 for Agency, 3 for Dealer, or 4 for Staff.</div>
+<div class="hint"><strong>Executive passcodes</strong><br>1 = Owner, 2 = Agency, 3 = Dealer, 4 = Staff. Use the Executive area to enter the Matrix and move between tiers cleanly.</div>
+  </div>
+</div>
+<script>
+(()=>{
+const root=document.documentElement;const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;let theme=root.getAttribute('data-theme')||(prefersDark?'dark':'light');root.setAttribute('data-theme',theme);document.querySelector('[data-theme-toggle]')?.addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';root.setAttribute('data-theme',theme);});
+const modal=document.getElementById('loginModal');const open=()=>modal.classList.add('open');const close=()=>modal.classList.remove('open');document.querySelectorAll('[data-open-login]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();open();}));document.querySelector('[data-close-login]').addEventListener('click',close);modal.addEventListener('click',e=>{if(e.target===modal)close();});document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+
+})();
+const tierMap={1:'owner',2:'agency',3:'dealer',4:'staff'};const tierCode=document.getElementById('tierCode');const tierErr=document.getElementById('tierErr');document.getElementById('enterMatrix')?.addEventListener('click',()=>{const v=(tierCode?.value||'').trim();const role=tierMap[v];if(role){tierErr?.classList.remove('show');location.href='dashboard.html?role='+role+'&page=overview';}else{tierErr?.classList.add('show');}});tierCode?.addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('enterMatrix')?.click();});</script>
+</body>
+</html>
